@@ -1,0 +1,19 @@
+.note {
+  margin-top: 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.note a {
+  color: var(--purple);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media print {
+  .note {
+    margin-top: 8px;
+  }
+}

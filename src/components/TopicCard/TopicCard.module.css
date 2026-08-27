@@ -1,0 +1,38 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+  color: var(--ink);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateX(3px);
+  box-shadow: var(--shadow-card);
+}
+
+.number {
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-weight: 800;
+  color: var(--purple);
+  font-size: 1rem;
+  min-width: 26px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  flex: 1;
+}
+
+.arrow {
+  color: var(--purple);
+  font-weight: 800;
+}

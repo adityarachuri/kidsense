@@ -1,0 +1,17 @@
+Here is the overall vision of the app. You may plan and break down these into multiple phases and complete the build 100%.
+1. Develop this into a professional parenting psychologist site helping parents, teachers, psychologists, pediatricians, and teens
+2. Target and categorize age groups like 5, 8, 10, 12, 15, and 18 years
+3. You should gather all the content from the internet as an expert psychologist
+4. All content is a consolidated compilation of freely available data over internet from authoritative and valid sources
+5. Be transparent and open in the disclaimer, copyrights, terms of use, license, etc.
+6. This is a static web app with no runtime data access or database
+7. Apply the modern web application UI/UX standards across the site including responsive design, etc..
+8. Ensure all the standard SDLC lifecycle is followed diligently
+9. Ensure to follow all the software engineering industry standards and best practices throughout the SDLC phases
+10 Consider various cultures and their perspectives across the globe in this handbook and segregate accordingly
+11. All the final presentation should be simple and easy to use for the users
+12. Ensure application security practices/standards such as OWASP, STRIDE, etc. are diligently followed and hardened
+13. We will use CircleCI as the CI/CD pipeline, so implement an end-to-end DevOps pipeline accordingly
+14. Final version of the app will be deployed as an azure static web app
+15. Ensure to have all quality gates, checks and balances, proper technical documentation (SLDC structured), and automated background processes if needed
+

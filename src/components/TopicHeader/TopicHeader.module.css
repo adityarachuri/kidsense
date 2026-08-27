@@ -1,0 +1,114 @@
+.header {
+  background: linear-gradient(135deg, #fdf3e4 0%, #eaf3fc 60%, #f2ecfb 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--pad-y) var(--pad-x);
+  box-shadow: var(--shadow-card);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--col-min), 1fr));
+  gap: var(--row-gap);
+  align-items: center;
+}
+
+.visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.illustration {
+  width: 100%;
+  max-width: 250px;
+}
+
+.titleMulti {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.line {
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.lineLead {
+  color: var(--ink);
+  font-size: 1.2rem;
+}
+
+.lineEmphasis {
+  color: var(--red);
+  font-size: 1.75rem;
+}
+
+.lineTrailing {
+  color: var(--green);
+  font-size: 1.05rem;
+  margin-top: 3px;
+}
+
+.speechBubble {
+  background: #fff;
+  border-radius: 14px;
+  padding: 7px 14px;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.76rem;
+  color: var(--purple);
+  box-shadow: var(--shadow-soft);
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.ageBadges {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ageBadge {
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.76rem;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+@media print {
+  .header {
+    box-shadow: none;
+    break-inside: avoid;
+    padding: 13px 17px;
+    grid-template-columns: 1.3fr 1fr !important;
+    gap: 11px;
+  }
+  .illustration {
+    max-width: 165px;
+  }
+  .lineLead {
+    font-size: 1.2rem;
+  }
+  .lineEmphasis {
+    font-size: 1.7rem;
+  }
+  .lineTrailing {
+    font-size: 1.02rem;
+    margin-top: 2px;
+  }
+  .speechBubble {
+    font-size: 0.74rem;
+    padding: 6px 12px;
+    margin-top: 6px;
+  }
+  .ageBadges {
+    margin-top: 8px;
+    gap: 6px;
+  }
+  .ageBadge {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+}

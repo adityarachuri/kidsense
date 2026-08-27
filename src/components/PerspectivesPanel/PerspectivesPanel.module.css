@@ -1,0 +1,49 @@
+.panel {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 16px 18px;
+  margin-top: 14px;
+}
+
+.head {
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-size: 1rem;
+  color: var(--teal);
+}
+
+.grid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  background: var(--teal-bg);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+
+.cardLabel {
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--ink);
+}
+
+.cardText {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+@media print {
+  .panel {
+    box-shadow: none;
+    padding: 10px 12px;
+    margin-top: 10px;
+  }
+}

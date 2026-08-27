@@ -1,0 +1,38 @@
+.wrapper {
+  max-width: 480px;
+  margin: 80px auto;
+  text-align: center;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 44px 32px;
+  box-shadow: var(--shadow-card);
+}
+
+.emoji {
+  font-size: 2.6rem;
+}
+
+.title {
+  font-size: 1.3rem;
+  margin-top: 12px;
+}
+
+.message {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 22px;
+  background: var(--purple);
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+}

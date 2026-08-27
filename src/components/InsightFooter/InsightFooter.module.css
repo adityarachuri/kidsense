@@ -1,0 +1,36 @@
+.footer {
+  background: var(--blue-bg);
+  border-radius: var(--radius-lg);
+  padding: 14px 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+  margin-top: 14px;
+}
+
+.bulb {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+@media print {
+  .footer {
+    padding: 10px 16px;
+    gap: 9px;
+    margin-top: 10px;
+  }
+  .bulb {
+    font-size: 1.3rem;
+  }
+  .text {
+    font-size: 0.67rem;
+  }
+}

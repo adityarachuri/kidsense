@@ -1,0 +1,85 @@
+version: 2.1
+
+# Pipeline of record for this project (see docs/architecture-decision-records/0002-...).
+# GitHub Actions' ci.yml still runs the same quality gate as a GitHub-native PR status
+# check, but this pipeline is the only one that deploys to Azure Static Web Apps.
+#
+# One-time manual setup required before this pipeline can deploy (see
+# docs/deployment-runbook.md): connect this repository as a project in the CircleCI
+# dashboard, then add AZURE_STATIC_WEB_APPS_API_TOKEN as a project environment variable
+# (Project Settings -> Environment Variables) using the deployment token from the Azure
+# Portal (your Static Web App -> "Manage deployment token").
+
+executors:
+  node:
+    docker:
+      - image: cimg/node:20.18
+    working_directory: ~/project
+
+jobs:
+  quality-gate:
+    executor: node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npm-deps-v1-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install dependencies (locked, reproducible)
+          command: npm ci
+      - save_cache:
+          key: npm-deps-v1-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/.npm
+      - run:
+          name: Audit dependencies for known vulnerabilities
+          command: npm audit --audit-level=high
+      - run:
+          name: Type-check
+          command: npm run typecheck
+      - run:
+          name: Lint
+          command: npm run lint
+      - run:
+          name: Check formatting
+          command: npm run format:check
+      - run:
+          name: Test with coverage (thresholds enforced in vite.config.ts)
+          command: npm run test:coverage
+      - store_artifacts:
+          path: coverage
+          destination: coverage
+      - store_test_results:
+          path: coverage
+      - run:
+          name: Build production bundle
+          command: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+
+  deploy:
+    executor: node
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Deploy to Azure Static Web Apps
+          command: |
+            npx --yes @azure/static-web-apps-cli deploy dist \
+              --deployment-token "$AZURE_STATIC_WEB_APPS_API_TOKEN" \
+              --env production
+
+workflows:
+  version: 2
+  build-test-deploy:
+    jobs:
+      - quality-gate
+      - deploy:
+          requires:
+            - quality-gate
+          filters:
+            branches:
+              only: main

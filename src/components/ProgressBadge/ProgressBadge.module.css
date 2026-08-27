@@ -1,0 +1,22 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.badgePartial {
+  background: var(--yellow-bg);
+  color: #a06a00;
+}
+
+.badgeEmpty {
+  background: #f1eee6;
+  color: var(--ink-soft);
+}

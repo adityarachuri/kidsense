@@ -1,0 +1,32 @@
+.nav {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--purple);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.current {
+  color: var(--ink);
+}
+
+.separator {
+  opacity: 0.6;
+}
+
+@media print {
+  .nav {
+    display: none;
+  }
+}

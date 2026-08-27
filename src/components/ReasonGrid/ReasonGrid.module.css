@@ -1,0 +1,108 @@
+.bar {
+  background: var(--blue);
+  color: #fff;
+  text-align: center;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 9px;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.card {
+  border-radius: var(--radius-md);
+  padding: 12px 13px;
+  background: #f7f9fe;
+}
+
+.cardAlt {
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.number {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: #fff;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.74rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  line-height: 1.15;
+}
+
+.icon {
+  font-size: 1.15rem;
+  margin-top: 7px;
+}
+
+.description {
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+  line-height: 1.38;
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media print {
+  .bar {
+    padding: 7px;
+    font-size: 0.88rem;
+  }
+  .grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 7px;
+    margin-top: 10px;
+  }
+  .card {
+    padding: 8px 9px;
+  }
+  .number {
+    width: 19px;
+    height: 19px;
+    font-size: 0.68rem;
+  }
+  .title {
+    font-size: 0.72rem;
+  }
+  .icon {
+    font-size: 1rem;
+    margin-top: 4px;
+  }
+  .description {
+    font-size: 0.61rem;
+    line-height: 1.28;
+    margin-top: 3px;
+  }
+}

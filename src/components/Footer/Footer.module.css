@@ -1,0 +1,32 @@
+.footer {
+  text-align: center;
+  padding: 28px 20px 40px;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.legalNav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.76rem;
+}
+
+.legalNav a {
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legalNav a:hover {
+  color: var(--purple);
+}
+
+@media print {
+  .footer {
+    display: none;
+  }
+}

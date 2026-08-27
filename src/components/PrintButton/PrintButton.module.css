@@ -1,0 +1,33 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--purple);
+  color: #fff;
+  border: none;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+@media print {
+  .button {
+    display: none;
+  }
+}
