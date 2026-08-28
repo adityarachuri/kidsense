@@ -20,6 +20,11 @@ content change, also read `docs/content-style-guide.md` and
    `dangerouslySetInnerHTML` (enforced by ESLint).
 3. Before opening a pull request, run `npm run verify` — this is the same quality gate CI runs
    (typecheck, lint, format check, test with coverage thresholds, build). It must pass locally.
+   `npm install` sets this up for you automatically via Husky: a `pre-commit` hook runs
+   `lint-staged` (ESLint `--fix` + Prettier on the files you're committing), and a `pre-push`
+   hook runs the full `npm run verify` — so a failing quality gate is caught before it ever
+   reaches CI, not after. Don't bypass these with `--no-verify`; if a hook is wrong, fix the
+   hook.
 4. Keep pull requests focused. Large refactors or architectural changes should be discussed in
    an issue first, referencing the relevant ADR in `docs/architecture-decision-records/` if one
    exists, or proposing a new one.
