@@ -115,7 +115,10 @@ authentication. Security effort went into hardening what a static site _can_ con
 'self'` only — no inline scripts or styles, no `eval`, no third-party origins (the one dynamic
   per-card color in `ReasonGrid` cycles through CSS classes, not an inline `style` attribute).
   `connect-src 'self'` — the app makes zero runtime network requests (verified: production
-  bundle contains no external fetch/XHR targets).
+  bundle contains no external fetch/XHR targets). `img-src 'self'` with no `data:` (the app uses
+  zero `data:` URIs), plus explicit `frame-src`, `worker-src`, `manifest-src`, and `media-src`
+  all set to `'none'` rather than left to the `default-src` fallback — the app uses none of
+  iframes, workers, a web manifest, or audio/video.
 - **Self-hosted fonts.** Baloo 2 and Nunito are bundled as static `.woff2` assets under
   `public/fonts/` instead of loaded from Google Fonts at runtime — no third-party request, no
   tracking surface, and the app works offline once cached.
@@ -128,13 +131,15 @@ authentication. Security effort went into hardening what a static site _can_ con
   `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `X-XSS-Protection` explicitly
   suppressed (an empty override removes Azure's default `1; mode=block` — the legacy browser XSS
   auditor is deprecated and has itself been a source of vulnerabilities in older browsers; CSP is
-  the real defense here), `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`
-  (camera/mic/geolocation/etc. all disabled), `Strict-Transport-Security` (HSTS with preload),
-  `Upgrade-Insecure-Requests` (redundant with the same directive already in the CSP below, which
-  is what browsers actually honor, but sent as a standalone header too), and the full cross-origin
-  isolation triad — `Cross-Origin-Opener-Policy`, `Cross-Origin-Embedder-Policy`, and
-  `Cross-Origin-Resource-Policy` (all `same-origin`/`require-corp`, safe since the app loads no
-  cross-origin resources).
+  the real defense here), `Referrer-Policy: strict-origin-when-cross-origin`, a `Permissions-Policy`
+  disabling 29 unused browser features/APIs (camera, mic, geolocation, USB, payment, etc.),
+  `Strict-Transport-Security` (HSTS with preload), and the full cross-origin isolation triad —
+  `Cross-Origin-Opener-Policy`, `Cross-Origin-Embedder-Policy`, and `Cross-Origin-Resource-Policy`
+  (all `same-origin`/`require-corp`, safe since the app loads no cross-origin resources).
+  `Upgrade-Insecure-Requests` is also declared as a standalone header for scanners that check for
+  it separately, though Azure Static Web Apps' edge silently drops it from the actual response —
+  the `upgrade-insecure-requests` CSP directive above is what browsers actually honor and does
+  reach production.
 - **Dependency hygiene.** `npm audit --audit-level=high` runs in CI on every push; the project
   currently sits at 0 known vulnerabilities. Dependencies are pinned to specific patched major
   versions rather than left on old ranges. `.github/dependabot.yml` opens automated update PRs
