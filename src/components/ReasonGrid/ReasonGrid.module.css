@@ -39,6 +39,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
+  background: var(--reason-color);
   color: #fff;
   font-family: 'Baloo 2', system-ui, sans-serif;
   font-weight: 800;
@@ -50,10 +51,31 @@
 }
 
 .title {
+  color: var(--reason-color);
   font-family: 'Baloo 2', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.78rem;
   line-height: 1.15;
+}
+
+/* Cycled per card index instead of an inline style, so style-src can drop 'unsafe-inline'. */
+.color0 {
+  --reason-color: var(--blue);
+}
+.color1 {
+  --reason-color: var(--green);
+}
+.color2 {
+  --reason-color: var(--orange);
+}
+.color3 {
+  --reason-color: var(--purple);
+}
+.color4 {
+  --reason-color: var(--red);
+}
+.color5 {
+  --reason-color: var(--teal);
 }
 
 .icon {
