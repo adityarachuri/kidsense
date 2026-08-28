@@ -9,16 +9,17 @@ checkpoints below where automated coverage cannot substitute for human judgment.
 
 ## Automated coverage
 
-| Layer                  | Tool                                                                             | What it catches                                                            |
-| ---------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Type safety            | TypeScript (`strict`, `noUncheckedIndexedAccess`, etc.)                          | Shape mismatches, null/undefined misuse                                    |
-| Static analysis        | ESLint (`--max-warnings=0`), incl. custom rule banning `dangerouslySetInnerHTML` | Unsafe patterns, accessibility rule violations (`jsx-a11y`), unused code   |
-| Formatting             | Prettier (`format:check`)                                                        | Style drift                                                                |
-| Unit / component tests | Vitest + React Testing Library                                                   | Component behavior, routing, keyboard interaction, error boundary recovery |
-| Content integrity      | `sections.test.ts`, `registry.test.tsx`                                          | Missing illustrations, malformed topic data, inconsistent counts           |
-| Coverage thresholds    | Vitest v8 provider (85% stmt/func/line, 80% branch)                              | Regressions in test coverage as the codebase grows                         |
-| Dependency security    | `npm audit --audit-level=high`                                                   | Known high/critical vulnerabilities in dependencies                        |
-| Production build       | `vite build` via `tsc -b && vite build`                                          | Build-breaking errors that only surface in a production bundle             |
+| Layer                     | Tool                                                                                      | What it catches                                                                                                 |
+| ------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Type safety               | TypeScript (`strict`, `noUncheckedIndexedAccess`, etc.)                                   | Shape mismatches, null/undefined misuse                                                                         |
+| Static analysis           | ESLint (`--max-warnings=0`), incl. custom rule banning `dangerouslySetInnerHTML`          | Unsafe patterns, accessibility rule violations (`jsx-a11y`), unused code                                        |
+| Formatting                | Prettier (`format:check`)                                                                 | Style drift                                                                                                     |
+| Unit / component tests    | Vitest + React Testing Library                                                            | Component behavior, routing, keyboard interaction, error boundary recovery                                      |
+| Accessibility (automated) | `jest-axe` smoke assertions on `Layout`, `Header`, `HomePage`, `SectionPage`, `TopicPage` | Programmatically-detectable WCAG violations (missing labels, contrast, ARIA misuse) in each page's rendered DOM |
+| Content integrity         | `sections.test.ts`, `registry.test.tsx`                                                   | Missing illustrations, malformed topic data, inconsistent counts                                                |
+| Coverage thresholds       | Vitest v8 provider (85% stmt/func/line, 80% branch)                                       | Regressions in test coverage as the codebase grows                                                              |
+| Dependency security       | `npm audit --audit-level=high`                                                            | Known high/critical vulnerabilities in dependencies                                                             |
+| Production build          | `vite build` via `tsc -b && vite build`                                                   | Build-breaking errors that only surface in a production bundle                                                  |
 
 ## Manual checkpoints
 
@@ -29,6 +30,9 @@ plan and `docs/requirements.md`):
   age-appropriateness, and layout, per `docs/content-style-guide.md`.
 - **UI/UX changes**: responsive check across common breakpoints (mobile, tablet, desktop),
   keyboard-only navigation pass, and a screen-reader spot check (WCAG 2.1 AA target).
+  `jest-axe` (see above) catches programmatically-detectable violations automatically, but a
+  real screen-reader pass and full WCAG 2.1 AA sign-off remain manual — automated tools cover a
+  subset of the standard, not the whole thing.
 - **Print stylesheet changes**: verify a topic still prints cleanly to one sheet.
 - **CI/CD pipeline changes**: a config review against the previously verified GitHub Actions
   steps (see `docs/deployment-runbook.md`), since a CircleCI dry run requires an account

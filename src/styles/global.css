@@ -57,6 +57,7 @@
 }
 
 :root {
+  color-scheme: light dark;
   --page-max: 1180px;
   --pad-x: clamp(16px, 3vw, 34px);
   --pad-y: clamp(14px, 2.4vw, 24px);
@@ -73,8 +74,11 @@
 
   --ink: #2e2a4a;
   --ink-soft: #6b6690;
-  --bg: #e8d9b8;
+  --bg: #faf6ef;
   --card: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.68);
+  --bg-gradient-1: #f4e9fb;
+  --bg-gradient-2: #fdf0dc;
 
   --blue: #3e7fc1;
   --blue-bg: #eaf3fc;
@@ -92,6 +96,72 @@
   --teal-bg: #e3f5f6;
 
   --focus-ring: 0 0 0 3px rgba(62, 127, 193, 0.45);
+
+  --topic-header-gradient: linear-gradient(135deg, #fdf3e4 0%, #eaf3fc 60%, #f2ecfb 100%);
+  --badge-partial-text: #a06a00;
+}
+
+/* Dark palette: follows the OS preference by default, unless a manual toggle (data-theme) has
+   set an explicit choice — see src/utils/theme.ts. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --ink: #f1eefc;
+    --ink-soft: #b8b3d9;
+    --bg: #1b1730;
+    --card: #262143;
+    --header-bg: rgba(27, 23, 48, 0.7);
+    --bg-gradient-1: #241f42;
+    --bg-gradient-2: #150f28;
+
+    --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --shadow-soft: 0 3px 10px rgba(0, 0, 0, 0.3);
+
+    /* The accent foreground colors (--blue, --red, etc.) are left unchanged: they're used
+       both as text on --card/--bg (wants a light color) and as solid fill behind white badge
+       text (wants a saturated-but-not-light color) — their existing mid lightness already
+       reads reasonably against both a dark and a light surface, so only the *-bg tint pairs
+       and neutrals need dark-specific values. */
+    --blue-bg: #1c2f45;
+    --green-bg: #16332a;
+    --orange-bg: #3a2513;
+    --yellow-bg: #3a2e10;
+    --purple-bg: #2b2350;
+    --red-bg: #3a1f1d;
+    --teal-bg: #163538;
+
+    --topic-header-gradient: linear-gradient(135deg, #2b2350 0%, #1c2f45 60%, #262143 100%);
+    --badge-partial-text: #f0c25c;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --ink: #f1eefc;
+  --ink-soft: #b8b3d9;
+  --bg: #1b1730;
+  --card: #262143;
+  --header-bg: rgba(27, 23, 48, 0.7);
+  --bg-gradient-1: #241f42;
+  --bg-gradient-2: #150f28;
+
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-soft: 0 3px 10px rgba(0, 0, 0, 0.3);
+
+  --blue-bg: #1c2f45;
+  --green-bg: #16332a;
+  --orange-bg: #3a2513;
+  --yellow-bg: #3a2e10;
+  --purple-bg: #2b2350;
+  --red-bg: #3a1f1d;
+  --teal-bg: #163538;
+
+  --topic-header-gradient: linear-gradient(135deg, #2b2350 0%, #1c2f45 60%, #262143 100%);
+  --badge-partial-text: #f0c25c;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
 }
 
 *,
@@ -109,8 +179,8 @@ body,
 body {
   margin: 0;
   background:
-    radial-gradient(60% 45% at 50% 0%, #f3e6c8 0%, transparent 65%),
-    radial-gradient(70% 50% at 50% 100%, #ddc8a0 0%, transparent 65%), var(--bg);
+    radial-gradient(60% 45% at 50% 0%, var(--bg-gradient-1) 0%, transparent 65%),
+    radial-gradient(70% 50% at 50% 100%, var(--bg-gradient-2) 0%, transparent 65%), var(--bg);
   font-family: 'Nunito', system-ui, sans-serif;
   color: var(--ink);
   -webkit-font-smoothing: antialiased;

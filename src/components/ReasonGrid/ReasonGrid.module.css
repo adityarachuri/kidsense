@@ -21,11 +21,11 @@
 .card {
   border-radius: var(--radius-md);
   padding: 12px 13px;
-  background: #f7f9fe;
+  background: var(--card);
 }
 
 .cardAlt {
-  background: #fff;
+  background: var(--card);
   box-shadow: var(--shadow-soft);
 }
 

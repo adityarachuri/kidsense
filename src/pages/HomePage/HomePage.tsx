@@ -1,9 +1,12 @@
 import { AgeBrowser } from '../../components/AgeBrowser/AgeBrowser';
 import { SectionCard } from '../../components/SectionCard/SectionCard';
 import { sections } from '../../content/sections';
+import { usePageMeta } from '../../hooks/usePageMeta';
 import styles from './HomePage.module.css';
 
 export function HomePage() {
+  usePageMeta(undefined);
+
   return (
     <div>
       <div className={styles.hero}>

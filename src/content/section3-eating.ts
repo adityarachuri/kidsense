@@ -83,6 +83,25 @@ export const eatingTopics: Topic[] = [
     insight:
       "If picky eating is intense AND your child shows similar caution with new textures elsewhere (clothes, activities), it's often connected — a broader sensory caution, not stubbornness about food.",
     keywords: ['picky', 'neophobia', 'selective eating'],
+    perspectives: {
+      clinician:
+        'Pediatric dietitians point to the Satter Division of Responsibility — the parent decides what, when, and where food is served; the child decides how much and whether to eat — as the AAP-endorsed framework that reduces mealtime power struggles around picky eating.',
+    },
+    culturalLens: [
+      {
+        region: 'East Asian households',
+        note: 'Meals are often served family-style with shared dishes from a young age, exposing children to a wider variety of foods through repeated, passive exposure rather than one fixed plate.',
+      },
+      {
+        region: 'South Asian households',
+        note: 'Eating with the hands from a shared plate is common practice, and the tactile experience of food is treated as a normal part of learning to eat, not a mess to avoid.',
+      },
+      {
+        region: 'Mediterranean households',
+        note: "Children are often included at the family table with the same foods as adults from an early age, rather than a separate 'kids menu,' which normalizes variety early.",
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Ellyn Satter Institute'],
   },
   {
     id: 'refusing-vegetables',
@@ -167,6 +186,21 @@ export const eatingTopics: Topic[] = [
     insight:
       "If vegetables are consistently refused AND other new foods are too, it's often connected — a broader food neophobia phase, not dislike of vegetables specifically.",
     keywords: ['vegetables', 'bitter taste', 'nutrition'],
+    perspectives: {
+      clinician:
+        'Dietitians note it can take 12–15 neutral exposures before a child accepts a new food — repeated, pressure-free offering is the best-supported strategy, more than any particular preparation trick.',
+    },
+    culturalLens: [
+      {
+        region: 'Mediterranean households',
+        note: 'Vegetables are often woven into every course rather than served as a separate obligation, an approach linked to easier long-term acceptance.',
+      },
+      {
+        region: 'East Asian households',
+        note: 'Vegetables are frequently prepared in ways that soften bitterness — stir-frying, fermenting, pairing with rice — easing the sensory hurdle without requiring a child to eat them raw or plain.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Academy of Nutrition and Dietetics'],
   },
   {
     id: 'only-junk-food',
@@ -249,6 +283,21 @@ export const eatingTopics: Topic[] = [
     insight:
       "If junk food is strongly preferred AND mealtimes feel like a battle generally, it's often connected — a broader pattern worth addressing gradually, not one meal at a time.",
     keywords: ['junk food', 'processed food', 'sugar', 'nutrition'],
+    perspectives: {
+      clinician:
+        'Pediatric dietitians emphasize consistent exposure over restriction — keeping a variety of whole foods regularly visible and available tends to do more long-term than banning processed snacks outright, which research links to increased desire for the restricted food.',
+    },
+    culturalLens: [
+      {
+        region: 'Mediterranean households',
+        note: "Processed snack foods are less central to everyday eating culturally, so children's early exposure and preference patterns often form around whole foods largely by default.",
+      },
+      {
+        region: 'Cultures with strong shared-family-meal norms',
+        note: 'Where meals are consistently eaten together as a family event, children get more regular exposure to a shared, varied menu rather than defaulting to independently chosen processed snacks.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Academy of Nutrition and Dietetics'],
   },
   {
     id: 'meals-take-forever',
@@ -331,6 +380,21 @@ export const eatingTopics: Topic[] = [
     insight:
       "If meals run long AND your child is slow-paced with other tasks too, it's often connected — a broader processing pace, not manipulation at the table.",
     keywords: ['slow eating', 'mealtime', 'distraction'],
+    perspectives: {
+      clinician:
+        'Feeding specialists suggest a consistent, calm time limit — roughly 20–30 minutes — to protect both nutrition and family patience; ending the meal neutrally, without a lecture, teaches the boundary without adding pressure.',
+    },
+    culturalLens: [
+      {
+        region: 'Mediterranean and Latin American households',
+        note: "Meals are often treated as an unhurried, social occasion lasting well beyond the food itself, reframing a 'slow' meal as simply the cultural norm rather than a problem.",
+      },
+      {
+        region: 'Cultures with brisker mealtime pacing',
+        note: 'Some cultures expect meals to be more efficiently paced, with less tolerance for extended lingering at the table once eating is finished.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Ellyn Satter Institute'],
   },
   {
     id: 'constant-snack-requests',
@@ -413,6 +477,21 @@ export const eatingTopics: Topic[] = [
     insight:
       "If snack requests are frequent AND seem tied to boredom or big feelings, it's often connected — a broader need for engagement or comfort, not just hunger.",
     keywords: ['snacking', 'hunger', 'boredom'],
+    perspectives: {
+      clinician:
+        'Dietitians distinguish hunger-driven snacking from boredom- or comfort-driven requests — a predictable snack schedule, rather than on-demand, tends to reduce the constant asking more effectively than saying no each time.',
+    },
+    culturalLens: [
+      {
+        region: 'South Asian and Latin American households',
+        note: 'A mid-morning or afternoon snack time is often a built-in, expected part of the daily schedule rather than a special request, which can reduce negotiation.',
+      },
+      {
+        region: 'Cultures with fewer, larger daily meals',
+        note: 'Where the cultural norm is three substantial, widely-spaced meals with little snacking in between, frequent requests are more likely to be read as a hunger-timing mismatch than a behavior to manage.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Academy of Nutrition and Dietetics'],
   },
   {
     id: 'not-drinking-water',
@@ -495,6 +574,21 @@ export const eatingTopics: Topic[] = [
     insight:
       "If water intake is consistently low AND your child forgets other routine needs too, it's often connected — a broader awareness-of-body-cues pattern, not defiance.",
     keywords: ['hydration', 'water', 'thirst'],
+    perspectives: {
+      clinician:
+        'The AAP recommends roughly 5 cups of fluids daily for children ages 4–8 and 7–8 cups for older children, with plain water as the primary source — access and habit matter more than willpower at this age.',
+    },
+    culturalLens: [
+      {
+        region: 'Hot-climate cultures',
+        note: 'In consistently hot climates, water breaks are often built into the daily school and home schedule as routine, reducing reliance on a child noticing their own thirst.',
+      },
+      {
+        region: 'Cultures with strong tea or milk traditions',
+        note: 'Where warm tea or milk is a standard part of meals, some hydration comes from these beverages rather than plain water specifically — generally fine as long as they are not sugar-sweetened.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'CDC'],
   },
   {
     id: 'suddenly-stops-eating',
@@ -578,6 +672,21 @@ export const eatingTopics: Topic[] = [
     insight:
       "If one food is suddenly rejected but overall eating stays fine, it's usually just a normal shift — not a sign of a bigger problem.",
     keywords: ['food rejection', 'preferences', 'appetite change'],
+    perspectives: {
+      clinician:
+        'Pediatric feeding specialists reassure parents that a single food rejection, without other symptoms, rarely signals anything beyond a normal preference shift — the food is usually welcome back on the plate in a few weeks without comment.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with flexible, rotating home menus',
+        note: 'Where the daily menu already varies a lot, a single food dropping out of rotation draws less attention than in households built around a small, fixed set of staples.',
+      },
+      {
+        region: 'Cultures with strong extended-family meal involvement',
+        note: 'Where grandparents or extended family regularly cook, a rejected food is often simply swapped for another family member’s dish rather than becoming a standalone concern.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Ellyn Satter Institute'],
   },
   {
     id: 'demanding-sweets',
@@ -660,6 +769,21 @@ export const eatingTopics: Topic[] = [
     insight:
       "If sweet cravings feel intense AND your child seeks comfort through food in other moments too, it's often connected — a broader emotional-comfort pattern, not just a sweet tooth.",
     keywords: ['sweets', 'sugar', 'dessert', 'cravings'],
+    perspectives: {
+      clinician:
+        'Dietitians note that treating sweets as a neutral, regularly available food — rather than a forbidden reward — is associated with less fixation on them over time, compared to strict restriction.',
+    },
+    culturalLens: [
+      {
+        region: 'Mediterranean households',
+        note: 'Sweets are often paired directly with a meal, such as fruit-based desserts, rather than treated as a separate reward category, which can reduce their special, high-stakes status.',
+      },
+      {
+        region: 'Cultures with strong celebration-food traditions',
+        note: 'Where sweets are reserved mainly for specific festivals or celebrations, they carry more special-occasion meaning and less everyday negotiating power.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Academy of Nutrition and Dietetics'],
   },
   {
     id: 'same-food-every-day',
@@ -742,6 +866,21 @@ export const eatingTopics: Topic[] = [
     insight:
       "If your child wants sameness in food AND prefers predictable routines elsewhere too, it's often connected — a broader comfort-in-familiarity pattern, not stubbornness.",
     keywords: ['food rut', 'sameness', 'routine'],
+    perspectives: {
+      clinician:
+        'Feeding specialists note that food ruts between ages 2 and 6 are extremely common and typically resolve without intervention — forcing variety usually backfires, while keeping the favorite in steady rotation alongside quiet, repeated exposure to new items works better.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures built around a small set of daily staple foods',
+        note: "Where a culture's typical diet already centers on a few staples eaten most days — rice, a flatbread — a child's preference for sameness blends in rather than standing out as unusual.",
+      },
+      {
+        region: 'Cultures with highly varied daily menus',
+        note: 'Where daily menus vary widely by design, a fixed food preference stands out more and can prompt earlier, more active efforts to broaden it.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Ellyn Satter Institute'],
   },
   {
     id: 'playing-with-food',
@@ -824,5 +963,20 @@ export const eatingTopics: Topic[] = [
     insight:
       "If food play happens often AND your child explores textures elsewhere too, it's often connected — a broader sensory curiosity, not a mealtime problem.",
     keywords: ['playing with food', 'sensory play', 'mealtime behavior'],
+    perspectives: {
+      clinician:
+        'Occupational therapists frame hands-on food exploration as a normal part of sensory learning at this age — a gentle redirect, without a big reaction, keeps mealtime calm without shutting down curiosity entirely.',
+    },
+    culturalLens: [
+      {
+        region: 'South Asian households',
+        note: 'Eating with the hands is a normal, encouraged part of the culture from an early age, which naturally blurs the line between exploring food and eating it.',
+      },
+      {
+        region: 'Montessori and similar hands-on early-education approaches',
+        note: 'Some early-education philosophies explicitly build structured food exploration and self-serving into learning activities, rather than treating any touching of food as off-task.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Occupational Therapy Association'],
   },
 ];

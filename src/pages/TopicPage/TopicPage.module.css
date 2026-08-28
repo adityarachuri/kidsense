@@ -21,8 +21,36 @@
   gap: var(--row-gap);
 }
 
+.ageSwitcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ageSwitcherLink {
+  text-decoration: none;
+  background: var(--card);
+  color: var(--ink-soft);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-soft);
+}
+
+.ageSwitcherLinkActive {
+  background: var(--purple);
+  color: #fff;
+}
+
+@media print {
+  .ageSwitcher {
+    display: none;
+  }
+}
+
 .nextUp {
-  background: #fff;
+  background: var(--card);
   border-radius: var(--radius-lg);
   padding: 16px 20px;
   box-shadow: var(--shadow-card);

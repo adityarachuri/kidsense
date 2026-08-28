@@ -7,8 +7,9 @@ Two CI/CD paths exist by design (see ADR-0002):
 
 - **GitHub Actions** (`.github/workflows/ci.yml`) — runs the full quality gate on every push
   and pull request as a GitHub-native status check. Does not deploy.
-- **GitHub Actions** (`.github/workflows/azure-static-web-apps.yml`) — deploy and PR-preview
-  jobs are gated to manual `workflow_dispatch` only; they no longer run automatically.
+- **GitHub Actions** (`.github/workflows/azure-static-web-apps.yml`) — deploy job is gated to
+  manual `workflow_dispatch` only; it no longer runs automatically. No PR-preview environment is
+  configured for this project.
 - **CircleCI** (`.circleci/config.yml`) — the pipeline of record for deployment. Runs the
   quality gate, then deploys `main` to Azure Static Web Apps.
 
@@ -34,7 +35,10 @@ required for routine changes.
 
 If CircleCI is unavailable, the disabled GitHub Actions deploy workflow can be triggered
 manually from the GitHub Actions tab (`workflow_dispatch` on `azure-static-web-apps.yml`) as a
-fallback — it runs the same quality gate before deploying.
+fallback — it runs the same quality gate before deploying. A second, redundant fallback
+(`azure-static-web-apps-lemon-rock-042da4500.yml`, Azure-Portal-generated, tied to its own
+deployment token) exists for the same purpose and runs the identical quality gate; use
+`azure-static-web-apps.yml` first.
 
 ## Rollback
 

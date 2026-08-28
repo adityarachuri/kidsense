@@ -4,9 +4,11 @@ An evidence-informed, illustrated single-page app explaining everyday child beha
 do what they do, and what actually helps. Built as a React SPA, designed to deploy as an **Azure
 Static Web App**.
 
-**Status: all 75 planned topics are published** (Morning Routine: 10/10, Homework: 10/10,
-Eating: 10/10, Behaviour: 15/15, Emotions: 15/15, Digital Era: 15/15). See
-[Adding content](#adding-content) below for how to extend Kidsense with new topics.
+**Status: all 75 planned topics are published**, each with authored perspectives, a cultural-lens
+panel, and source attribution (Morning Routine: 10/10, Homework: 10/10, Eating: 10/10,
+Behaviour: 15/15, Emotions: 15/15, Digital Era: 15/15). Two topics also ship real age-band
+variants (tween and teen) via the age-band switcher. See [Adding content](#adding-content) below
+for how to extend Kidsense with new topics.
 
 ---
 
@@ -40,23 +42,27 @@ Before considering any change finished, run `npm run verify`. This is the same s
 
 ## Architecture
 
-```
+```text
 src/
   types/content.ts          Topic & Section interfaces — the entire content contract
   content/
-    section1-morning-routine.ts
-    section2-homework.ts
-    section3-eating.ts
+    section1-morning-routine.ts … section6-digital-era.ts
+    ageBands.ts              Five age-band definitions + inference from `ageRanges` strings
     sections.ts              Registers all sections; only file that needs a new entry
   assets/illustrations/
     registry.tsx              All hero illustrations as real JSX components (not raw SVG
                                strings — see "Why no dangerouslySetInnerHTML" below)
   components/                 One folder per component: Component.tsx + .module.css + .test.tsx
-  pages/                      HomePage, SectionPage, TopicPage, NotFoundPage
-  utils/search.ts             Pure, dependency-free search/ranking function
-  styles/global.css           Design tokens (colors, spacing, radii) + self-hosted @font-face
+  pages/                      HomePage, SectionPage, TopicPage, NotFoundPage, legal pages
+  hooks/usePageMeta.ts        Sets per-route document title/description for SEO
+  utils/
+    search.ts                Pure, dependency-free search/ranking function
+    theme.ts                 Light/dark theme persistence (localStorage + prefers-color-scheme)
+  styles/global.css           Design tokens (colors, spacing, radii, light/dark palettes) +
+                               self-hosted @font-face
   App.tsx                     Route tree
   main.tsx                    Entry point
+scripts/generate-sitemap.ts   Build-time sitemap.xml generator (runs via tsx in `npm run build`)
 ```
 
 **Content is data, not code.** A `Topic` is a plain TypeScript object (see
@@ -71,6 +77,22 @@ Colors, spacing, radii, and shadows live as CSS custom properties in `src/styles
 Every topic page follows the same template: header → reassurance banner → 8 reason cards →
 concerns/strategies split → insight footer. This is intentional — Kidsense is meant to feel like
 one consistent reference, not 75 one-off pages.
+
+**Dark mode** follows the OS `prefers-color-scheme` by default; the `ThemeToggle` in the header
+lets a reader override it explicitly, persisted to `localStorage` and applied before first paint
+(in `main.tsx`) to avoid a flash for returning visitors. Every color token has both a light and a
+dark value — no component should hardcode a color outside these tokens.
+
+### Age-band content variants
+
+Most topics apply to every age within their `ageRanges`. Where the guidance genuinely differs by
+developmental stage, a topic family can have more than one `Topic` object sharing the same `id`
+within a section, each with a distinct `ageBandIds` (see `src/types/content.ts` and
+`src/content/sections.ts`'s `getTopicVariants`/`selectTopicVariant`). `TopicPage` shows an
+age-band switcher automatically whenever a family has more than one variant, and deep-links to
+`/section/:sectionId/:topicId/:ageBandId`. Two topics currently ship a real variant this way —
+see `src/content/section1-morning-routine.ts`'s `getting-dressed` (tween) and
+`src/content/section6-digital-era.ts`'s `social-media-pressure` (teen) for worked examples.
 
 ### Print support
 
@@ -102,7 +124,11 @@ strict-origin-when-cross-origin`, `Permissions-Policy` (camera/mic/geolocation/e
   `Cross-Origin-Resource-Policy`.
 - **Dependency hygiene.** `npm audit --audit-level=high` runs in CI on every push; the project
   currently sits at 0 known vulnerabilities. Dependencies are pinned to specific patched major
-  versions rather than left on old ranges.
+  versions rather than left on old ranges. `.github/dependabot.yml` opens automated update PRs
+  weekly for npm and GitHub Actions.
+- **Secret scanning.** `gitleaks` runs in both `ci.yml` and `.circleci/config.yml` on every push.
+- **Responsible disclosure.** `public/.well-known/security.txt` (RFC 9116) and
+  [`SECURITY.md`](SECURITY.md) point to GitHub's private vulnerability reporting.
 
 ---
 
@@ -110,12 +136,18 @@ strict-origin-when-cross-origin`, `Permissions-Policy` (camera/mic/geolocation/e
 
 - **Framework:** Vitest + React Testing Library + `@testing-library/user-event`, running in
   jsdom.
-- **176 tests** across 24 test files, covering every component, every page, routing/navigation,
-  keyboard interaction in the search box, error boundary recovery, and content-data integrity.
+- **240 tests** across 34 test files, covering every component, every page, routing/navigation,
+  keyboard interaction in the search box, error boundary recovery, age-band variant
+  selection/switching, and content-data integrity.
 - **Coverage is an enforced gate, not a report.** `vite.config.ts` sets
   `test.coverage.thresholds` (85% statements/functions/lines, 80% branches) via the v8 provider;
   `npm run test:coverage` exits non-zero if the project falls under these numbers. Current
-  coverage sits at 99.6% statements / 98% branches / 100% functions / 100% lines.
+  coverage sits at 99.2% statements / 94.8% branches / 100% functions / 99.7% lines.
+- **Accessibility:** `jest-axe` runs a zero-violations assertion against `Layout`, `Header`,
+  `HomePage`, `SectionPage`, and `TopicPage` in every test run — see
+  `src/test/vitest-matchers.d.ts`/`jest-axe-module.d.ts` for how it's wired into Vitest's
+  `expect`. This catches programmatically-detectable WCAG issues; a manual screen-reader pass is
+  still needed for full WCAG 2.1 AA sign-off (see `docs/test-plan.md`).
 - **Linting:** ESLint 9 flat config with `typescript-eslint`, `eslint-plugin-react-hooks`, and
   `eslint-plugin-jsx-a11y` (accessibility rules — every interactive element is checked for
   correct roles/labels). Run with `--max-warnings=0`, so warnings are build failures, not
@@ -127,16 +159,20 @@ strict-origin-when-cross-origin`, `Permissions-Policy` (camera/mic/geolocation/e
 
 **CircleCI is the pipeline of record** (`.circleci/config.yml`) — see
 [ADR-0002](docs/architecture-decision-records/0002-circleci-alongside-github-actions.md) for why.
-It runs the full quality gate (`npm audit`, typecheck, lint, format check, test with coverage,
-build) on every commit, then deploys `main` to Azure Static Web Apps once the gate passes.
+It runs the full quality gate (`npm audit`, `gitleaks` secret scan, typecheck, lint, format
+check, test with coverage, build) on every commit, then deploys `main` to Azure Static Web Apps
+once the gate passes.
 
 GitHub Actions still plays a supporting role:
 
-- **`ci.yml`** — runs the same quality gate on every push and pull request as a GitHub-native
-  status check (useful for branch protection and inline PR feedback), independent of CircleCI.
-  It does not deploy.
+- **`ci.yml`** — runs the same quality gate (including `gitleaks`) on every push and pull
+  request as a GitHub-native status check (useful for branch protection and inline PR feedback),
+  independent of CircleCI. It does not deploy.
 - **`azure-static-web-apps.yml`** — a manual-only fallback deploy path (`workflow_dispatch`), in
   case CircleCI is ever unavailable. It no longer runs automatically on push.
+- **`azure-static-web-apps-lemon-rock-042da4500.yml`** — a second, redundant manual fallback
+  (Azure-Portal-generated, tied to its own deploy token), kept in sync with the same quality
+  gate as `azure-static-web-apps.yml`. Prefer the latter; this one exists only as a backstop.
 
 Full setup instructions, including the one-time CircleCI project connection and Azure deploy
 token, live in [`docs/deployment-runbook.md`](docs/deployment-runbook.md).
@@ -154,17 +190,30 @@ adding further topics or entire new sections is a **content task, not an enginee
    a `Topic[]` matching the interface in `src/types/content.ts`. Each topic needs: a three-line
    heading, a quote, age ranges, an `illustrationId`, a reassurance line, an explanation, exactly
    8 reason cards, a list of concerns, professional guidance, a list of strategies, a 4-step
-   routine, and a closing insight.
-2. Add a hero illustration: either reuse an existing `illustrationId` from
+   routine, and a closing insight. Follow `docs/content-style-guide.md` for voice/structure and
+   `docs/editorial-and-sourcing-policy.md` for how to research and attribute a topic — research
+   guidance via `WebSearch`/`WebFetch` against named authoritative organizations before writing;
+   never fabricate a citation, quote, or URL.
+2. Optionally add `perspectives` (teacher/clinician/teen — only where it's a genuinely distinct
+   angle, not a reworded parent paragraph), `culturalLens` (2–4 notes), and `sources` (2–4 named
+   organizations). All three panels render nothing until authored, so it's safe to omit them.
+3. Where a topic's guidance genuinely differs by developmental stage, author a second `Topic`
+   object with the same `id` and an explicit `ageBandIds` — see "Age-band content variants"
+   above. Most topics don't need this; only fork when the mechanism itself changes with age, not
+   just its intensity.
+4. Add a hero illustration: either reuse an existing `illustrationId` from
    `src/assets/illustrations/registry.tsx`, or add a new JSX component to that file and register
    it in `illustrationRegistry`.
-3. Register the section in `src/content/sections.ts` (new sections) or bump `plannedTopicCount`
+5. Register the section in `src/content/sections.ts` (new sections) or bump `plannedTopicCount`
    (existing sections with more topics added).
-4. Run `npm run verify`. No routing, component, or page code needs to change — the home page,
-   section pages, topic pages, and search all pick up new content automatically.
+6. Run `npm run verify`. No routing, component, or page code needs to change — the home page,
+   section pages, topic pages, search, and the build-time sitemap all pick up new content
+   automatically.
 
 The `registry.test.tsx` suite will automatically verify every `illustrationId` referenced by any
-topic actually exists in the registry, so a typo'd id fails CI instead of shipping a broken page.
+topic actually exists in the registry, and `sections.test.ts` verifies every topic family's
+variants share a consistent `topicNumber`/`illustrationId` and don't claim overlapping age
+bands — so a typo'd id or a malformed variant fails CI instead of shipping a broken page.
 
 ---
 

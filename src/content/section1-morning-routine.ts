@@ -90,6 +90,29 @@ export const morningRoutineTopics: Topic[] = [
     insight:
       'If brushing resistance shows up alongside other morning slowdowns, it’s rarely about teeth specifically — it’s about the number of transitions packed into a short morning window.',
     keywords: ['teeth', 'brushing', 'hygiene', 'toothbrush', 'dental'],
+    perspectives: {
+      clinician:
+        "Pediatric dentists see brushing resistance constantly, and it's rarely about hygiene — building the two-minute daily habit matters more than any single brushing session being perfect.",
+    },
+    culturalLens: [
+      {
+        region: 'East Asian households',
+        note: 'Many families start brushing routines early and frame them as a shared family ritual — parents and children brushing side by side at the same sink — which can ease resistance through modeling rather than instruction.',
+      },
+      {
+        region: 'Nordic countries',
+        note: 'Public health systems often provide free dental checkups and toothbrushing coaching starting in preschool, so brushing resistance tends to be treated as a routine developmental hurdle rather than a parenting failure.',
+      },
+      {
+        region: 'South Asian households',
+        note: 'Extended family members often share morning hygiene routines with young children, spreading the daily back-and-forth across more than one adult.',
+      },
+      {
+        region: 'Collectivist family structures',
+        note: "Where sibling caregiving is common, an older sibling brushing alongside a younger one can succeed where a parent's direct instruction stalls, since peer modeling feels less like a command.",
+      },
+    ],
+    sources: ['American Academy of Pediatric Dentistry', 'American Academy of Pediatrics'],
   },
   {
     id: 'wake-up',
@@ -178,6 +201,29 @@ export const morningRoutineTopics: Topic[] = [
     insight:
       "If your child struggles to get moving in the morning AND shows the same slow-start pattern with homework, meals, or leaving the house, it's often connected — a broader need for more transition time, not a wake-up problem specifically.",
     keywords: ['sleep', 'alarm', 'grogginess', 'sleep inertia', 'bedtime'],
+    perspectives: {
+      clinician:
+        'Pediatric sleep specialists distinguish ordinary sleep inertia — grogginess for roughly 15–30 minutes after waking — from insufficient total sleep. If a child is hard to wake AND sleepy all day, bedtime is usually the real lever, not the wake-up routine.',
+    },
+    culturalLens: [
+      {
+        region: 'Mediterranean households',
+        note: 'Later bedtimes are common in many Mediterranean cultures, and mornings are often built with more cushion to match — a slower start is accepted as normal rather than treated as a problem to fix.',
+      },
+      {
+        region: 'East Asian households',
+        note: 'Some East Asian family cultures place a high priority on punctual academic start times, leading to earlier, more consistent wake routines enforced from a young age.',
+      },
+      {
+        region: 'Nordic countries',
+        note: 'Guidance on children’s sleep leans heavily on natural light exposure — many families open curtains or use daylight lamps as the primary wake strategy rather than relying on an alarm alone.',
+      },
+      {
+        region: 'Collectivist multigenerational households',
+        note: 'Where grandparents or extended family share morning caregiving, waking a child can be distributed across more than one adult, reducing the pressure on a single parent to manage the whole routine.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Sleep Foundation'],
   },
   {
     id: 'five-more-minutes',
@@ -260,6 +306,25 @@ export const morningRoutineTopics: Topic[] = [
     insight:
       "If stopping one activity to start another is hard AND your child shows similar resistance at bedtime or leaving the house, it's often connected — a broader need for more transition time, not stalling on purpose.",
     keywords: ['transitions', 'screen time', 'timers', 'delay'],
+    perspectives: {
+      teacher:
+        'Teachers see the identical pattern during classroom transitions — a child absorbed in one activity needs advance warning before switching, or the switch itself becomes the fight, not the next activity.',
+    },
+    culturalLens: [
+      {
+        region: 'Play-based early education cultures (e.g. Nordic, Reggio Emilia-inspired)',
+        note: "Programs built around child-led play tend to build in longer, unhurried transition windows by design, treating a child's need to finish an activity as normal rather than something to override quickly.",
+      },
+      {
+        region: 'East Asian households',
+        note: 'Cultures with more structured daily schedules for young children often introduce visual or auditory time cues — bells, songs — earlier, treating time-awareness as a skill to teach explicitly rather than expect.',
+      },
+      {
+        region: 'Collectivist family structures',
+        note: "Where multiple children share supervision, an older sibling or cousin modeling a smooth transition can ease a younger child's resistance more effectively than an adult's direct instruction.",
+      },
+    ],
+    sources: ['Zero to Three', 'American Academy of Pediatrics'],
   },
   {
     id: 'bath-refusal',
@@ -343,6 +408,25 @@ export const morningRoutineTopics: Topic[] = [
     insight:
       "If bath time is a struggle AND your child shows similar resistance to dressing or hair-combing, it's often connected — a broader sensory sensitivity, not dislike of water itself.",
     keywords: ['bathing', 'water', 'sensory', 'hygiene'],
+    perspectives: {
+      clinician:
+        'Occupational therapists treat bath resistance as a sensory-regulation issue first: temperature, the sound of running water, and rinsing near the face are common triggers, and gentle, predictable exposure works better than pushing through.',
+    },
+    culturalLens: [
+      {
+        region: 'South Asian households',
+        note: 'Daily bathing is often a firmly fixed expectation from infancy, with an oil massage beforehand common in many families — which can actually ease the sensory transition into water for some children.',
+      },
+      {
+        region: 'Northern European households',
+        note: 'Some families bathe less frequently by cultural norm, treating bath refusal as a lower-stakes, more flexible negotiation rather than a daily non-negotiable.',
+      },
+      {
+        region: 'Japanese households',
+        note: 'The evening bath (ofuro) is often a shared, unhurried family ritual rather than a quick hygiene task, which can reduce a child’s sense of being rushed or controlled.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Occupational Therapy Association'],
   },
   {
     id: 'getting-dressed',
@@ -425,6 +509,134 @@ export const morningRoutineTopics: Topic[] = [
     insight:
       "If dressing is a struggle AND your child shows similar resistance to baths or hair-combing, it's often connected — a broader sensory sensitivity, not stubbornness about clothes.",
     keywords: ['clothing', 'texture', 'sensory', 'fasteners'],
+    perspectives: {
+      clinician:
+        'Occupational therapists note that fine-motor frustration with buttons and zippers usually resolves with practice by early elementary age; persistent, severe texture aversion past that point is more often a sensory-processing pattern worth a closer look.',
+    },
+    culturalLens: [
+      {
+        region: 'Collectivist family structures',
+        note: "A parent or older sibling choosing a young child's outfit remains normal well into elementary school in many collectivist cultures, with less early emphasis on individual choice than in more individualist cultures.",
+      },
+      {
+        region: 'Western individualist cultures (e.g. US, UK)',
+        note: 'Offering a young child choice over their own clothing is often treated as an early autonomy-building milestone, sometimes starting as young as age 3.',
+      },
+      {
+        region: 'Religious and modesty-conscious communities',
+        note: 'Dress norms are often set by family or community expectation rather than negotiated daily, which can reduce morning conflict while shifting the tension elsewhere — fitting in outside the home.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Occupational Therapy Association'],
+  },
+  {
+    id: 'getting-dressed',
+    topicNumber: 5,
+    title: 'Why Do Tweens Suddenly Care So Much About What They Wear?',
+    heading: {
+      lead: 'Why Do Tweens Suddenly',
+      emphasis: 'Care So Much About What They Wear',
+      trailing: 'Every Single Morning?',
+    },
+    quote: 'Everyone will see me in this!',
+    ageRanges: ['10–12 years'],
+    illustrationId: 'getting-dressed',
+    ageBandIds: ['tween'],
+    reassurance: "It's common — and it's identity-building, not vanity!",
+    explanation:
+      'By this age, clothing becomes a way to signal who they are to their peer group, not just a comfort or fine-motor issue anymore.',
+    reasons: [
+      {
+        icon: '🪞',
+        title: 'Identity Formation',
+        description:
+          'Clothing becomes one of the first tools tweens use to express who they are outside the family.',
+      },
+      {
+        icon: '👀',
+        title: 'Peer Awareness',
+        description:
+          'Awareness of how peers will judge an outfit grows sharply in the tween years.',
+      },
+      {
+        icon: '📱',
+        title: 'Social Media Exposure',
+        description:
+          "Seeing curated outfits online raises the bar for what feels 'acceptable' to wear.",
+      },
+      {
+        icon: '🧍',
+        title: 'Body Image Shifts',
+        description:
+          'Early puberty changes how clothes fit and feel, adding a new layer of self-consciousness.',
+      },
+      {
+        icon: '🏷️',
+        title: 'Brand Pressure',
+        description:
+          'Wanting specific brands or styles is a normal way to signal belonging to a peer group.',
+      },
+      {
+        icon: '🕹️',
+        title: 'Growing Autonomy',
+        description:
+          'Tweens are developmentally primed to want more control over personal decisions, and clothing is a low-stakes place to practice it.',
+      },
+      {
+        icon: '😳',
+        title: 'Fear of Standing Out',
+        description:
+          'Many tweens would rather blend in than risk being noticed for the wrong reasons.',
+      },
+      {
+        icon: '🔁',
+        title: 'Comparing to Peers',
+        description:
+          'Outfit choices are often measured against a specific friend, not an abstract standard.',
+      },
+    ],
+    concerns: [
+      'Persistent distress about body shape or size tied to clothing',
+      'Avoiding school or activities specifically over what to wear',
+      'Extreme rigidity about brands well beyond typical peer influence',
+      'Signs of comparison spiraling into broader self-esteem concerns',
+    ],
+    professionalGuidance:
+      'If clothing anxiety is tangled with body image distress or school avoidance, a conversation with a school counselor or pediatrician can help separate a normal identity phase from something needing more support.',
+    strategies: [
+      'Involve them in buying decisions within a set budget, rather than dictating each piece',
+      'Talk through outfit choices the night before, away from morning time pressure',
+      'Normalize that peer opinions matter to them right now — dismissing it rarely helps',
+      'Keep a few reliable, pre-approved outfits ready for low-energy mornings',
+    ],
+    routine: [
+      { icon: '👕', label: 'Plan outfit tonight' },
+      { icon: '🪞', label: 'Try it on early' },
+      { icon: '💬', label: 'Quick gut-check' },
+      { icon: '🎒', label: 'Out the door' },
+    ],
+    insight:
+      "Tween clothing battles are rarely about the clothes — they're an early, low-stakes rehearsal for the much bigger identity questions adolescence brings.",
+    keywords: ['clothing', 'tween', 'identity', 'peer pressure', 'body image'],
+    perspectives: {
+      teacher:
+        "Middle-school teachers regularly see clothing anxiety spike before specific events — school photos, PE clothing swaps — and it's rarely about the outfit itself but about visibility in front of peers.",
+    },
+    culturalLens: [
+      {
+        region: 'Individualist peer cultures with strong youth marketing',
+        note: 'Trend-driven dressing and brand consciousness tend to peak earlier where youth consumer marketing is heavily targeted at this age group.',
+      },
+      {
+        region: 'School-uniform cultures (e.g. UK, many Asian and African school systems)',
+        note: 'Where uniforms are standard, tween identity expression often shifts to accessories, hairstyles, or after-school clothing instead of the morning uniform choice.',
+      },
+      {
+        region: 'Collectivist family structures',
+        note: 'Family input on appropriate dress may carry more weight relative to peer pressure than in cultures where individual choice is prioritized from a young age.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'National Association of School Psychologists'],
   },
   {
     id: 'combing-hair',
@@ -506,6 +718,25 @@ export const morningRoutineTopics: Topic[] = [
     insight:
       "If hair-combing is painful AND your child shows similar sensitivity during baths or dressing, it's often connected — a broader touch sensitivity, not fussiness about hair.",
     keywords: ['hair', 'brushing', 'scalp', 'tangles'],
+    perspectives: {
+      clinician:
+        "Occupational and sensory therapists point out that scalp pain during combing is often real and disproportionate to how it looks — technique changes like detangling wet hair and holding it near the scalp resolve most cases without needing a child to 'push through' distress.",
+    },
+    culturalLens: [
+      {
+        region: 'Black and multicultural hair-care traditions',
+        note: 'Many families use detangling techniques developed specifically for textured hair — finger-detangling, leave-in conditioner, sectioning — that differ meaningfully from techniques designed for straight hair, and matter for reducing real pain.',
+      },
+      {
+        region: 'South Asian households',
+        note: 'Oiling hair before combing is a common practice in many families, which softens strands and can reduce pulling during detangling.',
+      },
+      {
+        region: 'East Asian households',
+        note: 'Shorter, low-maintenance hairstyles are common for young children in some East Asian cultures specifically to minimize daily grooming conflict.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Occupational Therapy Association'],
   },
   {
     id: 'breakfast-refusal',
@@ -587,6 +818,27 @@ export const morningRoutineTopics: Topic[] = [
     insight:
       "If breakfast is a struggle AND your child shows similar resistance to other morning transitions, it's often connected — a broader need for a slower start, not a food problem.",
     keywords: ['eating', 'appetite', 'meals', 'nutrition'],
+    perspectives: {
+      teacher:
+        'Teachers often notice the effects of a skipped breakfast by mid-morning — a dip in attention or mood around 10am is a common signal, more than the breakfast table itself.',
+      clinician:
+        'Pediatricians usually reassure parents that low morning appetite is developmentally normal and self-corrects; the bigger flag is low appetite across the whole day, not just mornings.',
+    },
+    culturalLens: [
+      {
+        region: 'Mediterranean and Latin American households',
+        note: "A lighter, later breakfast — or a small snack soon after waking, with a fuller meal later — is culturally standard in many families, reframing 'refusal' as simply a different, equally healthy pattern.",
+      },
+      {
+        region: 'East Asian households',
+        note: 'Savory, warm breakfasts such as rice, soup, or congee are common in many East Asian cultures, and children raised on sweeter Western-style breakfasts elsewhere sometimes resist them for taste reasons rather than appetite.',
+      },
+      {
+        region: 'South Asian households',
+        note: 'Extended family often shares breakfast preparation and encouragement duties, spreading the effort of getting a child to eat across more than one adult.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Academy of Nutrition and Dietetics'],
   },
   {
     id: 'slow-mornings',
@@ -668,6 +920,23 @@ export const morningRoutineTopics: Topic[] = [
     insight:
       "If mornings are consistently slow AND your child shows the same pace with homework or chores, it's often connected — a broader sequencing challenge, not laziness.",
     keywords: ['slow', 'routine', 'sequencing', 'time blindness'],
+    perspectives: {
+      teacher:
+        'Teachers see the same sequencing struggle during classroom routines like packing up or lining up — visual checklists that work at school translate directly to mornings at home.',
+      clinician:
+        'Developmental pediatricians frame morning slowness before age 7–8 as expected executive-function immaturity, not a red flag on its own; a visual routine chart is a genuinely evidence-supported strategy, not just a parenting trick.',
+    },
+    culturalLens: [
+      {
+        region: 'Play-based early education cultures',
+        note: 'Programs that avoid rushing young children between activities tend to produce home routines with more built-in slack time by habit, reducing the friction of a naturally slow pace.',
+      },
+      {
+        region: 'High-structure academic cultures',
+        note: 'Cultures with earlier, stricter school start expectations often introduce visual schedules and timers for young children earlier as a matter of course.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Zero to Three'],
   },
   {
     id: 'school-reluctance',
@@ -750,6 +1019,27 @@ export const morningRoutineTopics: Topic[] = [
     insight:
       "If school mornings are hard AND your child shows similar reluctance around other separations, it's often connected — a broader adjustment need, not dislike of school.",
     keywords: ['school', 'separation anxiety', 'drop-off'],
+    perspectives: {
+      teacher:
+        'Teachers are often the first to notice a pattern — reluctance tied to a specific class, peer, or time of day is a useful clue that something concrete, not just general anxiety, may be going on.',
+      clinician:
+        'Pediatricians and school counselors distinguish ordinary reluctance from school refusal — persistent, escalating avoidance with physical symptoms. The first usually resolves with consistency; the second benefits from involving the school early.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong extended-family involvement',
+        note: 'Where grandparents or extended family are closely involved in daily life, the transition to a less familiar school environment can feel like a bigger jump, sometimes intensifying early separation reluctance.',
+      },
+      {
+        region: 'Cultures with early, near-universal preschool attendance',
+        note: 'Where group childcare starts very early and is culturally the norm, children often build separation tolerance earlier, and reluctance tends to be treated as briefer and more routine.',
+      },
+    ],
+    sources: [
+      'Zero to Three',
+      'American Academy of Pediatrics',
+      'National Association of School Psychologists',
+    ],
   },
   {
     id: 'crying-before-leaving',
@@ -832,5 +1122,20 @@ export const morningRoutineTopics: Topic[] = [
     insight:
       "If leaving home is hard AND your child shows similar tears at school drop-off or bedtime, it's often connected — a broader attachment need, not defiance about the outing.",
     keywords: ['separation', 'attachment', 'crying', 'goodbye'],
+    perspectives: {
+      clinician:
+        'Attachment researchers frame separation tears as a sign of a secure, healthy bond, not a red flag — children who protest separation are demonstrating that the relationship matters to them, which is developmentally reassuring.',
+    },
+    culturalLens: [
+      {
+        region: 'Attachment-parenting-oriented cultures',
+        note: "Cultures that emphasize prolonged physical closeness in infancy — extended babywearing, co-sleeping — don't show consistently different separation-anxiety timelines; the response is a normal developmental stage across cultures, just expressed differently.",
+      },
+      {
+        region: 'Collectivist multigenerational households',
+        note: "Where a child is cared for by multiple trusted adults from infancy, separation from any one caregiver can sometimes feel less high-stakes, since 'goodbye' rarely means being left with an unfamiliar person.",
+      },
+    ],
+    sources: ['Zero to Three', 'American Academy of Pediatrics'],
   },
 ];

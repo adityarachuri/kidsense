@@ -86,6 +86,21 @@ export const emotionsTopics: Topic[] = [
     insight:
       'A reaction that looks out of proportion almost always makes sense once the whole day, not just the trigger, is taken into account.',
     keywords: ['big feelings', 'overreacting', 'emotional regulation', 'meltdown'],
+    perspectives: {
+      clinician:
+        'Child psychologists describe this as the cup already being full — a small trigger is rarely the real cause, so addressing accumulated stress (hunger, fatigue, earlier frustrations) does more than addressing the trigger itself.',
+    },
+    culturalLens: [
+      {
+        region: 'Collectivist cultures with strong emotional-restraint norms',
+        note: 'Harmony-focused cultures often coach children toward calmer outward expression earlier, while the intensity of the underlying feeling develops on the same broad timeline everywhere.',
+      },
+      {
+        region: 'Individualist Western cultures',
+        note: 'These cultures often explicitly encourage naming and expressing big feelings out loud as a parenting practice, treating vocalized emotion as healthy rather than something to minimize.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'CASEL'],
   },
   {
     id: 'crying-easily',
@@ -169,6 +184,21 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Sensitivity that shows up as easy tears often comes with real strengths — deep empathy and self-awareness — once it’s supported rather than suppressed.',
     keywords: ['crying', 'sensitive', 'tears', 'emotional'],
+    perspectives: {
+      clinician:
+        'Temperament researchers describe high sensitivity as a stable, biologically-rooted trait, not a phase to train out — supporting it tends to build the emotional insight that comes with it, rather than suppressing the tears alone.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with open emotional expression',
+        note: 'Cultures that normalize visible emotion, including tears, in children of any gender tend to treat easy crying as unremarkable rather than something to toughen up.',
+      },
+      {
+        region: 'Cultures with stronger stoicism norms',
+        note: "Some cultures apply stronger 'toughen up' expectations, especially to boys, which can push a sensitive child's tears underground rather than easing the underlying sensitivity.",
+      },
+    ],
+    sources: ['American Psychological Association', 'CDC'],
   },
   {
     id: 'fear-of-dark',
@@ -256,6 +286,21 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Fear of the dark usually fades on its own as reasoning catches up to imagination — steady, low-key reassurance shortens that stretch far more than dismissing the fear.',
     keywords: ['fear of the dark', 'nighttime fear', 'bedtime anxiety', 'nightlight'],
+    perspectives: {
+      clinician:
+        "Sleep and anxiety specialists note fear of the dark is one of the most universal, time-limited childhood fears — a dim nightlight and a calm 'safety check' ritual outperform trying to logically argue a child out of the fear.",
+    },
+    culturalLens: [
+      {
+        region: 'Co-sleeping cultures',
+        note: 'Where children commonly sleep in the same room as a caregiver for longer, fear of the dark may be expressed later or differently, since the child is rarely truly alone at night.',
+      },
+      {
+        region: 'Solo-sleeping cultures',
+        note: 'Cultures that expect independent sleep from infancy often introduce nightlights and bedtime rituals earlier as a matter of course.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Sleep Foundation'],
   },
   {
     id: 'drop-off-anxiety',
@@ -338,6 +383,21 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Drop-off distress almost always eases within minutes once a trusted adult confirms it — the goodbye itself, not the day ahead, is usually the hardest part.',
     keywords: ['separation anxiety', 'school drop-off', 'goodbye', 'attachment'],
+    perspectives: {
+      clinician:
+        'Attachment researchers frame drop-off distress as confirmation of a healthy bond — a brief, warm, and prompt goodbye consistently shortens the distress more than lingering to comfort longer.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with early, near-universal group childcare',
+        note: 'Where group childcare starts very early and is culturally the norm, children tend to build separation tolerance earlier on average.',
+      },
+      {
+        region: 'Cultures with strong extended-family involvement',
+        note: 'Close, ever-present extended family can make the shift to an unfamiliar caregiver feel like a bigger jump, intensifying drop-off distress at first.',
+      },
+    ],
+    sources: ['Zero to Three', 'American Academy of Pediatrics'],
   },
   {
     id: 'sibling-jealousy',
@@ -421,6 +481,21 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Sibling jealousy usually settles once a child feels individually seen — equal treatment matters less than each child feeling uniquely valued.',
     keywords: ['sibling jealousy', 'rivalry', 'fairness', 'favoritism'],
+    perspectives: {
+      clinician:
+        "Family therapists note jealousy is usually a proxy question — 'do you love me as much?' — so individual one-on-one time reliably eases it faster than trying to enforce perfect fairness.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with defined sibling roles by birth order',
+        note: "Some cultures assign clear roles by birth order — such as 'the responsible eldest' — which can shape jealousy differently than cultures with a less defined sibling hierarchy.",
+      },
+      {
+        region: 'Cultures with close, cooperative sibling caregiving',
+        note: 'Where siblings routinely care for one another, jealousy is often actively mediated by the family as a whole rather than left to the parents alone.',
+      },
+    ],
+    sources: ['American Psychological Association', 'Zero to Three'],
   },
   {
     id: 'anger-outbursts',
@@ -504,6 +579,21 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Anger is rarely the whole story — looking for the softer feeling underneath it usually reveals what actually needs addressing.',
     keywords: ['anger', 'outbursts', 'temper', 'frustration'],
+    perspectives: {
+      clinician:
+        'Child psychologists frame anger as almost always a secondary emotion — covering hurt, fear, or embarrassment — so naming the feeling underneath tends to defuse an outburst faster than addressing the anger itself.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with open anger expression',
+        note: 'Some cultures treat visible anger, including from children, as an acceptable direct emotion rather than one requiring immediate suppression.',
+      },
+      {
+        region: 'Cultures emphasizing composure',
+        note: 'Cultures that emphasize emotional composure may coach children toward quieter anger expression earlier, without changing how intensely the feeling is experienced underneath.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Psychological Association'],
   },
   {
     id: 'perfectionism',
@@ -587,6 +677,23 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Fear of mistakes usually eases once a mistake stops meaning something about who a child is — and starts meaning simply "one step in learning."',
     keywords: ['perfectionism', 'fear of failure', 'mistakes', 'self-critical'],
+    perspectives: {
+      clinician:
+        'Psychologists note that praise focused on effort and process, rather than innate ability, is one of the most consistently evidence-supported ways to ease fear of mistakes over time.',
+      teacher:
+        'Teachers see this ease when a classroom explicitly treats mistakes as part of the visible learning process, not just at home.',
+    },
+    culturalLens: [
+      {
+        region: 'High-achievement academic cultures',
+        note: "Intense academic competition can raise the stakes of any single mistake, adding pressure on top of a child's own perfectionist tendencies.",
+      },
+      {
+        region: 'Growth-mindset-oriented cultures',
+        note: 'Cultures or schools that explicitly teach that ability grows with effort are associated with children showing less fear of mistakes.',
+      },
+    ],
+    sources: ['American Psychological Association', 'CASEL'],
   },
   {
     id: 'shyness',
@@ -669,6 +776,23 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Shy kids usually engage just as fully as anyone else — they simply need more runway to get there, not a push to skip it.',
     keywords: ['shy', 'social anxiety', 'introvert', 'new situations'],
+    perspectives: {
+      clinician:
+        "Temperament researchers describe 'slow to warm up' as one of the most well-documented, stable temperament categories — pushing a shy child to perform socially before they're ready tends to backfire, while patient exposure builds confidence.",
+      teacher:
+        'Teachers know that letting a shy child observe from the edges before joining in usually gets them participating faster than requiring immediate engagement.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with unstructured extended-family socializing',
+        note: 'Growing up around a large, familiar extended family can mean less practice with true strangers specifically, even for an otherwise socially comfortable child.',
+      },
+      {
+        region: 'Cultures where reserve is considered polite',
+        note: "Some cultures treat reserved, quiet behavior with new people as simply polite, not as something needing to be 'fixed.'",
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Psychological Association'],
   },
   {
     id: 'sadness',
@@ -754,6 +878,21 @@ export const emotionsTopics: Topic[] = [
     insight:
       'A single sad day is normal and usually passes on its own — what matters most is tracking the pattern over time, not any one afternoon.',
     keywords: ['sadness', 'low mood', 'blue', 'down'],
+    perspectives: {
+      clinician:
+        'Pediatricians draw a clear line at two weeks: an occasional sad day is normal, but sadness most of most days for two weeks or more — especially with sleep, appetite, or energy changes — warrants a conversation with a doctor without delay.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with frequent communal check-ins',
+        note: "Where extended family checks in daily, a shift in a child's mood may get noticed earlier, simply through more frequent observation.",
+      },
+      {
+        region: 'Cultures that discourage discussing low mood openly',
+        note: 'Where sadness is treated as private, a child may show fewer outward signals, making the two-week/functioning check especially useful since it doesn’t rely on the child volunteering the feeling.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'CDC'],
   },
   {
     id: 'fear-of-new-things',
@@ -839,6 +978,23 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Reluctance to try something new is almost always about the discomfort of being a beginner, not a lack of curiosity or ability.',
     keywords: ['fear of trying', 'new activities', 'confidence', 'avoidance'],
+    perspectives: {
+      teacher:
+        'Teachers see this most clearly around new units or activities — letting a hesitant child watch or try privately before performing in front of the group usually gets them started faster than requiring immediate participation.',
+      clinician:
+        'Psychologists note the fear is almost always about the visible gap before competence, not the activity itself — normalizing being a beginner out loud is one of the simplest, most effective fixes.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with early competitive activity structures',
+        note: 'Cultures that introduce structured, ranked activities earlier can raise the stakes of being a visible beginner sooner.',
+      },
+      {
+        region: 'Cultures with playful, low-stakes early exposure',
+        note: 'Cultures that treat early attempts at new skills as playful rather than evaluative tend to lower the perceived risk of trying something new in front of others.',
+      },
+    ],
+    sources: ['American Psychological Association', 'American Academy of Pediatrics'],
   },
   {
     id: 'embarrassment',
@@ -923,6 +1079,23 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Embarrassment fades fastest when it isn’t dwelt on — most peers genuinely forget the moment far sooner than the child expects.',
     keywords: ['embarrassment', 'self-conscious', 'social awareness'],
+    perspectives: {
+      teacher:
+        'Teachers notice peers genuinely forget an embarrassing moment far faster than the child expects — pointing that out, gently, tends to help more than dwelling on the moment.',
+      clinician:
+        "Psychologists note the 'spotlight effect' — overestimating how much others noticed — is a well-documented cognitive bias, not unique to any one child, and tends to ease with direct, matter-of-fact reassurance.",
+    },
+    culturalLens: [
+      {
+        region: "Cultures with strong social 'face' or reputation concerns",
+        note: 'These cultures can intensify embarrassment around visible mistakes, since a slip-up carries more perceived social weight.',
+      },
+      {
+        region: 'Cultures that normalize public mistakes',
+        note: 'Some cultures actively model shrugging off small public mistakes, which gives children a visible example that a slip-up is not a lasting mark.',
+      },
+    ],
+    sources: ['American Psychological Association', 'American Academy of Pediatrics'],
   },
   {
     id: 'worry',
@@ -1009,6 +1182,21 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Worry usually eases once a child has both the words to name it and evidence that naming it doesn’t make it more likely to happen.',
     keywords: ['worry', 'anxiety', 'fear', 'what-if thoughts'],
+    perspectives: {
+      clinician:
+        'Pediatricians recommend taking a specific worry seriously rather than dismissing it, then gently offering realistic odds — this validates the feeling while still challenging the catastrophic thought underneath it.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with more open discussion of real-world risk',
+        note: 'Some cultures discuss real-world dangers more openly and matter-of-factly with children, which can shape how a specific worry gets processed and named.',
+      },
+      {
+        region: 'Cultures with strong protective/reassurance norms',
+        note: 'Some cultures lean toward shielding children from worrying topics entirely, which can mean a specific fear is less often named and discussed openly at home.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'CDC'],
   },
   {
     id: 'difficulty-calming-down',
@@ -1094,6 +1282,21 @@ export const emotionsTopics: Topic[] = [
     insight:
       'A child who struggles to calm down needs a calm adult nearby more than a lesson in the moment — the lesson lands only after the wave has passed.',
     keywords: ['calming down', 'meltdown', 'self-regulation', 'co-regulation'],
+    perspectives: {
+      clinician:
+        "Co-regulation — borrowing a calm adult's steady presence — is the well-established mechanism by which young children learn to self-soothe; a parent's own calm, physical presence teaches the skill faster than words alone.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong physical-comfort norms during distress',
+        note: 'Some cultures lean heavily on physical closeness — holding, rocking — during a child’s distress, which aligns closely with the co-regulation mechanism research supports.',
+      },
+      {
+        region: 'Cultures emphasizing independent self-soothing',
+        note: 'Some cultures encourage independent self-soothing earlier, which can mean the co-regulation stage is shorter by design rather than skipped entirely.',
+      },
+    ],
+    sources: ['Zero to Three', 'American Academy of Pediatrics'],
   },
   {
     id: 'empathy-development',
@@ -1179,6 +1382,23 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Empathy is a skill built through years of modeling and practice, not something present in full from the start — most kids develop it steadily with consistent examples.',
     keywords: ['empathy', 'caring', 'perspective-taking', 'compassion'],
+    perspectives: {
+      clinician:
+        "Developmental psychologists note that genuinely feeling empathy, not just knowing the 'right' response, continues developing well into adolescence — modeling it consistently matters more than a single lecture.",
+      teacher:
+        'Teachers see empathy build steadily through repeated small moments — a class discussion about how a character felt does more over time than a single big talk.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong communal caregiving',
+        note: "Children who routinely help care for younger siblings or cousins often get more early, concrete practice reading and responding to another person's needs.",
+      },
+      {
+        region: 'Cultures with explicit social-emotional teaching in school',
+        note: 'Where schools explicitly teach perspective-taking as a skill, children get structured practice beyond what happens naturally at home.',
+      },
+    ],
+    sources: ['American Psychological Association', 'CASEL'],
   },
   {
     id: 'mood-swings',
@@ -1264,5 +1484,20 @@ export const emotionsTopics: Topic[] = [
     insight:
       'Quick mood swings usually mean quick recovery too — the same system that shifts fast into upset just as often shifts fast back out of it.',
     keywords: ['mood swings', 'emotional volatility', 'ups and downs'],
+    perspectives: {
+      clinician:
+        'Pediatricians note that fast mood shifts in childhood usually come with equally fast recovery — the same system that flips quickly into upset just as often flips quickly back, which distinguishes it from a sustained low mood worth flagging.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with communal emotional support',
+        note: "Extended family involvement can mean a child's mood shift gets noticed and responded to by more than one adult, spreading the support around.",
+      },
+      {
+        region: 'Cultures with structured daily routines',
+        note: 'Highly structured meal and sleep schedules can smooth out some of the blood-sugar- and fatigue-driven mood swings, simply by keeping reserves steadier through the day.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'CDC'],
   },
 ];

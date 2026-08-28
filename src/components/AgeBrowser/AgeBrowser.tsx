@@ -42,7 +42,12 @@ export function AgeBrowser() {
         (matches.length > 0 ? (
           <div className={styles.results}>
             {matches.map(({ section, topic }) => (
-              <TopicCard key={`${section.id}-${topic.id}`} sectionId={section.id} topic={topic} />
+              <TopicCard
+                key={`${section.id}-${topic.id}-${topic.ageBandIds?.join(',') ?? 'general'}`}
+                sectionId={section.id}
+                topic={topic}
+                ageBandId={topic.ageBandIds && topic.ageBandIds.length > 0 ? band?.id : undefined}
+              />
             ))}
           </div>
         ) : (

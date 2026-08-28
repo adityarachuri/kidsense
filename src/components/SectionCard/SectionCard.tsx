@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { getAuthoredTopicCount } from '../../content/sections';
 import type { Section } from '../../types/content';
 import { ProgressBadge } from '../ProgressBadge/ProgressBadge';
 import styles from './SectionCard.module.css';
@@ -9,6 +10,7 @@ interface SectionCardProps {
 
 export function SectionCard({ section }: SectionCardProps) {
   const hasTopics = section.topics.length > 0;
+  const authoredCount = getAuthoredTopicCount(section);
 
   if (!hasTopics) {
     return (
@@ -17,7 +19,7 @@ export function SectionCard({ section }: SectionCardProps) {
           <span className={styles.icon} aria-hidden="true">
             {section.icon}
           </span>
-          <ProgressBadge authored={section.topics.length} planned={section.plannedTopicCount} />
+          <ProgressBadge authored={authoredCount} planned={section.plannedTopicCount} />
         </div>
         <p className={styles.title}>{section.shortTitle}</p>
         <p className={styles.description}>{section.description}</p>
@@ -31,7 +33,7 @@ export function SectionCard({ section }: SectionCardProps) {
         <span className={styles.icon} aria-hidden="true">
           {section.icon}
         </span>
-        <ProgressBadge authored={section.topics.length} planned={section.plannedTopicCount} />
+        <ProgressBadge authored={authoredCount} planned={section.plannedTopicCount} />
       </div>
       <p className={styles.title}>{section.shortTitle}</p>
       <p className={styles.description}>{section.description}</p>

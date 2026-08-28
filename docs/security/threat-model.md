@@ -21,11 +21,11 @@ attack surface for this architecture are marked **N/A by design**, not silently 
 
 ## Tampering
 
-| Asset                                   | Analysis                                                                           | Mitigation                                                                                                                                                                                                                        |
-| --------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Client-side content injection (XSS)     | The only realistic tampering vector, since there's no server state to tamper with. | No `dangerouslySetInnerHTML` anywhere, enforced by a custom ESLint rule (`no-restricted-syntax`); strict CSP (`script-src 'self'`, no `unsafe-inline`/`eval` for scripts); all illustrations are real JSX, not raw HTML strings.  |
-| npm dependency tampering (supply chain) | A compromised transitive dependency could inject malicious code at build time.     | `npm audit --audit-level=high` in CI on every push/PR; `package-lock.json` committed and used for reproducible installs (`npm ci`). Roadmap: add automated dependency-update PRs (Dependabot/Renovate) and a secret-scanning job. |
-| Build artifact tampering in transit     | CI build output could theoretically be altered between build and deploy.           | Deploy step is part of the same CI job/workflow that builds — no separate untrusted artifact hand-off; Azure Static Web Apps deploy action uploads directly from the CI runner.                                                   |
+| Asset                                   | Analysis                                                                           | Mitigation                                                                                                                                                                                                                                              |
+| --------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Client-side content injection (XSS)     | The only realistic tampering vector, since there's no server state to tamper with. | No `dangerouslySetInnerHTML` anywhere, enforced by a custom ESLint rule (`no-restricted-syntax`); strict CSP (`script-src 'self'`, no `unsafe-inline`/`eval` for scripts); all illustrations are real JSX, not raw HTML strings.                        |
+| npm dependency tampering (supply chain) | A compromised transitive dependency could inject malicious code at build time.     | `npm audit --audit-level=high` in CI on every push/PR; `package-lock.json` committed and used for reproducible installs (`npm ci`); automated dependency-update PRs via `.github/dependabot.yml`; `gitleaks` secret-scanning runs in both CI pipelines. |
+| Build artifact tampering in transit     | CI build output could theoretically be altered between build and deploy.           | Deploy step is part of the same CI job/workflow that builds — no separate untrusted artifact hand-off; Azure Static Web Apps deploy action uploads directly from the CI runner.                                                                         |
 
 ## Repudiation
 
@@ -59,6 +59,6 @@ attack surface for this architecture are marked **N/A by design**, not silently 
 ## Residual risk and roadmap
 
 The most significant realistic risks are **supply-chain** (a malicious npm dependency) and
-**CI/CD credential leakage**. Planned hardening (tracked in the project roadmap and
-`docs/security/owasp-checklist.md`): automated secret scanning in CI, automated dependency
-update PRs, and periodic manual review of third-party dependencies before major version bumps.
+**CI/CD credential leakage**. Secret scanning and automated dependency-update PRs are now in
+place (see `docs/security/owasp-checklist.md`); periodic manual review of third-party
+dependencies before major version bumps remains a planned process step.

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SearchBar } from '../SearchBar/SearchBar';
+import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 import styles from './Header.module.css';
 
 export function Header() {
@@ -11,7 +12,10 @@ export function Header() {
         </span>
         <span className={styles.brandText}>Kidsense</span>
       </Link>
-      <SearchBar />
+      <div className={styles.controls}>
+        <SearchBar />
+        <ThemeToggle />
+      </div>
     </header>
   );
 }

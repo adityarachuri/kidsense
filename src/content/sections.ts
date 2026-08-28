@@ -1,4 +1,4 @@
-import type { Section } from '../types/content';
+import type { AgeBandId, Section, Topic } from '../types/content';
 import { behaviourTopics } from './section4-behaviour';
 import { digitalEraTopics } from './section6-digital-era';
 import { eatingTopics } from './section3-eating';
@@ -87,12 +87,67 @@ export function getTopicById(sectionId: string, topicId: string) {
   return section?.topics.find((topic) => topic.id === topicId);
 }
 
+/**
+ * All authored variants of one topic family (entries sharing the same `id` within a section) —
+ * the family's default "general" article plus any age-band-specific rewrites, in authored order.
+ * Takes an already-resolved `Section` rather than an id, since every caller already has one.
+ */
+export function getTopicVariants(section: Section | undefined, topicId: string): readonly Topic[] {
+  return section?.topics.filter((topic) => topic.id === topicId) ?? [];
+}
+
+/**
+ * Picks which variant of a topic family to render. With no `ageBandId`, or when no variant
+ * claims that band, falls back to the family's general variant (the one with no explicit
+ * `ageBandIds`) — or, failing that, the first authored variant, so a family with only
+ * band-specific variants still resolves to something rather than a blank page.
+ */
+export function selectTopicVariant(
+  variants: readonly Topic[],
+  ageBandId: AgeBandId | undefined,
+): Topic | undefined {
+  const generalVariant = variants.find(
+    (topic) => !topic.ageBandIds || topic.ageBandIds.length === 0,
+  );
+  if (ageBandId) {
+    const bandVariant = variants.find((topic) => topic.ageBandIds?.includes(ageBandId));
+    if (bandVariant) return bandVariant;
+  }
+  return generalVariant ?? variants[0];
+}
+
+/**
+ * One card-worthy `Topic` per family in a section — the family's general variant — in
+ * authored order. Used anywhere a section's topics are listed (e.g. `SectionPage`), so a
+ * family with age-band variants still shows exactly one entry, not one per variant.
+ */
+export function getDisplayTopics(section: Section): readonly Topic[] {
+  const seen = new Set<string>();
+  const display: Topic[] = [];
+  for (const topic of section.topics) {
+    if (seen.has(topic.id)) continue;
+    seen.add(topic.id);
+    const variant = selectTopicVariant(getTopicVariants(section, topic.id), undefined);
+    if (variant) display.push(variant);
+  }
+  return display;
+}
+
 export function getAllTopicsFlat() {
   return sections.flatMap((section) => section.topics.map((topic) => ({ section, topic })));
 }
 
+/**
+ * Number of distinct topic families authored in a section — counts each family once
+ * regardless of how many age-band variants it has, so "10 of 10" doesn't inflate as
+ * variants are added.
+ */
+export function getAuthoredTopicCount(section: Section): number {
+  return new Set(section.topics.map((topic) => topic.id)).size;
+}
+
 export function getTotalAuthoredTopicCount(): number {
-  return sections.reduce((sum, section) => sum + section.topics.length, 0);
+  return sections.reduce((sum, section) => sum + getAuthoredTopicCount(section), 0);
 }
 
 export function getTotalPlannedTopicCount(): number {

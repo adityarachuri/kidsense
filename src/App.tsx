@@ -19,6 +19,7 @@ export function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/section/:sectionId" element={<SectionPage />} />
             <Route path="/section/:sectionId/:topicId" element={<TopicPage />} />
+            <Route path="/section/:sectionId/:topicId/:ageBandId" element={<TopicPage />} />
             <Route path="/disclaimer" element={<DisclaimerPage />} />
             <Route path="/terms-of-use" element={<TermsOfUsePage />} />
             <Route path="/privacy" element={<PrivacyPage />} />

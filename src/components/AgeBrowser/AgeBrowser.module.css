@@ -18,7 +18,7 @@
 }
 
 .ageButton {
-  background: #fff;
+  background: var(--card);
   box-shadow: var(--shadow-soft);
   border: none;
   cursor: pointer;
