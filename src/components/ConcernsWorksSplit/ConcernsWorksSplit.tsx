@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { useLocale } from '../../hooks/useLocale';
 import type { RoutineStep } from '../../types/content';
 import styles from './ConcernsWorksSplit.module.css';
 
@@ -15,11 +16,12 @@ export function ConcernsWorksSplit({
   strategies,
   routine,
 }: ConcernsWorksSplitProps) {
+  const { t } = useLocale();
   return (
     <div className={styles.columns}>
       <section className={styles.card} aria-labelledby="concerns-heading">
         <h2 id="concerns-heading" className={`${styles.head} ${styles.headRed}`}>
-          When Should Parents Be Concerned?
+          {t((d) => d.concernsWorksSplit.concernsHeading)}
         </h2>
         <div className={styles.body}>
           <ul className={styles.list}>
@@ -41,7 +43,7 @@ export function ConcernsWorksSplit({
 
       <section className={styles.card} aria-labelledby="works-heading">
         <h2 id="works-heading" className={`${styles.head} ${styles.headGreen}`}>
-          What Usually Works Better?
+          {t((d) => d.concernsWorksSplit.worksHeading)}
         </h2>
         <div className={styles.body}>
           <ul className={styles.list}>
@@ -54,7 +56,10 @@ export function ConcernsWorksSplit({
               </li>
             ))}
           </ul>
-          <div className={styles.routineStrip} aria-label="Suggested routine, in order">
+          <div
+            className={styles.routineStrip}
+            aria-label={t((d) => d.concernsWorksSplit.routineAriaLabel)}
+          >
             {routine.map((step, index) => (
               <Fragment key={step.label}>
                 <div className={styles.routineStep}>

@@ -2,7 +2,7 @@
   background: var(--blue);
   color: #fff;
   text-align: center;
-  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -41,7 +41,7 @@
   border-radius: 50%;
   background: var(--reason-color);
   color: #fff;
-  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 800;
   font-size: 0.74rem;
   display: flex;
@@ -52,7 +52,7 @@
 
 .title {
   color: var(--reason-color);
-  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.78rem;
   line-height: 1.15;

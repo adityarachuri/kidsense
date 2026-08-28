@@ -78,8 +78,12 @@ export const sections: Section[] = [
   },
 ];
 
-export function getSectionById(sectionId: string): Section | undefined {
-  return sections.find((section) => section.id === sectionId);
+/** Accepts an explicit `sourceSections` (e.g. localized ones from `useLocalizedSections`) instead of the English default. */
+export function getSectionById(
+  sectionId: string,
+  sourceSections: readonly Section[] = sections,
+): Section | undefined {
+  return sourceSections.find((section) => section.id === sectionId);
 }
 
 export function getTopicById(sectionId: string, topicId: string) {
@@ -133,8 +137,9 @@ export function getDisplayTopics(section: Section): readonly Topic[] {
   return display;
 }
 
-export function getAllTopicsFlat() {
-  return sections.flatMap((section) => section.topics.map((topic) => ({ section, topic })));
+/** Accepts an explicit `sourceSections` (e.g. localized ones from `useLocalizedSections`) instead of the English default. */
+export function getAllTopicsFlat(sourceSections: readonly Section[] = sections) {
+  return sourceSections.flatMap((section) => section.topics.map((topic) => ({ section, topic })));
 }
 
 /**

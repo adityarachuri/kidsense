@@ -1,10 +1,14 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLocalizedSections } from '../../content/localize';
 import { sections } from '../../content/sections';
+import { useLocale } from '../../hooks/useLocale';
 import { searchTopics } from '../../utils/search';
 import styles from './SearchBar.module.css';
 
 export function SearchBar() {
+  const { t } = useLocale();
+  const localizedSections = useLocalizedSections(sections);
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -13,7 +17,10 @@ export function SearchBar() {
   const navigate = useNavigate();
   const listboxId = useId();
 
-  const results = useMemo(() => searchTopics(sections, query).slice(0, 8), [query]);
+  const results = useMemo(
+    () => searchTopics(localizedSections, query).slice(0, 8),
+    [localizedSections, query],
+  );
 
   useEffect(() => {
     setActiveIndex(-1);
@@ -71,9 +78,9 @@ export function SearchBar() {
           aria-expanded={showResults}
           aria-controls={listboxId}
           aria-autocomplete="list"
-          aria-label="Search topics"
+          aria-label={t((d) => d.header.searchLabel)}
           className={styles.input}
-          placeholder="Search topics (e.g. bedtime, homework)"
+          placeholder={t((d) => d.header.searchPlaceholder)}
           value={query}
           onChange={(event) => {
             setQuery(event.target.value);
@@ -86,7 +93,7 @@ export function SearchBar() {
           <button
             type="button"
             className={styles.clearButton}
-            aria-label="Clear search"
+            aria-label={t((d) => d.header.clearSearch)}
             onClick={() => {
               setQuery('');
               inputRef.current?.focus();
@@ -101,7 +108,7 @@ export function SearchBar() {
         <ul className={styles.results} id={listboxId} role="listbox">
           {results.length === 0 ? (
             <li className={styles.noResults} role="presentation">
-              No topics found for &ldquo;{query}&rdquo;
+              {t((d) => d.header.noResultsFor)} &ldquo;{query}&rdquo;
             </li>
           ) : (
             results.map((result, index) => (

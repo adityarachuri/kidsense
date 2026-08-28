@@ -13,5 +13,16 @@ Here is the overall vision of the app. You may plan and break down these into mu
 12. Ensure application security practices/standards such as OWASP, STRIDE, etc. are diligently followed and hardened
 13. We will use CircleCI as the CI/CD pipeline, so implement an end-to-end DevOps pipeline accordingly
 14. Final version of the app will be deployed as an azure static web app
-15. Ensure to have all quality gates, checks and balances, proper technical documentation (SLDC structured), and automated background processes if needed
+15. Ensure to have all quality gates, checks and balances, proper technical documentation (SLDC structured), and automated background processes if needed 
 
+
+Localization - Hindi and Telugu
+
+Need to further develop this app addressing children with special needs including,
+
+a. physical disabilities (such as cerebral palsy, muscular dystrophy, or epilepsy), 
+b. sensory differences (deafness, low vision), 
+c. developmental or cognitive differences (autism spectrum disorder, Down syndrome, intellectual disability), and
+d. behavioral or emotional challenges, such as attention deficit hyperactivity disorder (ADHD) or anxiety, which can affect their ability to focus, regulate emotions, and form relationships.
+
+Note: In educational and legal contexts, particularly in the United States, the term is often used to designate children who require an Individualized Education Plan (IEP) or accommodations under laws like the Individuals with Disabilities Education Act (IDEA) and Section 504 of the Rehabilitation Act to ensure equitable access to learning and services.

@@ -30,7 +30,7 @@
   background: var(--purple);
   color: #fff;
   text-decoration: none;
-  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.85rem;
   padding: 10px 24px;

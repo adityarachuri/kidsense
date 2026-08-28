@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocale } from '../../hooks/useLocale';
 import styles from './Breadcrumbs.module.css';
 
 export interface Crumb {
@@ -13,8 +14,9 @@ interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs({ items }: BreadcrumbsProps) {
+  const { t } = useLocale();
   return (
-    <nav className={styles.nav} aria-label="Breadcrumb">
+    <nav className={styles.nav} aria-label={t((d) => d.breadcrumb.ariaLabel)}>
       {items.map((item, index) => (
         <Fragment key={item.label}>
           {index > 0 && (

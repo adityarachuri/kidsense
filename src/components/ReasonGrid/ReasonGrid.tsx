@@ -1,3 +1,4 @@
+import { useLocale } from '../../hooks/useLocale';
 import type { ReasonCard } from '../../types/content';
 import styles from './ReasonGrid.module.css';
 
@@ -17,10 +18,11 @@ interface ReasonGridProps {
 }
 
 export function ReasonGrid({ reasons }: ReasonGridProps) {
+  const { t } = useLocale();
   return (
     <section aria-labelledby="common-reasons-heading">
       <h2 id="common-reasons-heading" className={styles.bar}>
-        Common Reasons
+        {t((d) => d.reasonGrid.heading)}
       </h2>
       <div className={styles.grid}>
         {reasons.map((reason, index) => {

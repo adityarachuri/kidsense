@@ -1,0 +1,26 @@
+.select {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 10px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.select:hover {
+  box-shadow: var(--shadow-card);
+}
+
+@media print {
+  .select {
+    display: none;
+  }
+}

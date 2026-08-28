@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
+import { useLocale } from '../../hooks/useLocale';
 import styles from './NotFoundPage.module.css';
 
 export function NotFoundPage() {
+  const { t } = useLocale();
   return (
     <div className={styles.wrapper}>
       <div className={styles.emoji} aria-hidden="true">
         🔍
       </div>
-      <h1 className={styles.title}>Page not found</h1>
-      <p className={styles.message}>
-        We couldn&rsquo;t find that page. It may have been renamed or isn&rsquo;t published yet.
-      </p>
+      <h1 className={styles.title}>{t((d) => d.notFound.title)}</h1>
+      <p className={styles.message}>{t((d) => d.notFound.message)}</p>
       <Link to="/" className={styles.link}>
-        Back to home
+        {t((d) => d.common.backToHome)}
       </Link>
     </div>
   );

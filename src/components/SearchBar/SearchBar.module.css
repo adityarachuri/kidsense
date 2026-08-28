@@ -27,7 +27,7 @@
 .input {
   border: none;
   outline: none;
-  font-family: 'Nunito', system-ui, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
   width: 100%;
