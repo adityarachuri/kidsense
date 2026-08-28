@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { ageBands, getApplicableAgeBandIds } from '../../content/ageBands';
-import { getAllTopicsFlat } from '../../content/sections';
+import { useLocalizedSections } from '../../content/localize';
+import { getAllTopicsFlat, sections } from '../../content/sections';
+import { useLocale } from '../../hooks/useLocale';
 import { TopicCard } from '../TopicCard/TopicCard';
 import styles from './AgeBrowser.module.css';
 
@@ -11,6 +13,8 @@ const MILESTONE_AGES = [5, 8, 10, 12, 15, 18] as const;
  * and see every topic (across every section) whose age band matches it.
  */
 export function AgeBrowser() {
+  const { t } = useLocale();
+  const localizedSections = useLocalizedSections(sections);
   const [selectedAge, setSelectedAge] = useState<number | null>(null);
 
   const band =
@@ -18,14 +22,20 @@ export function AgeBrowser() {
   const matches =
     band === undefined
       ? []
-      : getAllTopicsFlat().filter(({ topic }) => getApplicableAgeBandIds(topic).includes(band.id));
+      : getAllTopicsFlat(localizedSections).filter(({ topic }) =>
+          getApplicableAgeBandIds(topic).includes(band.id),
+        );
 
   return (
     <section className={styles.wrapper} aria-labelledby="browse-by-age-heading">
       <h2 id="browse-by-age-heading" className={styles.heading}>
-        Browse by Age
+        {t((d) => d.ageBrowser.heading)}
       </h2>
-      <div className={styles.ageButtons} role="group" aria-label="Filter topics by age">
+      <div
+        className={styles.ageButtons}
+        role="group"
+        aria-label={t((d) => d.ageBrowser.filterAriaLabel)}
+      >
         {MILESTONE_AGES.map((age) => (
           <button
             key={age}
@@ -34,7 +44,7 @@ export function AgeBrowser() {
             aria-pressed={selectedAge === age}
             onClick={() => setSelectedAge((current) => (current === age ? null : age))}
           >
-            Age {age}
+            {t((d) => d.ageBrowser.ageButton, { age })}
           </button>
         ))}
       </div>
@@ -51,9 +61,7 @@ export function AgeBrowser() {
             ))}
           </div>
         ) : (
-          <p className={styles.empty}>
-            No topics are tagged for age {selectedAge} yet — this age band is still being authored.
-          </p>
+          <p className={styles.empty}>{t((d) => d.ageBrowser.emptyState, { age: selectedAge })}</p>
         ))}
     </section>
   );

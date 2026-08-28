@@ -101,6 +101,12 @@ export interface Topic {
   readonly culturalLens?: readonly CulturalLensNote[];
   /** Named authoritative organizations whose publicly available guidance informed this variant. */
   readonly sources?: readonly string[];
+  /**
+   * Set by the localization layer (`src/content/localize.ts`) when the active locale's
+   * translation for this topic is machine-drafted and still pending human review. Never set on
+   * the English source data itself.
+   */
+  readonly needsReview?: boolean;
 }
 
 export interface Section {
@@ -112,4 +118,6 @@ export interface Section {
   readonly topics: readonly Topic[];
   /** Total topics planned for this section, even if not all are authored yet. */
   readonly plannedTopicCount: number;
+  /** Set by the localization layer when this section's translated title/shortTitle/description is machine-drafted and pending human review. */
+  readonly needsReview?: boolean;
 }

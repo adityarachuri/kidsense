@@ -8,18 +8,18 @@
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 800;
   color: var(--purple);
 }
 
 .title {
-  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  font-size: clamp(1.9rem, 4.8vw, 2.75rem);
   margin-top: 12px;
 }
 
 .subtitle {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--ink-soft);
   font-weight: 600;
   max-width: 600px;

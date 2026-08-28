@@ -14,7 +14,7 @@
 
 .head {
   padding: 9px 14px;
-  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 800;
   font-size: 0.82rem;
   color: #fff;

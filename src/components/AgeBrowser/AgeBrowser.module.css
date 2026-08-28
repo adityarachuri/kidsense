@@ -22,7 +22,7 @@
   box-shadow: var(--shadow-soft);
   border: none;
   cursor: pointer;
-  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.85rem;
   color: var(--ink);

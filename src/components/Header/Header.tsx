@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 import styles from './Header.module.css';
@@ -14,6 +15,7 @@ export function Header() {
       </Link>
       <div className={styles.controls}>
         <SearchBar />
+        <LanguageToggle />
         <ThemeToggle />
       </div>
     </header>

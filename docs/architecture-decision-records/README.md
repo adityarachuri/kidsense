@@ -10,3 +10,4 @@ edited after acceptance — a changed decision gets a new ADR that supersedes th
 | ------------------------------------------------- | -------------------------------------------------------------------------- | -------- |
 | [0001](0001-age-band-content-model.md)            | Age-band content model (fork per age band, not a single tagged article)    | Accepted |
 | [0002](0002-circleci-alongside-github-actions.md) | CircleCI as primary deploy pipeline, GitHub Actions retained for PR checks | Accepted |
+| [0003](0003-localization-architecture.md)         | Localization architecture (chrome vs. content translation layers, fonts)   | Accepted |

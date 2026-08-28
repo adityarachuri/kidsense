@@ -56,7 +56,55 @@
   src: url('/fonts/nunito-latin-700-normal.woff2') format('woff2');
 }
 
+/* Script-specific fallback faces for non-Latin locales — see src/utils/locale.ts.
+   Baloo 2 and Nunito are Latin-only subsets, so headings and body text alike use
+   these for Hindi and Telugu (see the --font-heading/--font-body overrides below). */
+@font-face {
+  font-family: 'Noto Sans Devanagari';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/noto-sans-devanagari-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Devanagari';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/noto-sans-devanagari-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Devanagari';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/noto-sans-devanagari-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Telugu';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/noto-sans-telugu-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Telugu';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/noto-sans-telugu-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Telugu';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/noto-sans-telugu-700-normal.woff2') format('woff2');
+}
+
 :root {
+  --font-heading: 'Baloo 2', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
   color-scheme: light dark;
   --page-max: 1180px;
   --pad-x: clamp(16px, 3vw, 34px);
@@ -164,10 +212,29 @@
   color-scheme: light;
 }
 
+/* Neither decorative Latin display face has Devanagari or Telugu glyphs, so both
+   headings and body text fall back to one self-hosted Noto Sans face per script
+   — see src/utils/locale.ts for how data-locale is applied. */
+:root[data-locale='hi'] {
+  --font-heading: 'Noto Sans Devanagari', system-ui, sans-serif;
+  --font-body: 'Noto Sans Devanagari', system-ui, sans-serif;
+}
+
+:root[data-locale='te'] {
+  --font-heading: 'Noto Sans Telugu', system-ui, sans-serif;
+  --font-body: 'Noto Sans Telugu', system-ui, sans-serif;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+html {
+  /* Bumped from the 16px browser default for readability — every size in the app is in
+     rem, so this scales the whole type system proportionally from one place. */
+  font-size: 17px;
 }
 
 html,
@@ -181,7 +248,7 @@ body {
   background:
     radial-gradient(60% 45% at 50% 0%, var(--bg-gradient-1) 0%, transparent 65%),
     radial-gradient(70% 50% at 50% 100%, var(--bg-gradient-2) 0%, transparent 65%), var(--bg);
-  font-family: 'Nunito', system-ui, sans-serif;
+  font-family: var(--font-body);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
@@ -191,7 +258,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-family: var(--font-heading);
   margin: 0;
 }
 

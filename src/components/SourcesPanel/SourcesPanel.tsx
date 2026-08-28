@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useLocale } from '../../hooks/useLocale';
 import styles from './SourcesPanel.module.css';
 
 interface SourcesPanelProps {
@@ -7,14 +8,16 @@ interface SourcesPanelProps {
 
 /** Renders nothing when this topic hasn't had its sources attributed yet. */
 export function SourcesPanel({ sources }: SourcesPanelProps) {
+  const { t } = useLocale();
   if (!sources || sources.length === 0) {
     return null;
   }
 
   return (
     <p className={styles.note}>
-      Informed by publicly available guidance from: {sources.join(', ')}. See{' '}
-      <Link to="/sources">Sources &amp; Methodology</Link> for how Kidsense is compiled.
+      {t((d) => d.sourcesPanel.informedByPrefix, { sources: sources.join(', ') })}{' '}
+      <Link to="/sources">{t((d) => d.footer.sourcesAndMethodology)}</Link>{' '}
+      {t((d) => d.sourcesPanel.suffix)}
     </p>
   );
 }

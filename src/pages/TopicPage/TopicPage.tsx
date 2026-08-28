@@ -9,8 +9,16 @@ import { ReassuranceBanner } from '../../components/ReassuranceBanner/Reassuranc
 import { ReasonGrid } from '../../components/ReasonGrid/ReasonGrid';
 import { SourcesPanel } from '../../components/SourcesPanel/SourcesPanel';
 import { TopicHeader } from '../../components/TopicHeader/TopicHeader';
+import { TranslationNotice } from '../../components/TranslationNotice/TranslationNotice';
 import { ageBands } from '../../content/ageBands';
-import { getSectionById, getTopicVariants, selectTopicVariant } from '../../content/sections';
+import { useLocalizedSections } from '../../content/localize';
+import {
+  getSectionById,
+  getTopicVariants,
+  selectTopicVariant,
+  sections,
+} from '../../content/sections';
+import { useLocale } from '../../hooks/useLocale';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import type { AgeBandId } from '../../types/content';
 import styles from './TopicPage.module.css';
@@ -20,12 +28,14 @@ function toAgeBandId(value: string | undefined): AgeBandId | undefined {
 }
 
 export function TopicPage() {
+  const { t } = useLocale();
+  const localizedSections = useLocalizedSections(sections);
   const { sectionId, topicId, ageBandId } = useParams<{
     sectionId: string;
     topicId: string;
     ageBandId?: string;
   }>();
-  const section = sectionId ? getSectionById(sectionId) : undefined;
+  const section = sectionId ? getSectionById(sectionId, localizedSections) : undefined;
   const variants = topicId ? getTopicVariants(section, topicId) : [];
   const activeAgeBandId = toAgeBandId(ageBandId);
   const topic = selectTopicVariant(variants, activeAgeBandId);
@@ -52,7 +62,7 @@ export function TopicPage() {
       <div className={styles.topBar}>
         <Breadcrumbs
           items={[
-            { label: 'Home', to: '/' },
+            { label: t((d) => d.common.home), to: '/' },
             { label: section.shortTitle, to: `/section/${section.id}` },
             { label: topic.title },
           ]}
@@ -65,7 +75,7 @@ export function TopicPage() {
           <div
             className={styles.ageSwitcher}
             role="group"
-            aria-label={`View "${topic.title}" for a specific age`}
+            aria-label={t((d) => d.topicPage.ageSwitcherAriaLabel, { title: topic.title })}
           >
             {hasGeneralVariant && (
               <Link
@@ -77,7 +87,7 @@ export function TopicPage() {
                 }
                 aria-current={!activeAgeBandId ? 'page' : undefined}
               >
-                General
+                {t((d) => d.topicPage.generalVariant)}
               </Link>
             )}
             {bandVariants.map((variant) =>
@@ -103,6 +113,7 @@ export function TopicPage() {
             )}
           </div>
         )}
+        <TranslationNotice needsReview={topic.needsReview} />
         <TopicHeader topic={topic} sectionShortTitle={section.shortTitle} />
         <ReassuranceBanner reassurance={topic.reassurance} explanation={topic.explanation} />
         <ReasonGrid reasons={topic.reasons} />
@@ -121,13 +132,13 @@ export function TopicPage() {
       {nextTopic && nextTopic.id !== topic.id && (
         <div className={styles.nextUp}>
           <div>
-            <p className={styles.nextUpLabel}>Next up</p>
+            <p className={styles.nextUpLabel}>{t((d) => d.topicPage.nextUp)}</p>
             <p className={styles.nextUpTitle}>{nextTopic.title}</p>
           </div>
           <Link
             to={`/section/${section.id}/${nextTopic.id}`}
             className={styles.nextUpLink}
-            aria-label={`Go to next topic: ${nextTopic.title}`}
+            aria-label={t((d) => d.topicPage.nextTopicAriaLabel, { title: nextTopic.title })}
           >
             →
           </Link>
