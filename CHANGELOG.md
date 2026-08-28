@@ -8,6 +8,16 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
+- Fixed a live CI failure: `gitleaks-action` writes a `results.sarif` report into the workspace
+  root, and since it ran before `npm run format:check` in `ci.yml`, Prettier flagged that
+  unformatted report file and failed the whole `quality-gate` job — the ESLint step itself was
+  passing. Added `*.sarif` to `.gitignore` and `.prettierignore`; confirmed locally by
+  reproducing the artifact and re-running `format:check`.
+- Local git hooks via Husky + lint-staged, installed automatically by `npm install`: a
+  `pre-commit` hook runs `lint-staged` (ESLint `--fix` + Prettier on staged files only, fast
+  enough for every commit), and a `pre-push` hook runs the full `npm run verify` — the same
+  gate CI runs — so a failing quality gate is caught locally before it costs a CI run, not
+  after. See `.husky/`, the `lint-staged` key in `package.json`, and `CONTRIBUTING.md`.
 - Refreshed the light theme: the page background moved from a heavily saturated tan
   (`#e8d9b8`) to a much lighter warm-ivory base (`#faf6ef`) with a subtle lavender-to-peach
   radial wash, so the white cards and candy-colored accent badges read cleanly instead of

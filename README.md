@@ -38,6 +38,11 @@ npm run dev          # http://localhost:5173
 
 Before considering any change finished, run `npm run verify`. This is the same sequence CI runs.
 
+**Git hooks (Husky) run this automatically** — `npm install` wires up a `pre-commit` hook
+(`lint-staged`: ESLint `--fix` + Prettier on staged files) and a `pre-push` hook (the full
+`npm run verify`), so a failing quality gate is caught locally before it costs a CI run. See
+`.husky/` and the `lint-staged` key in `package.json`.
+
 ---
 
 ## Architecture
