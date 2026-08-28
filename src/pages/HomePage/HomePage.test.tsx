@@ -1,10 +1,20 @@
 import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 import { sections } from '../../content/sections';
 import { HomePage } from './HomePage';
 
 describe('HomePage', () => {
+  it('has no accessibility violations', async () => {
+    const { container } = render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>,
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it('renders the page heading', () => {
     render(
       <MemoryRouter>

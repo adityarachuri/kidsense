@@ -89,6 +89,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Screen-time meltdowns are usually about the transition, not the device — a predictable ending routine reduces the reaction far more than reducing screen time alone.',
     keywords: ['screen time', 'meltdown', 'transitions', 'tablet', 'ending'],
+    perspectives: {
+      clinician:
+        'Pediatricians note the transition itself, not the total screen time, is usually the harder problem — a predictable ending routine (same warning, same stopping point) reduces meltdowns more reliably than reducing minutes.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with structured daily schedules',
+        note: 'Some cultures build screen time into a fixed daily schedule with clear start and end points from an early age, which can make the boundary feel more like routine than a fight.',
+      },
+      {
+        region: 'Cultures with more flexible daily rhythms',
+        note: "Where daily life is less rigidly scheduled, screen endings may need a more explicit, deliberate warning system since there's no built-in 'next thing' to transition into.",
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Common Sense Media'],
   },
   {
     id: 'asking-for-device',
@@ -176,6 +191,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Constant requests usually settle once screen windows are predictable — a clear "not now, but later at 4" resolves far more than an outright no.',
     keywords: ['screen time', 'device', 'asking', 'boredom', 'tablet'],
+    perspectives: {
+      clinician:
+        "Pediatricians point out that predictable, agreed screen windows resolve near-constant device requests far more reliably than a blanket no, since the child isn't left guessing whether asking again might work.",
+    },
+    culturalLens: [
+      {
+        region: 'Multigenerational households',
+        note: 'Where grandparents or other adults are also present, requests may be spread across multiple adults, which can unintentionally create inconsistent answers unless the household agrees on one shared rule.',
+      },
+      {
+        region: 'Cultures with strong outdoor and communal play norms',
+        note: 'Where children are routinely sent outside to play with neighborhood peers, screens compete with a readily available, socially normal alternative.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Common Sense Media'],
   },
   {
     id: 'youtube-obsession',
@@ -262,6 +292,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Rewatching a favorite video is closer to reading a favorite book again than to overuse — the platform’s autoplay design, not the child’s interest, is usually what removes the natural stopping point.',
     keywords: ['youtube', 'video', 'rewatching', 'obsession', 'autoplay'],
+    perspectives: {
+      clinician:
+        "Media researchers note that rewatching a favorite video mirrors the well-documented comfort children get from rereading a favorite book — the platform's autoplay feature, not the child's interest itself, is usually what removes the natural stopping point.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong shared-viewing habits',
+        note: 'Some cultures treat screen media as more of a shared family activity by default, which naturally builds in an adult check-in during any long viewing stretch.',
+      },
+      {
+        region: 'Cultures with strong oral storytelling traditions',
+        note: 'Where repeated retelling of the same stories is already a valued tradition, rewatching a favorite video maps naturally onto a familiar, positively-viewed practice.',
+      },
+    ],
+    sources: ['Common Sense Media', 'American Academy of Pediatrics'],
   },
   {
     id: 'video-games',
@@ -345,6 +390,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Fighting over an in-progress match is usually about the game’s built-in stakes, not a red flag — agreeing on stop points before playing prevents most of the conflict.',
     keywords: ['video games', 'gaming', 'multiplayer', 'screen time'],
+    perspectives: {
+      clinician:
+        "Pediatricians recommend agreeing on stop points before play starts, tied to a natural break in the game, since asking a child to quit mid-match ignores the game's own designed structure.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with a strong gaming/esports culture',
+        note: 'Where competitive gaming is a mainstream, respected activity, mid-match arguments are often treated less as a discipline issue and more as a scheduling one, similar to interrupting any serious hobby.',
+      },
+      {
+        region: 'Cultures with more restrictive gaming norms',
+        note: 'Some cultures treat gaming as a lower-priority activity relative to schoolwork, which can add extra tension to any mid-match stopping conflict.',
+      },
+    ],
+    sources: ['Common Sense Media', 'American Academy of Pediatrics'],
   },
   {
     id: 'social-media-pressure',
@@ -430,6 +490,136 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'The pull toward social media is really a pull toward peer belonging — addressing the underlying need for connection works better than framing it as a discipline problem.',
     keywords: ['social media', 'tween', 'peer pressure', 'apps', 'belonging'],
+    perspectives: {
+      clinician:
+        "The APA's 2023 health advisory on adolescent social media use recommends delaying access where reasonable and pairing any access with active discussion and monitoring, rather than either an outright ban or unrestricted access.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with later, collectively-delayed access norms',
+        note: 'Some cultures and school communities have adopted informal norms delaying phone or social media access until later, which changes peer-pressure dynamics for everyone in that group.',
+      },
+      {
+        region: 'Cultures with earlier digital independence',
+        note: 'Other cultures treat early digital independence as a normal marker of growing up, with less collective delay.',
+      },
+    ],
+    sources: ['American Psychological Association', 'Common Sense Media'],
+  },
+  {
+    id: 'social-media-pressure',
+    topicNumber: 5,
+    title: 'Why Does Social Media Feel So High-Stakes for Teens?',
+    heading: {
+      lead: 'Why Does Social Media',
+      emphasis: 'Feel So High-Stakes',
+      trailing: 'for Teens Specifically?',
+    },
+    quote: 'My whole social life is basically online now.',
+    ageRanges: ['13–15 years', '16–18 years'],
+    illustrationId: 'social-media-pressure',
+    ageBandIds: ['teen'],
+    reassurance:
+      "It's common — and it reflects how central peer connection is at this age, not vanity or addiction.",
+    explanation:
+      "By the teen years, social media isn't just entertainment — it's where a huge share of real peer relationships, status, and self-presentation actually happens.",
+    reasons: [
+      {
+        icon: '🎭',
+        title: 'Curated Self-Presentation',
+        description:
+          'Teens are actively experimenting with identity, and social media is where much of that self-presentation now happens publicly.',
+      },
+      {
+        icon: '👥',
+        title: 'Real Social Stakes',
+        description:
+          'Group chats, tags, and posts often carry genuine social consequences among peers, not just online ones.',
+      },
+      {
+        icon: '📊',
+        title: 'Constant Social Comparison',
+        description:
+          "A teen brain's heightened sensitivity to peer status makes algorithm-driven comparison feel more intense than it did a few years earlier.",
+      },
+      {
+        icon: '🧠',
+        title: 'Still-Maturing Impulse Control',
+        description:
+          'The judgment to step back from a draining feed lags behind the desire to keep checking it.',
+      },
+      {
+        icon: '💔',
+        title: 'Fear of Being Left Out',
+        description:
+          'Missing a moment in a fast-moving group chat can feel like a real social exclusion, not an abstract one.',
+      },
+      {
+        icon: '🎯',
+        title: 'Engineered for Engagement',
+        description:
+          'Platforms are deliberately designed to maximize time spent, using feedback loops most adults also find hard to resist.',
+      },
+      {
+        icon: '🌙',
+        title: 'Displacing Sleep and Downtime',
+        description: 'Late-night scrolling competes directly with the sleep teens need most.',
+      },
+      {
+        icon: '🪞',
+        title: 'Identity Tied to Metrics',
+        description:
+          'Likes and follower counts can start to feel like a scoreboard for self-worth if left unexamined.',
+      },
+    ],
+    concerns: [
+      'Mood consistently worse after specific time spent on an app',
+      'Comparing themselves harshly and persistently to peers or influencers online',
+      'Sleep, schoolwork, or in-person friendships being significantly displaced',
+      'Signs of exclusion, harassment, or unhealthy comparison spirals',
+      'Difficulty disengaging even when they say they want to',
+    ],
+    professionalGuidance:
+      'If mood, sleep, or self-esteem is consistently affected by social media use, a school counselor or pediatrician can help assess whether more structured support is needed.',
+    strategies: [
+      'Talk about algorithm design openly — how feeds are built to keep attention, not to reflect real life',
+      'Collaborate on boundaries, like phones out overnight, rather than imposing them unilaterally',
+      'Check in about how specific apps or accounts make them feel, not just how much time they spend',
+      'Model healthy phone habits yourself — teens notice adult double standards quickly',
+    ],
+    routine: [
+      { icon: '🗣️', label: 'Talk openly, no lecture' },
+      { icon: '🤝', label: 'Set boundaries together' },
+      { icon: '🌙', label: 'Phones out of the bedroom' },
+      { icon: '💬', label: 'Check in on how it feels' },
+    ],
+    insight:
+      "For teens, social media isn't a separate hobby from their social life — it largely is their social life right now, which is exactly why blanket bans tend to backfire while thoughtful, collaborative boundaries tend to work.",
+    keywords: ['social media', 'teen', 'peer pressure', 'apps', 'mental health'],
+    perspectives: {
+      teen: "Teens often say the pressure isn't really about the app itself — it's the fear of missing something that matters to their friend group, or of being judged for a post, that keeps them checking.",
+      clinician:
+        'Adolescent psychologists note that heightened sensitivity to peer feedback is a normal, biologically-rooted feature of teen brain development, not a flaw — which is exactly why algorithm-driven feedback loops hit teens harder than adults.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong collective peer-group norms',
+        note: "Where group belonging is emphasized culturally, a teen's online social standing can carry weight closer to family reputation than an individual concern.",
+      },
+      {
+        region: 'Cultures with later or more restricted device access',
+        note: 'Some cultures delay personal device or social media access further into the teen years by broad social consensus, which changes peer dynamics around who has access when.',
+      },
+      {
+        region: 'Cultures with open, less monitored teen device use',
+        note: 'Other cultures treat teen digital independence as an expected marker of growing autonomy, with less household monitoring by design.',
+      },
+    ],
+    sources: [
+      'American Psychological Association',
+      'Common Sense Media',
+      'American Academy of Pediatrics',
+    ],
   },
   {
     id: 'screens-before-bed',
@@ -513,6 +703,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Sleep trouble after screens is a predictable biological response to light and stimulation — a consistent cutoff time solves it far more reliably than willpower in the moment.',
     keywords: ['screens before bed', 'sleep', 'bedtime', 'blue light'],
+    perspectives: {
+      clinician:
+        'Sleep researchers point to blue light suppressing melatonin and content-driven mental stimulation as the two main mechanisms — a consistent screen cutoff 30–60 minutes before bed addresses both without requiring willpower in the moment.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with structured wind-down rituals',
+        note: 'Some cultures build a consistent non-screen wind-down ritual — a bath, a story — into bedtime as standard practice, which naturally displaces pre-bed screen use.',
+      },
+      {
+        region: 'Cultures with later, more flexible bedtimes',
+        note: 'Where bedtimes are culturally later and less fixed, the specific screen-cutoff strategy may need to shift later too, while the underlying gap-before-sleep principle still applies.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Sleep Foundation'],
   },
   {
     id: 'boredom-without-screens',
@@ -600,6 +805,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Boredom is the discomfort right before a child generates their own idea — solving it too quickly for them is what keeps the "bored without a screen" pattern going.',
     keywords: ['boredom', 'screen-free', 'independent play', 'unstructured play'],
+    perspectives: {
+      clinician:
+        "Child development researchers describe self-directed play as a genuine skill that atrophies without practice — resisting the urge to immediately solve a child's boredom is what rebuilds it.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong unstructured outdoor-play traditions',
+        note: 'Cultures that prioritize unstructured outdoor play from an early age tend to give children more built-in practice generating their own activities.',
+      },
+      {
+        region: 'Cultures with heavily scheduled extracurricular life',
+        note: 'Where most of a child’s time outside school is already structured by adults, there may be fewer natural stretches of unstructured time to practice self-directed play at all.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Common Sense Media'],
   },
   {
     id: 'comparing-to-influencers',
@@ -687,6 +907,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Comparison to influencers eases as media literacy grows — helping a child see the effort behind the polish matters more than restricting exposure alone.',
     keywords: ['influencers', 'social media', 'comparison', 'self-esteem'],
+    perspectives: {
+      clinician:
+        'Media literacy researchers note that explicitly discussing how curated content is produced — the editing, the sponsorship, the many discarded takes — is one of the most effective ways to build the critical distance kids need.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with heavy youth-targeted marketing',
+        note: 'Cultures with intensive youth-targeted influencer marketing can intensify comparison earlier and more persistently.',
+      },
+      {
+        region: 'Cultures with strong media literacy education',
+        note: 'Where schools explicitly teach media literacy, children get structured practice critically evaluating curated content beyond what happens at home.',
+      },
+    ],
+    sources: ['Common Sense Media', 'American Psychological Association'],
   },
   {
     id: 'cyberbullying',
@@ -771,6 +1006,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'The single biggest reason kids stay silent about online conflict is fear of losing their device — removing that fear in advance is what actually opens the conversation.',
     keywords: ['cyberbullying', 'online conflict', 'social media', 'safety'],
+    perspectives: {
+      clinician:
+        'School counselors emphasize that removing the fear of losing device access is the single biggest factor in whether a child discloses online conflict at all.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with established school anti-bullying infrastructure',
+        note: 'Some school systems have well-established, trusted reporting channels, which can make disclosure feel safer and more routine.',
+      },
+      {
+        region: 'Cultures with strong stigma around reporting peer conflict',
+        note: 'In cultures where reporting a peer is seen as a serious betrayal, a child may weigh social cost even more heavily against telling an adult.',
+      },
+    ],
+    sources: ['Common Sense Media', 'American Academy of Pediatrics'],
   },
   {
     id: 'sneaking-devices',
@@ -856,6 +1106,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Sneaking usually points to a rule that feels mismatched to a child’s actual wish for more time — a limit set collaboratively is followed far more consistently than one simply imposed.',
     keywords: ['sneaking devices', 'screen time', 'rules', 'honesty'],
+    perspectives: {
+      clinician:
+        'Family therapists note that rules set collaboratively are followed far more consistently than rules simply imposed — revisiting whether a limit still feels reasonable often reduces sneaking more than tightening enforcement.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with more negotiable household rules',
+        note: 'Some family cultures treat household rules as genuinely open to renegotiation, which can reduce the appeal of working around them secretly.',
+      },
+      {
+        region: 'Cultures with strict, non-negotiable household rules',
+        note: 'Where household rules are treated as fixed and non-negotiable by design, sneaking may be addressed more as a straightforward compliance issue than a rule-fit conversation.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Common Sense Media'],
   },
   {
     id: 'screens-at-dinner',
@@ -939,6 +1204,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Wanting a screen at dinner is usually about filling a quiet moment, not avoiding the family — a consistent house-wide rule works better than one that singles out just the kids.',
     keywords: ['screens at dinner', 'family meals', 'screen time', 'mealtime'],
+    perspectives: {
+      clinician:
+        'Pediatricians frame a shared, house-wide no-screens-at-meals rule — including for adults — as far more effective and fair than a rule that singles out children alone.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong shared-meal traditions',
+        note: 'Cultures with a strong cultural expectation of unhurried, screen-free family meals treat this rule as simply the norm rather than a special restriction.',
+      },
+      {
+        region: 'Cultures with more independent, staggered mealtimes',
+        note: 'Where family members often eat separately due to differing schedules, a shared no-screens rule may need to be reframed around whichever meals the family does eat together.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Common Sense Media'],
   },
   {
     id: 'online-friendships',
@@ -1028,6 +1308,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Online friendships can be as emotionally real as in-person ones — the goal isn’t to dismiss the connection, but to keep it safe while it develops.',
     keywords: ['online friends', 'internet safety', 'gaming friends', 'social connection'],
+    perspectives: {
+      clinician:
+        'Adolescent psychologists note online friendships built around real shared interests and regular contact can form genuine attachment — the priority is safety (no private contact with unknown adults, no in-person meetings without a parent), not dismissing the friendship as unreal.',
+    },
+    culturalLens: [
+      {
+        region: 'Online-first hobby and fandom communities',
+        note: 'In some youth subcultures, online-first friendships around a shared interest are simply the norm, especially for interests not well represented locally.',
+      },
+      {
+        region: 'Cultures with cautious stranger-danger norms',
+        note: 'Some cultures instill strong early caution around unfamiliar adults, which can transfer usefully to online safety once a child understands the same caution applies there too.',
+      },
+    ],
+    sources: ['Common Sense Media', 'American Psychological Association'],
   },
   {
     id: 'online-school-distraction',
@@ -1113,6 +1408,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Distraction near a device is a predictable design effect, not a discipline failure — removing the temptation works far better than relying on willpower alone.',
     keywords: ['schoolwork', 'distraction', 'focus', 'homework', 'notifications'],
+    perspectives: {
+      clinician:
+        'Attention researchers note that when schoolwork and entertainment share the same device, willpower alone rarely wins — a separate distraction-free device, or silenced notifications during work time, is a structural fix, not just a discipline one.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with device-free school policies',
+        note: 'Some school systems restrict personal devices during the school day entirely, which removes this specific tension during class time even if it resurfaces at home.',
+      },
+      {
+        region: 'Cultures with device-integrated school policies',
+        note: 'Where devices are the primary tool for schoolwork itself, separating "school" and "entertainment" use requires more deliberate structure rather than a simple device-free rule.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'Common Sense Media'],
   },
   {
     id: 'age-inappropriate-content',
@@ -1198,6 +1508,21 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Wanting "older" content is usually about status and belonging, not the content itself — an appealing same-age alternative resolves the pull more often than a flat refusal.',
     keywords: ['age-appropriate content', 'parental controls', 'media', 'older siblings'],
+    perspectives: {
+      clinician:
+        "Media researchers point out that age ratings exist because of what content children can't yet emotionally process, not because of taste — explaining the actual reason behind a rating tends to land better than enforcing it silently.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with communal media viewing',
+        note: 'Where TV and streaming are commonly watched with extended family, content exposure tends to be filtered informally by whichever adults are present.',
+      },
+      {
+        region: 'Cultures with strict, centrally-enforced content ratings',
+        note: 'Some countries enforce media age ratings more strictly at a national level, which shifts some of the filtering burden away from individual parents.',
+      },
+    ],
+    sources: ['Common Sense Media', 'American Academy of Pediatrics'],
   },
   {
     id: 'in-app-purchases',
@@ -1285,5 +1610,20 @@ export const digitalEraTopics: Topic[] = [
     insight:
       'Persistent requests for in-app purchases usually reflect deliberate game design working as intended — a purchase password and an honest conversation about how it works are more effective than repeated refusals alone.',
     keywords: ['in-app purchases', 'microtransactions', 'games', 'money'],
+    perspectives: {
+      clinician:
+        "Child development researchers note that money spent via a tap feels abstract to a young child in a way physical money doesn't — a purchase password plus an honest, concrete explanation of real-world cost is more effective than a blanket refusal.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with earlier financial-literacy teaching',
+        note: 'Some cultures introduce hands-on money management to children earlier, which can make the abstraction of in-game currency easier to challenge directly.',
+      },
+      {
+        region: 'Cultures with cash-based, less digital daily transactions',
+        note: 'Where children see and handle physical cash more often in daily life, the contrast with an abstract in-app purchase may be more immediately obvious to them.',
+      },
+    ],
+    sources: ['Common Sense Media', 'American Academy of Pediatrics'],
   },
 ];

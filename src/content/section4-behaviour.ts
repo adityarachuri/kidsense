@@ -86,6 +86,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       "If backtalk shows up alongside meltdowns over small changes or trouble following instructions, it's often one thing: a still-developing self-control system, not a discipline failure.",
     keywords: ['backtalk', 'disrespect', 'arguing', 'attitude', 'defiance'],
+    perspectives: {
+      clinician:
+        "Child psychologists point out that the brain circuitry that inhibits a sharp reaction develops gradually through the early teen years — a calm, consistent response models the very regulation skill that's still under construction.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong respect-for-elders norms',
+        note: 'These cultures often draw a firmer, earlier line around tone with adults, while the underlying impulse-control skill still takes years to mature at the same pace as everywhere else.',
+      },
+      {
+        region: 'Individualist Western cultures',
+        note: 'Some Western parenting approaches deliberately make room for children to voice disagreement, treating a respectfully-argued point as a skill to nurture rather than suppress.',
+      },
+    ],
+    sources: ['CDC', 'American Academy of Pediatrics'],
   },
   {
     id: 'not-listening',
@@ -170,6 +185,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       "If not listening shows up alongside trouble with multi-step instructions, it's often the same root cause — processing load, not defiance.",
     keywords: ['not listening', 'ignoring', 'inattention', 'instructions'],
+    perspectives: {
+      clinician:
+        'Developmental specialists note that processing delay and selective attention are normal at this age — getting close and making eye contact before speaking measurably improves first-time compliance more than repeating the request louder.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with communal childcare',
+        note: 'Where several adults share supervision, a child may learn that instructions get repeated or reinforced by whoever is nearest, reducing urgency around any single first request.',
+      },
+      {
+        region: 'Cultures with a strong single-authority-figure model',
+        note: 'Where one adult is clearly the primary instruction-giver, a child may respond faster to that specific voice, since there is less ambiguity about whose request is the one that matters.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'CDC'],
   },
   {
     id: 'public-tantrums',
@@ -253,6 +283,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       'If public meltdowns happen mostly on tired or hungry days, the setting is rarely the real trigger — depleted reserves are.',
     keywords: ['tantrum', 'meltdown', 'public', 'store', 'outburst'],
+    perspectives: {
+      clinician:
+        'Pediatricians frame public meltdowns as a capacity issue, not a discipline issue — a child who has used up their self-regulation for the day will melt down regardless of setting, and the store is just where it became visible.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with communal public spaces',
+        note: 'Where children are a very visible, expected part of public life, a meltdown in public tends to draw less social judgment and less pressure on parents to suppress it quickly.',
+      },
+      {
+        region: 'Cultures with high public-behavior expectations',
+        note: "Some cultures hold stricter public-behavior norms for children, which can add pressure on parents in the moment even though the child's underlying capacity is the same.",
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'CDC'],
   },
   {
     id: 'hitting-siblings',
@@ -339,6 +384,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       "If sibling hitting spikes during transitions or tired stretches of the day, it's often about depleted self-control, not the relationship itself.",
     keywords: ['siblings', 'hitting', 'aggression', 'fighting', 'rivalry'],
+    perspectives: {
+      clinician:
+        'Family therapists emphasize separating bodies before addressing feelings — trying to reason with a child mid-conflict rarely works, because their thinking brain is temporarily offline.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with close sibling caregiving',
+        note: 'Where older siblings are expected to help care for younger ones, sibling conflict is often mediated by a wider family circle rather than falling to one parent alone.',
+      },
+      {
+        region: 'Cultures with typically small sibling age gaps',
+        note: 'These cultures tend to treat some physical squabbling as an ordinary part of growing up together, addressed through repair rather than heavy consequence.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Psychological Association'],
   },
   {
     id: 'sharing',
@@ -421,6 +481,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       "If sharing is hardest with a favorite item specifically, it's rarely about generosity — it's about attachment to that one thing.",
     keywords: ['sharing', 'possessive', 'turns', 'toys', 'selfish'],
+    perspectives: {
+      clinician:
+        "Developmental psychologists note that true, voluntary sharing typically doesn't stabilize until around age 5–6, once perspective-taking has matured — expecting it reliably earlier is often expecting a skill that isn't built yet.",
+    },
+    culturalLens: [
+      {
+        region: 'Collectivist family structures',
+        note: 'Cultures that emphasize communal property and group harmony often introduce shared-ownership norms earlier and more explicitly than cultures built around individual possession.',
+      },
+      {
+        region: 'Individualist Western cultures',
+        note: "Some Western parenting approaches deliberately protect a child's right to decline sharing a specific item, treating ownership as a boundary to respect rather than override.",
+      },
+    ],
+    sources: ['American Psychological Association', 'Zero to Three'],
   },
   {
     id: 'interrupting',
@@ -503,6 +578,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       'If interrupting is worse when a child is excited or tired, it tracks impulse control, not disrespect for the conversation.',
     keywords: ['interrupting', 'talking over', 'turn-taking', 'manners'],
+    perspectives: {
+      teacher:
+        "Teachers see the identical pattern in the classroom — a quiet hand signal that gets acknowledged quickly teaches waiting far faster than a repeated 'don't interrupt.'",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with overlapping conversational styles',
+        note: 'Some cultures have naturally more overlapping, high-energy conversational norms, where an interruption carries a different social meaning than in cultures with strict turn-taking expectations.',
+      },
+      {
+        region: 'Cultures with formal turn-taking norms',
+        note: 'Other cultures teach explicit conversational turn-taking as a matter of etiquette from an early age, which can make interrupting a more actively corrected behavior.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'CDC'],
   },
   {
     id: 'lying',
@@ -585,6 +675,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       'If lying is mostly about avoiding trouble, the more effective fix is usually making honesty feel safe, not increasing the punishment for lying.',
     keywords: ['lying', 'honesty', 'fibbing', 'truth'],
+    perspectives: {
+      clinician:
+        "Developmental psychologists note early lying is actually a cognitive milestone — it requires realizing another person's mind holds different information from your own — which is why calm, low-drama responses work better than treating it as a moral crisis.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong face-saving norms',
+        note: 'In cultures that place high value on avoiding shame or public embarrassment, small protective lies may be more culturally tolerated as a way of preserving harmony.',
+      },
+      {
+        region: 'Direct-communication cultures',
+        note: 'Cultures with a strong direct-honesty norm may address even small lies more explicitly and immediately, framing truth-telling as a core value from an early age.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Psychological Association'],
   },
   {
     id: 'testing-limits',
@@ -667,6 +772,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       'A rule that gets tested repeatedly is often simply a rule still being learned — consistency, not a bigger reaction, is what settles it.',
     keywords: ['limit testing', 'boundaries', 'rules', 'defiance', 'consistency'],
+    perspectives: {
+      clinician:
+        'Behavioral psychologists frame limit-testing as information-gathering, not manipulation — a rule enforced identically every time settles faster than the same rule enforced inconsistently, even if enforced more strictly on average.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with communally reinforced rules',
+        note: 'Where extended family and community reinforce the same rule consistently, a child gets fewer inconsistent signals to test against.',
+      },
+      {
+        region: 'Cultures with more negotiable household rules',
+        note: 'Some family cultures treat many rules as open to discussion by design, which shifts limit-testing toward negotiation rather than repeated retrying of a fixed line.',
+      },
+    ],
+    sources: ['CDC', 'American Academy of Pediatrics'],
   },
   {
     id: 'meltdowns-change',
@@ -749,6 +869,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       'A child who struggles with small changes usually isn’t rigid by nature — they’re protecting a sense of predictability that helps them feel safe.',
     keywords: ['meltdown', 'change', 'routine', 'flexibility', 'transitions'],
+    perspectives: {
+      clinician:
+        'Occupational and developmental therapists note that cognitive flexibility — shifting smoothly between plans — is one of the last executive function skills to mature, often not solidifying until well into the school years.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with more flexible daily scheduling',
+        note: 'Less rigidly scheduled daily life can give children more everyday practice tolerating minor plan changes, simply through more frequent exposure.',
+      },
+      {
+        region: 'Cultures with tightly structured daily routines',
+        note: 'Highly structured daily life can make a child more dependent on routine holding steady, since there is less everyday practice with things not going as expected.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Occupational Therapy Association'],
   },
   {
     id: 'whining',
@@ -831,6 +966,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       'Whining almost always tracks a depleted state, not a character trait — the fix is usually rest and food before it’s a communication lesson.',
     keywords: ['whining', 'complaining', 'tone of voice'],
+    perspectives: {
+      clinician:
+        "Speech-language and developmental specialists note whining often fills a real gap — a feeling the child can't yet phrase clearly — and responding only to the calm-voice version teaches the replacement skill without shaming the original signal.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with open emotional expression',
+        note: 'Cultures that encourage open emotional expression may treat whining as an ordinary, unremarkable form of communication rather than a behavior needing correction.',
+      },
+      {
+        region: 'Cultures emphasizing emotional composure',
+        note: 'Cultures that emphasize calm composure may address whining more directly and earlier as a communication style to grow out of.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'CDC'],
   },
   {
     id: 'refusing-apology',
@@ -915,6 +1065,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       'A genuine repair usually matters more than the specific word — modeling repair builds real empathy faster than insisting on a script.',
     keywords: ['apology', 'sorry', 'empathy', 'remorse'],
+    perspectives: {
+      clinician:
+        "Developmental psychologists note real empathy typically outpaces the ability to name it clearly — a modeled repair action often reaches a child faster than requiring the specific word 'sorry.'",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with ritualized apology customs',
+        note: 'Some cultures have specific, taught apology rituals or gestures that give children a concrete script to fall back on before they can generate a heartfelt one spontaneously.',
+      },
+      {
+        region: 'Cultures emphasizing restorative action over words',
+        note: 'Some cultures place more weight on the repair action itself — fixing what was broken, helping the hurt party — than on a spoken apology.',
+      },
+    ],
+    sources: ['American Psychological Association', 'American Academy of Pediatrics'],
   },
   {
     id: 'clinginess',
@@ -998,6 +1163,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       'A clingy phase almost always passes once the underlying need for reassurance is met — pushing independence too fast tends to prolong it.',
     keywords: ['clingy', 'separation anxiety', 'attachment', 'independence'],
+    perspectives: {
+      clinician:
+        'Attachment researchers frame a clingy phase as evidence the primary bond is working as intended, not a step backward — pushing independence too fast during this window often prolongs it rather than shortening it.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with high physical-closeness norms',
+        note: "Cultures that practice extended babywearing or co-sleeping don't show a different overall timeline for clingy phases — the response is a normal developmental stage expressed within whatever closeness norms already exist.",
+      },
+      {
+        region: 'Cultures with earlier independence expectations',
+        note: 'Cultures that expect earlier independence from young children may respond to a clingy phase with more active encouragement toward separation, while the underlying developmental timeline is unchanged.',
+      },
+    ],
+    sources: ['Zero to Three', 'American Academy of Pediatrics'],
   },
   {
     id: 'bossiness',
@@ -1081,6 +1261,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       'Bossiness usually fades as perspective-taking matures — the most effective help is direct practice sharing control, not scolding the instinct to lead.',
     keywords: ['bossy', 'controlling', 'peers', 'friends', 'play'],
+    perspectives: {
+      teacher:
+        'Teachers see this ease naturally with structured turn-taking practice during group activities — direct coaching in sharing the lead works faster than simply discouraging the behavior.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong hierarchy and leadership norms',
+        note: 'Some cultures explicitly value and reward leadership behavior in children from an early age, which can shape how bossiness during play is read by adults.',
+      },
+      {
+        region: 'Cultures emphasizing group consensus',
+        note: 'Other cultures place strong emphasis on group consensus in play, where a bossy directing style draws more immediate peer and adult correction.',
+      },
+    ],
+    sources: ['American Psychological Association', 'CDC'],
   },
   {
     id: 'following-instructions',
@@ -1164,6 +1359,21 @@ export const behaviourTopics: Topic[] = [
     insight:
       'If multi-step instructions are hard everywhere — home, school, play — it usually points to working memory load, not a motivation problem.',
     keywords: ['instructions', 'multi-step', 'working memory', 'following directions'],
+    perspectives: {
+      clinician:
+        'Developmental specialists point out that working memory for holding multiple steps is genuinely limited at this age — asking a child to repeat an instruction back before starting is one of the most effective, evidence-supported fixes.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong oral-instruction traditions',
+        note: 'Cultures that rely heavily on oral instruction and repetition in daily life sometimes build in more natural repeat-back practice as a matter of course.',
+      },
+      {
+        region: 'Cultures with visual/written instruction traditions',
+        note: 'Cultures that lean more on written or visual instructions from an early age may see multi-step spoken directions land less reliably by comparison.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Psychological Association'],
   },
   {
     id: 'sore-loser',
@@ -1248,5 +1458,20 @@ export const behaviourTopics: Topic[] = [
     insight:
       'Losing gracefully is a learned skill built through repeated low-stakes practice — not something that improves by avoiding games where losing is possible.',
     keywords: ['sore loser', 'games', 'competition', 'sportsmanship', 'losing'],
+    perspectives: {
+      clinician:
+        'Child psychologists note that disappointment tolerance is a skill built through repeated, low-stakes practice — avoiding competitive games to prevent upset tends to slow this skill down rather than protect it.',
+    },
+    culturalLens: [
+      {
+        region: 'Highly competitive achievement-oriented cultures',
+        note: 'Cultures that place a strong emphasis on competition and achievement can raise the emotional stakes of losing even in casual play, for children and modeling adults alike.',
+      },
+      {
+        region: 'Cultures emphasizing collective harmony',
+        note: "Cultures that emphasize group harmony over individual competition sometimes structure children's games to minimize a single clear winner, reducing how often this exact moment comes up.",
+      },
+    ],
+    sources: ['American Psychological Association', 'American Academy of Pediatrics'],
   },
 ];

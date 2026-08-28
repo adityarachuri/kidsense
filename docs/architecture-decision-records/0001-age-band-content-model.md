@@ -21,18 +21,32 @@ approaches were considered:
 
 ## Decision
 
-Adopt approach 2. Introduce three types in `src/types/content.ts`:
+Adopt approach 2, with one deviation from the original proposal below. Introduce in
+`src/types/content.ts`:
 
 - `AgeBand` — five fixed bands (Early Childhood ~3–5, Middle Childhood ~6–9, Tween ~10–12, Teen
   ~13–15, Older Teen ~16–18), covering all six milestone ages.
-- `TopicFamily` — the stable, cross-age concept (id, title, illustration, keywords).
-- `TopicVariant` — the age-band-scoped article body (heading, quote, reasons, concerns,
-  strategies, routine, insight, plus `perspectives`, `culturalLens`, and `sources`).
+
+**Deviation from the original `TopicFamily`/`TopicVariant` split**: rather than introducing
+nested types, a topic family is simply multiple `Topic` objects sharing an `id` within a
+section's flat `topics` array, distinguished by an optional `ageBandIds` field. A family's
+"general" variant (applies broadly) omits `ageBandIds`; a band-specific variant lists the one or
+more bands its rewritten content targets. `src/content/sections.ts` exposes
+`getTopicVariants(section, topicId)` and `selectTopicVariant(variants, ageBandId)` to resolve
+which one to render. This keeps every existing consumer (routing, search, `AgeBrowser`, content
+files) working against the same flat `Topic[]` shape they already used, so migrating the
+existing 75 topics required zero data changes — each is already a valid single-variant family.
+The tradeoff: "family" identity (title, illustration, topicNumber) isn't enforced by the type
+system the way a dedicated `TopicFamily` wrapper would; it's enforced instead by a content-
+integrity test (`sections.test.ts`) asserting `topicNumber`/`illustrationId` match across every
+variant sharing an id, and that no two variants in a family claim overlapping bands.
 
 Not every topic family needs a variant for every band — only bands where the guidance genuinely
-differs get authored. A topic family's canonical URL (`/section/:sectionId/:topicId`) shows an
-age-band picker; visiting `/section/:sectionId/:topicId/:ageBandId` deep-links to one variant
-directly.
+differs get authored. A topic family's canonical URL (`/section/:sectionId/:topicId`) renders
+the general variant directly (not a picker page, to keep the core reading experience as simple
+as today) with an age-band switcher shown only when more than one variant exists; visiting
+`/section/:sectionId/:topicId/:ageBandId` deep-links to one variant directly, falling back to
+the general variant for an unrecognized or unclaimed band rather than 404ing.
 
 ## Consequences
 

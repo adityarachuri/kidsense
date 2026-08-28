@@ -13,10 +13,10 @@
 
 .badgePartial {
   background: var(--yellow-bg);
-  color: #a06a00;
+  color: var(--badge-partial-text);
 }
 
 .badgeEmpty {
-  background: #f1eee6;
+  background: var(--card);
   color: var(--ink-soft);
 }

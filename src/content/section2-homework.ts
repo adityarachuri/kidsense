@@ -82,6 +82,25 @@ export const homeworkTopics: Topic[] = [
     insight:
       "If your child postpones homework AND shows the same delay pattern with chores or getting ready, it's often connected — a broader task-initiation challenge, not laziness about schoolwork.",
     keywords: ['procrastination', 'homework', 'avoidance'],
+    perspectives: {
+      clinician:
+        'Executive-function specialists treat task initiation as a distinct, teachable skill — the same one that makes chores or getting ready hard to start — not a character flaw, and it typically strengthens with practice and consistent external structure.',
+    },
+    culturalLens: [
+      {
+        region: 'High-pressure academic cultures (e.g. East Asia)',
+        note: 'In education systems with intense academic competition, structured study time is often built into the daily schedule from a young age, which can reduce negotiation around when homework starts even as it raises other pressures.',
+      },
+      {
+        region: 'Nordic and Western supportive-parenting cultures',
+        note: 'Parents are often encouraged to act as a low-pressure homework companion rather than an enforcer, an approach linked to less conflict around getting started.',
+      },
+      {
+        region: 'Collectivist family structures',
+        note: 'Older siblings or extended family often share homework supervision, spreading the daily prompting across more than one person.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Psychological Association'],
   },
   {
     id: 'cant-sit-still',
@@ -165,6 +184,21 @@ export const homeworkTopics: Topic[] = [
     insight:
       "If sitting still is hard during homework AND your child shows the same restlessness at meals or in the car, it's often connected — a broader need for movement, not a discipline issue.",
     keywords: ['fidgeting', 'restless', 'movement', 'attention'],
+    perspectives: {
+      clinician:
+        "Occupational therapists often describe movement during focused tasks as self-regulation, not misbehavior — some children's brains genuinely organize attention better with input like standing, rocking, or fidgeting.",
+    },
+    culturalLens: [
+      {
+        region: 'Play-based and outdoor-focused education cultures',
+        note: 'Cultures that build regular movement breaks into the school day tend to treat restlessness during focused work as an expected need to plan around, not a behavior to eliminate.',
+      },
+      {
+        region: 'High-structure academic cultures',
+        note: 'Cultures with longer expected periods of seated, quiet study tend to introduce explicit sitting-stamina expectations earlier, sometimes with less tolerance for movement during work.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Occupational Therapy Association'],
   },
   {
     id: 'getting-distracted',
@@ -247,6 +281,21 @@ export const homeworkTopics: Topic[] = [
     insight:
       "If focus drifts during homework AND your child shows similar distractibility during meals or chores, it's often connected — a broader attention pattern, not a lack of effort.",
     keywords: ['distraction', 'focus', 'attention span'],
+    perspectives: {
+      teacher:
+        'Teachers see the same drift during independent classwork — short, clearly bounded work periods hold attention far better than open-ended ones, at home or at school.',
+    },
+    culturalLens: [
+      {
+        region: 'Multigenerational and shared-living households',
+        note: 'Where several family members share living space, a dedicated quiet corner for homework is often more realistic than a separate room, and is treated as sufficient rather than a compromise.',
+      },
+      {
+        region: 'Cultures with strict household device rules',
+        note: 'Some cultures set firm, community-reinforced norms around device use during study hours, which removes a source of daily negotiation entirely rather than relying on a single household to enforce it.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Psychological Association'],
   },
   {
     id: 'homework-takes-hours',
@@ -328,6 +377,21 @@ export const homeworkTopics: Topic[] = [
     insight:
       "If homework consistently runs long AND your child shows similar slowness with other tasks, it's often connected — a broader pacing challenge, not stalling on purpose.",
     keywords: ['slow', 'pacing', 'homework duration'],
+    perspectives: {
+      teacher:
+        'Teachers often see the same task stretch out in class when a student is quietly stuck rather than genuinely working — checking in partway through is usually more useful than waiting for the whole thing to be finished.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with heavier homework loads',
+        note: 'Where nightly homework volume is culturally high, families more often build in scheduled breaks as a standard part of the routine rather than treating a long session as unusual.',
+      },
+      {
+        region: 'Cultures with lighter, more flexible homework norms',
+        note: 'Where homework load is lighter by design, a task taking unexpectedly long is more likely to be read as a signal to pause and revisit later rather than push through.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'National Association of School Psychologists'],
   },
   {
     id: 'avoiding-difficult-subjects',
@@ -410,6 +474,23 @@ export const homeworkTopics: Topic[] = [
     insight:
       "If one subject is consistently avoided AND your child shows self-doubt talk elsewhere too, it's often connected — a broader confidence pattern, not dislike of the subject.",
     keywords: ['avoidance', 'confidence', 'fear of failure'],
+    perspectives: {
+      teacher:
+        'Teachers can usually tell whether avoidance is about the subject itself or a specific gap from an earlier unit — a quick skills check often reveals a fixable gap rather than a fixed dislike.',
+      clinician:
+        "Psychologists distinguish healthy short-term avoidance from a self-efficacy belief hardening into 'I'm just bad at this' — the earlier a small, genuine win happens, the easier that belief is to unwind.",
+    },
+    culturalLens: [
+      {
+        region: 'Growth-mindset-oriented education cultures',
+        note: 'Some school systems explicitly teach that ability grows with effort, which research links to more willingness to attempt difficult subjects rather than avoid them.',
+      },
+      {
+        region: 'High-stakes examination cultures',
+        note: 'Where academic ranking carries heavy social weight, avoidance of a weak subject can be reinforced by a stronger fear of visible comparison to peers.',
+      },
+    ],
+    sources: ['American Psychological Association', 'American Academy of Pediatrics'],
   },
   {
     id: 'hating-reading',
@@ -493,6 +574,23 @@ export const homeworkTopics: Topic[] = [
     insight:
       "If reading is a struggle AND your child avoids other focus-heavy tasks too, it's often connected — a broader attention or skill-building need, not dislike of stories.",
     keywords: ['reading', 'books', 'literacy'],
+    perspectives: {
+      clinician:
+        'Reading specialists note that persistent difficulty sounding out words, well past when classmates found it easy, is one of the clearer early signs worth a formal reading assessment — not something to wait out.',
+      teacher:
+        'Teachers often see reading reluctance ease dramatically once a child finds one genuinely engaging series or topic — the skill practice happens almost as a side effect of wanting to keep reading.',
+    },
+    culturalLens: [
+      {
+        region: 'Oral storytelling traditions',
+        note: 'In cultures with strong oral storytelling traditions, being read to and telling stories aloud are valued alongside independent reading, which can ease pressure on a reluctant early reader.',
+      },
+      {
+        region: 'Multilingual households',
+        note: 'Children learning to read in a second or third language often decode more slowly at first for entirely typical reasons, not a reading difficulty.',
+      },
+    ],
+    sources: ['International Dyslexia Association', 'American Academy of Pediatrics'],
   },
   {
     id: 'careless-mistakes',
@@ -575,6 +673,21 @@ export const homeworkTopics: Topic[] = [
     insight:
       "If careless errors show up in homework AND your child rushes through other tasks too, it's often connected — a broader pacing pattern, not a knowledge gap.",
     keywords: ['mistakes', 'accuracy', 'carelessness'],
+    perspectives: {
+      teacher:
+        'Teachers can usually tell the difference on paper — errors that vanish when a student is asked to slow down and redo the same problem are pacing, not a knowledge gap; errors that repeat even slowed down are worth a closer look.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong emphasis on precision and accuracy',
+        note: 'Some education systems explicitly teach double-checking as a taught step of the work, not an optional extra, which can reduce careless errors over time.',
+      },
+      {
+        region: 'Cultures that de-emphasize grades for young learners',
+        note: 'Where formal grading starts later, small errors on early schoolwork attract less scrutiny by design, framing them as a normal part of practicing rather than a mark against the child.',
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'National Association of School Psychologists'],
   },
   {
     id: 'forgetting-what-learned',
@@ -657,6 +770,23 @@ export const homeworkTopics: Topic[] = [
     insight:
       "If your child forgets material quickly AND seems to need more repetition generally, it's often connected — a broader learning pace, not a memory problem.",
     keywords: ['memory', 'forgetting', 'retention', 'studying'],
+    perspectives: {
+      teacher:
+        "Teachers see this constantly with material taught once and never revisited — quizzing a child on yesterday's lesson for two minutes tonight does more for retention than an hour of rereading notes next week.",
+      clinician:
+        'Sleep researchers point out that memory consolidation happens largely during sleep, so a child who studies well but sleeps too little often forgets material that was genuinely understood at the time.',
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong rote-learning traditions',
+        note: 'Some education systems build repeated recitation and practice into daily schooling by default, which research broadly supports as effective — even though it can look old-fashioned next to newer teaching styles.',
+      },
+      {
+        region: 'Cultures with later, more relaxed bedtimes',
+        note: 'Where later bedtimes are culturally accepted, families may need to be more deliberate about protecting the sleep window closest to a study session, since that is when consolidation matters most.',
+      },
+    ],
+    sources: ['American Psychological Association', 'Sleep Foundation'],
   },
   {
     id: 'giving-up-quickly',
@@ -739,6 +869,23 @@ export const homeworkTopics: Topic[] = [
     insight:
       "If your child gives up quickly on homework AND shows the same pattern with new games or activities, it's often connected — a broader frustration-tolerance pattern, not laziness.",
     keywords: ['giving up', 'frustration', 'persistence', 'grit'],
+    perspectives: {
+      teacher:
+        "Teachers who explicitly praise a student's strategy and effort — not just correct answers — consistently see more willingness to keep trying after a wrong turn, both in class and reported at home.",
+      clinician:
+        "Psychologists distinguish typical frustration intolerance, which eases with practice and support, from a fixed belief that ability can't grow — the second responds well to hearing specific stories of your own struggle and improvement.",
+    },
+    culturalLens: [
+      {
+        region: 'Growth-mindset-oriented education cultures',
+        note: 'Explicitly praising effort and strategy over innate ability is a deliberate teaching practice in some school systems, and is associated with children persisting longer through difficulty.',
+      },
+      {
+        region: 'Cultures emphasizing quiet perseverance',
+        note: 'Some cultural traditions frame calm, steady effort through difficulty as a core virtue, which can support persistence — though it can also make a child reluctant to voice frustration or ask for help.',
+      },
+    ],
+    sources: ['American Psychological Association', 'American Academy of Pediatrics'],
   },
   {
     id: 'ill-do-it-later',
@@ -821,5 +968,20 @@ export const homeworkTopics: Topic[] = [
     insight:
       'If "later" keeps slipping away AND your child shows the same pattern with chores or getting ready, it\'s often connected — a broader planning challenge, not empty promises.',
     keywords: ['procrastination', 'planning', 'follow-through'],
+    perspectives: {
+      clinician:
+        "Executive-function specialists note that a vague future intention rarely converts into action on its own — pairing 'later' with a specific time and place is one of the most consistently effective, evidence-supported fixes.",
+    },
+    culturalLens: [
+      {
+        region: 'Cultures with strong routine and schedule orientation',
+        note: 'Some cultures build very predictable daily schedules into family life from early childhood, which gives "later" a concrete, expected moment to happen rather than leaving it open-ended.',
+      },
+      {
+        region: 'Cultures with more flexible, present-focused time norms',
+        note: "Where daily life is organized more flexibly around events than the clock, a fixed 'homework time' may need to be introduced deliberately rather than assumed.",
+      },
+    ],
+    sources: ['American Academy of Pediatrics', 'American Psychological Association'],
   },
 ];

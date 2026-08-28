@@ -1,5 +1,5 @@
 .header {
-  background: linear-gradient(135deg, #fdf3e4 0%, #eaf3fc 60%, #f2ecfb 100%);
+  background: var(--topic-header-gradient);
   border-radius: var(--radius-lg);
   padding: var(--pad-y) var(--pad-x);
   box-shadow: var(--shadow-card);
@@ -48,7 +48,7 @@
 }
 
 .speechBubble {
-  background: #fff;
+  background: var(--card);
   border-radius: 14px;
   padding: 7px 14px;
   font-family: 'Baloo 2', system-ui, sans-serif;
@@ -68,7 +68,7 @@
 }
 
 .ageBadge {
-  background: #fff;
+  background: var(--card);
   box-shadow: var(--shadow-soft);
   font-family: 'Baloo 2', system-ui, sans-serif;
   font-weight: 700;

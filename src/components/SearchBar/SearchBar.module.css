@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #fff;
+  background: var(--card);
   border-radius: var(--radius-pill);
   padding: 8px 16px;
   box-shadow: var(--shadow-soft);
@@ -31,8 +31,11 @@
   font-size: 0.85rem;
   font-weight: 600;
   width: 100%;
+  min-width: 0;
   background: transparent;
   color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .input::placeholder {
@@ -54,7 +57,7 @@
   top: calc(100% + 8px);
   left: 0;
   right: 0;
-  background: #fff;
+  background: var(--card);
   border-radius: var(--radius-md);
   box-shadow: 0 12px 32px rgba(46, 42, 74, 0.18);
   overflow: hidden;

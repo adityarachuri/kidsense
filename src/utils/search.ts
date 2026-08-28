@@ -36,9 +36,13 @@ function scoreTopic(topic: Topic, normalizedQuery: string): number | null {
 }
 
 /**
- * Searches across every topic in every section, returning matches ordered
- * by relevance (best match first). An empty or whitespace-only query
- * returns an empty result set rather than the entire corpus.
+ * Searches across every topic family in every section, returning matches ordered by relevance
+ * (best match first). An empty or whitespace-only query returns an empty result set rather than
+ * the entire corpus.
+ *
+ * A topic family with multiple age-band variants (entries sharing an `id`) still produces one
+ * result — its best-scoring variant, preferring the general variant on a tie — resolving to the
+ * family's canonical route rather than showing near-duplicate rows for the same topic.
  */
 export function searchTopics(sections: readonly Section[], query: string): SearchResult[] {
   const normalizedQuery = normalize(query);
@@ -46,15 +50,20 @@ export function searchTopics(sections: readonly Section[], query: string): Searc
     return [];
   }
 
-  const results: SearchResult[] = [];
+  const bestByFamily = new Map<string, SearchResult>();
   for (const section of sections) {
     for (const topic of section.topics) {
       const score = scoreTopic(topic, normalizedQuery);
-      if (score !== null) {
-        results.push({ section, topic, score });
+      if (score === null) continue;
+
+      const familyKey = `${section.id}:${topic.id}`;
+      const existing = bestByFamily.get(familyKey);
+      const isGeneral = !topic.ageBandIds || topic.ageBandIds.length === 0;
+      if (!existing || score < existing.score || (score === existing.score && isGeneral)) {
+        bestByFamily.set(familyKey, { section, topic, score });
       }
     }
   }
 
-  return results.sort((a, b) => a.score - b.score);
+  return Array.from(bestByFamily.values()).sort((a, b) => a.score - b.score);
 }

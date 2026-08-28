@@ -19,6 +19,18 @@ describe('TopicCard', () => {
     );
   });
 
+  it('links to the age-band-specific route when ageBandId is given', () => {
+    render(
+      <MemoryRouter>
+        <TopicCard sectionId="morning-routine" topic={topic} ageBandId="teen" />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole('link')).toHaveAttribute(
+      'href',
+      `/section/morning-routine/${topic.id}/teen`,
+    );
+  });
+
   it('renders the topic title', () => {
     render(
       <MemoryRouter>

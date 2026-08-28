@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# The Sitemap directive requires an absolute URL, but this project's production hostname
+# (Azure Static Web App default domain or a custom domain) isn't recorded anywhere in the
+# repo yet. Fill this in once the app is deployed — see docs/deployment-runbook.md — for
+# example: Sitemap: https://<your-swa-hostname>.azurestaticapps.net/sitemap.xml
