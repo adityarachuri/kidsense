@@ -8,6 +8,12 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
+- Follow-up header hardening after re-scanning the deployed site: a scanner penalized
+  `X-XSS-Protection` for being present at all, regardless of value — `X-XSS-Protection: 0` still
+  scored a penalty, so it's now suppressed entirely (empty override removes Azure's default).
+  Also added a standalone `Upgrade-Insecure-Requests: 1` response header; this is redundant with
+  the `upgrade-insecure-requests` CSP directive already present (that's what browsers actually
+  honor), but harmless to send alongside it.
 - Hardened security headers after a live scan flagged gaps: dropped `'unsafe-inline'` from
   `style-src` in the CSP (the only inline style in the app, `ReasonGrid`'s per-card accent
   color, now cycles through CSS classes driven by a `--reason-color` custom property instead of

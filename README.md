@@ -125,11 +125,13 @@ authentication. Security effort went into hardening what a static site _can_ con
   enforced by a custom ESLint rule (`no-restricted-syntax` in `eslint.config.js`), not just
   convention.
 - **Standard security headers** set globally in `staticwebapp.config.json`:
-  `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `X-XSS-Protection: 0` (explicitly
-  disables the legacy browser XSS auditor rather than leaving Azure's default `1; mode=block`,
-  which itself introduced vulnerabilities in older browsers — CSP is the real defense here),
-  `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (camera/mic/geolocation/
-  etc. all disabled), `Strict-Transport-Security` (HSTS with preload), and the full cross-origin
+  `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `X-XSS-Protection` explicitly
+  suppressed (an empty override removes Azure's default `1; mode=block` — the legacy browser XSS
+  auditor is deprecated and has itself been a source of vulnerabilities in older browsers; CSP is
+  the real defense here), `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`
+  (camera/mic/geolocation/etc. all disabled), `Strict-Transport-Security` (HSTS with preload),
+  `Upgrade-Insecure-Requests` (redundant with the same directive already in the CSP below, which
+  is what browsers actually honor, but sent as a standalone header too), and the full cross-origin
   isolation triad — `Cross-Origin-Opener-Policy`, `Cross-Origin-Embedder-Policy`, and
   `Cross-Origin-Resource-Policy` (all `same-origin`/`require-corp`, safe since the app loads no
   cross-origin resources).
