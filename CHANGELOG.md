@@ -8,6 +8,17 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
+- Fixed the deployed site loading a blank page (`Failed to load module script ... MIME type of
+"application/octet-stream"`). The `Azure/static-web-apps-deploy@v1` step was configured with
+  `app_location: '/'` + `output_location: 'dist'`; with `skip_app_build: true` that combination
+  doesn't resolve to the workspace's `dist` folder, so it deployed the raw, unbuilt repo root
+  instead — production was serving `index.html`'s `<script type="module" src="/src/main.tsx">`
+  directly, and browsers correctly refuse to execute a `.tsx` file as a module. Fixed by pointing
+  `app_location` directly at the pre-built `dist` folder (the standard pattern for pre-built
+  deploys), and moved `staticwebapp.config.json` into `public/` so Vite copies it into `dist/` on
+  every build (it's no longer picked up from the repo root once `app_location` is `dist`).
+  Confirmed locally: `dist/staticwebapp.config.json` exists after `npm run build`, and
+  `dist/index.html` references the built `/assets/*.js` bundle, not `/src/main.tsx`.
 - Fixed a live CI failure: `gitleaks-action` writes a `results.sarif` report into the workspace
   root, and since it ran before `npm run format:check` in `ci.yml`, Prettier flagged that
   unformatted report file and failed the whole `quality-gate` job — the ESLint step itself was
