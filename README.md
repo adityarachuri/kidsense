@@ -111,9 +111,11 @@ Every topic page includes a **Print this page** button. Print styles are defined
 This is a static, client-only app — there is no backend, no API, no user data collected, and no
 authentication. Security effort went into hardening what a static site _can_ control:
 
-- **Content Security Policy** (`staticwebapp.config.json`): `script-src 'self'` only — no inline
-  scripts, no `eval`, no third-party script origins. `connect-src 'self'` — the app makes zero
-  runtime network requests (verified: production bundle contains no external fetch/XHR targets).
+- **Content Security Policy** (`staticwebapp.config.json`): `script-src 'self'` and `style-src
+'self'` only — no inline scripts or styles, no `eval`, no third-party origins (the one dynamic
+  per-card color in `ReasonGrid` cycles through CSS classes, not an inline `style` attribute).
+  `connect-src 'self'` — the app makes zero runtime network requests (verified: production
+  bundle contains no external fetch/XHR targets).
 - **Self-hosted fonts.** Baloo 2 and Nunito are bundled as static `.woff2` assets under
   `public/fonts/` instead of loaded from Google Fonts at runtime — no third-party request, no
   tracking surface, and the app works offline once cached.
@@ -123,10 +125,14 @@ authentication. Security effort went into hardening what a static site _can_ con
   enforced by a custom ESLint rule (`no-restricted-syntax` in `eslint.config.js`), not just
   convention.
 - **Standard security headers** set globally in `staticwebapp.config.json`:
-  `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy:
-strict-origin-when-cross-origin`, `Permissions-Policy` (camera/mic/geolocation/etc. all
-  disabled), `Strict-Transport-Security` (HSTS with preload), `Cross-Origin-Opener-Policy`, and
-  `Cross-Origin-Resource-Policy`.
+  `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `X-XSS-Protection: 0` (explicitly
+  disables the legacy browser XSS auditor rather than leaving Azure's default `1; mode=block`,
+  which itself introduced vulnerabilities in older browsers — CSP is the real defense here),
+  `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (camera/mic/geolocation/
+  etc. all disabled), `Strict-Transport-Security` (HSTS with preload), and the full cross-origin
+  isolation triad — `Cross-Origin-Opener-Policy`, `Cross-Origin-Embedder-Policy`, and
+  `Cross-Origin-Resource-Policy` (all `same-origin`/`require-corp`, safe since the app loads no
+  cross-origin resources).
 - **Dependency hygiene.** `npm audit --audit-level=high` runs in CI on every push; the project
   currently sits at 0 known vulnerabilities. Dependencies are pinned to specific patched major
   versions rather than left on old ranges. `.github/dependabot.yml` opens automated update PRs

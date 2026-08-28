@@ -8,6 +8,14 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
+- Hardened security headers after a live scan flagged gaps: dropped `'unsafe-inline'` from
+  `style-src` in the CSP (the only inline style in the app, `ReasonGrid`'s per-card accent
+  color, now cycles through CSS classes driven by a `--reason-color` custom property instead of
+  a `style` attribute); added `Cross-Origin-Embedder-Policy: require-corp` to complete the
+  cross-origin isolation triad alongside the existing COOP/CORP; and explicitly set
+  `X-XSS-Protection: 0` to override Azure's default `1; mode=block`, since the legacy XSS
+  auditor is deprecated and has itself been a source of vulnerabilities in older browsers — CSP
+  is the actual defense. Verified locally that `ReasonGrid`'s tests and visuals are unaffected.
 - Fixed the deployed site loading a blank page (`Failed to load module script ... MIME type of
 "application/octet-stream"`). The `Azure/static-web-apps-deploy@v1` step was configured with
   `app_location: '/'` + `output_location: 'dist'`; with `skip_app_build: true` that combination
