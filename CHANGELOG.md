@@ -8,6 +8,14 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
+- Further CSP and Permissions-Policy tightening, chasing a security-scanner A+: dropped `data:`
+  from `img-src` (the codebase uses zero `data:` URIs — all illustrations are real JSX, not
+  images), and added explicit `frame-src 'none'`, `worker-src 'none'`, `manifest-src 'none'`,
+  `media-src 'none'` (the app uses none of iframes, web workers, a web manifest, or audio/video,
+  so these were previously only implicitly covered by the `default-src` fallback). Expanded
+  `Permissions-Policy` from 6 to 29 disabled browser features/APIs the app doesn't use. Verified
+  locally: `npm run verify` green, no behavior depends on any of the newly-blocked capabilities.
+
 - Follow-up header hardening after re-scanning the deployed site: a scanner penalized
   `X-XSS-Protection` for being present at all, regardless of value — `X-XSS-Protection: 0` still
   scored a penalty, so it's now suppressed entirely (empty override removes Azure's default).
