@@ -3901,6 +3901,434 @@ function UnderstandingIep504Illustration({ className }: IllustrationProps) {
   );
 }
 
+function CommunicationDifferencesIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="150" cy="110" r="26" fill="#F4C9A0" />
+      <path d="M126 99 Q150 74 174 99 Q167 84 150 84 Q133 84 126 99Z" fill="#5B4636" />
+      <ellipse cx="141" cy="111" rx="3.5" ry="6" fill="#7A5A3E" />
+      <ellipse cx="159" cy="111" rx="3.5" ry="6" fill="#7A5A3E" />
+      <path
+        d="M140 128 q10 3 20 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M126 135 Q150 125 174 135 L178 200 L122 200 Z" fill="#2C9EA6" />
+      <rect
+        x="205"
+        y="120"
+        width="80"
+        height="58"
+        rx="8"
+        fill="#fff"
+        stroke="#3E7FC1"
+        strokeWidth="3"
+      />
+      <rect x="215" y="130" width="16" height="16" rx="3" fill="#F08A3C" />
+      <rect x="237" y="130" width="16" height="16" rx="3" fill="#2FA483" />
+      <rect x="259" y="130" width="16" height="16" rx="3" fill="#8266C9" />
+      <rect x="215" y="152" width="16" height="16" rx="3" fill="#E8A93A" />
+      <rect x="237" y="152" width="16" height="16" rx="3" fill="#E1615A" />
+      <rect x="259" y="152" width="16" height="16" rx="3" fill="#3E7FC1" />
+    </svg>
+  );
+}
+
+function DeafAndHardOfHearingIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="160" cy="112" r="27" fill="#F4C9A0" />
+      <path d="M135 101 Q160 75 185 101 Q177 85 160 85 Q143 85 135 101Z" fill="#5B4636" />
+      <ellipse cx="150" cy="113" rx="3.5" ry="6" fill="#7A5A3E" />
+      <ellipse cx="170" cy="113" rx="3.5" ry="6" fill="#7A5A3E" />
+      <path
+        d="M149 130 q11 3 22 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M135 137 Q160 127 185 137 L189 200 L131 200 Z" fill="#8266C9" />
+      <path
+        d="M186 100 Q198 100 198 115 Q198 128 186 128"
+        fill="none"
+        stroke="#E8A93A"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      <circle cx="198" cy="108" r="5" fill="#E8A93A" />
+      <path
+        d="M255 90 Q245 110 255 130 M270 80 Q252 110 270 140"
+        stroke="#2FA483"
+        strokeWidth="4"
+        fill="none"
+        strokeLinecap="round"
+        opacity=".8"
+      />
+      <ellipse cx="290" cy="150" rx="14" ry="20" fill="#F4C9A0" opacity=".9" />
+    </svg>
+  );
+}
+
+function LowVisionAndBlindnessIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="150" cy="110" r="26" fill="#F4C9A0" />
+      <path d="M126 99 Q150 74 174 99 Q167 84 150 84 Q133 84 126 99Z" fill="#5B4636" />
+      <path
+        d="M138 111 q3 -3 6 0 M154 111 q3 -3 6 0"
+        stroke="#7A5A3E"
+        strokeWidth="2.4"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M140 128 q10 3 20 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M126 135 Q150 125 174 135 L178 200 L122 200 Z" fill="#E1615A" />
+      <path d="M178 190 L250 150" stroke="#2E2A4A" strokeWidth="5" strokeLinecap="round" />
+      <circle cx="255" cy="146" r="8" fill="#2E2A4A" />
+      <path
+        d="M300 70 L300 55 M320 78 L332 66 M328 100 L344 100 M320 122 L332 134"
+        stroke="#E8A93A"
+        strokeWidth="4"
+        strokeLinecap="round"
+        opacity=".75"
+      />
+      <circle cx="300" cy="100" r="20" fill="#E8A93A" opacity=".3" />
+    </svg>
+  );
+}
+
+function ChronicIllnessAndSchoolIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="150" cy="115" r="26" fill="#F4C9A0" />
+      <path d="M126 104 Q150 79 174 104 Q167 89 150 89 Q133 89 126 104Z" fill="#5B4636" />
+      <ellipse cx="141" cy="116" rx="3.2" ry="5.5" fill="#7A5A3E" />
+      <ellipse cx="159" cy="116" rx="3.2" ry="5.5" fill="#7A5A3E" />
+      <path
+        d="M141 132 q9 2 18 0"
+        stroke="#B4794F"
+        strokeWidth="2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M126 139 Q150 130 174 139 L178 200 L122 200 Z" fill="#3E7FC1" />
+      <rect x="112" y="150" width="42" height="40" rx="6" fill="#F08A3C" opacity=".85" />
+      <path
+        d="M118 170 L128 170 L133 158 L140 182 L146 170 L150 170"
+        stroke="#fff"
+        strokeWidth="2.5"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <rect
+        x="230"
+        y="120"
+        width="60"
+        height="46"
+        rx="4"
+        fill="#fff"
+        stroke="#2FA483"
+        strokeWidth="3"
+      />
+      <path d="M230 120 L260 140 L290 120" fill="none" stroke="#2FA483" strokeWidth="2" />
+      <circle cx="335" cy="100" r="16" fill="#E1615A" opacity=".8" />
+      <path
+        d="M328 100 L333 105 L343 93"
+        stroke="#fff"
+        strokeWidth="2.5"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function SeizureSafetyAndInclusionIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="150" cy="140" r="24" fill="#F4C9A0" />
+      <path d="M128 130 Q150 107 172 130 Q165 116 150 116 Q135 116 128 130Z" fill="#5B4636" />
+      <ellipse cx="142" cy="141" rx="3.2" ry="5.5" fill="#7A5A3E" />
+      <ellipse cx="158" cy="141" rx="3.2" ry="5.5" fill="#7A5A3E" />
+      <path
+        d="M142 157 q8 2 16 0"
+        stroke="#B4794F"
+        strokeWidth="2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M128 163 Q150 154 172 163 L176 200 L124 200 Z" fill="#2FA483" />
+      <circle
+        cx="150"
+        cy="140"
+        r="52"
+        fill="none"
+        stroke="#8266C9"
+        strokeWidth="3"
+        strokeDasharray="6 8"
+        opacity=".6"
+      />
+      <circle cx="270" cy="150" r="24" fill="#F4C9A0" />
+      <path d="M248 140 Q270 117 292 140 Q285 126 270 126 Q255 126 248 140Z" fill="#7A5A3E" />
+      <ellipse cx="262" cy="151" rx="3.2" ry="5.5" fill="#5B4636" />
+      <ellipse cx="278" cy="151" rx="3.2" ry="5.5" fill="#5B4636" />
+      <path
+        d="M260 167 q10 4 20 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M248 173 Q270 164 292 173 L296 200 L244 200 Z" fill="#3E7FC1" />
+      <path
+        d="M200 145 Q210 135 220 145"
+        stroke="#E1615A"
+        strokeWidth="4"
+        fill="none"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function IntellectualAndDevelopmentalDisabilityIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="150" cy="110" r="26" fill="#F4C9A0" />
+      <path d="M126 99 Q150 74 174 99 Q167 84 150 84 Q133 84 126 99Z" fill="#5B4636" />
+      <ellipse cx="141" cy="111" rx="3.5" ry="6" fill="#7A5A3E" />
+      <ellipse cx="159" cy="111" rx="3.5" ry="6" fill="#7A5A3E" />
+      <path
+        d="M140 128 q10 4 20 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M126 135 Q150 125 174 135 L178 200 L122 200 Z" fill="#E8A93A" />
+      <rect x="220" y="175" width="34" height="25" rx="3" fill="#E1615A" />
+      <rect x="245" y="150" width="34" height="25" rx="3" fill="#2FA483" />
+      <rect x="270" y="125" width="34" height="25" rx="3" fill="#3E7FC1" />
+      <path
+        d="M220 118 Q260 100 304 118"
+        stroke="#8266C9"
+        strokeWidth="2.5"
+        strokeDasharray="2 8"
+        fill="none"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function ImpulsivityAndExecutiveFunctionIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="150" cy="115" r="26" fill="#F4C9A0" />
+      <path d="M126 104 Q150 79 174 104 Q167 89 150 89 Q133 89 126 104Z" fill="#5B4636" />
+      <ellipse cx="141" cy="116" rx="3.5" ry="6" fill="#7A5A3E" />
+      <ellipse cx="159" cy="116" rx="3.5" ry="6" fill="#7A5A3E" />
+      <ellipse cx="150" cy="132" rx="9" ry="7" fill="#F08A3C" opacity=".85" />
+      <path d="M126 141 Q150 132 174 141 L178 200 L122 200 Z" fill="#F08A3C" />
+      <path d="M230 90 L250 130 L235 130 L255 175 L215 125 L232 125 Z" fill="#E8A93A" />
+      <circle cx="300" cy="110" r="26" fill="none" stroke="#E1615A" strokeWidth="5" />
+      <path
+        d="M285 95 L315 125 M315 95 L285 125"
+        stroke="#E1615A"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function SiblingsOfAChildWithADisabilityIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="140" cy="100" r="22" fill="#F4C9A0" />
+      <path d="M120 91 Q140 70 160 91 Q154 78 140 78 Q126 78 120 91Z" fill="#5B4636" />
+      <ellipse cx="133" cy="101" rx="3" ry="5" fill="#7A5A3E" />
+      <ellipse cx="147" cy="101" rx="3" ry="5" fill="#7A5A3E" />
+      <path
+        d="M132 115 q8 3 16 0"
+        stroke="#B4794F"
+        strokeWidth="2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M120 121 Q140 113 160 121 L163 175 L117 175 Z" fill="#2FA483" />
+      <circle cx="245" cy="115" r="24" fill="#F4C9A0" />
+      <path d="M223 105 Q245 82 267 105 Q260 90 245 90 Q230 90 223 105Z" fill="#7A5A3E" />
+      <ellipse cx="237" cy="116" rx="3.2" ry="5.5" fill="#5B4636" />
+      <ellipse cx="253" cy="116" rx="3.2" ry="5.5" fill="#5B4636" />
+      <path
+        d="M236 132 q9 3 18 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M223 138 Q245 129 267 138 L271 200 L219 200 Z" fill="#3E7FC1" />
+      <circle cx="245" cy="205" r="34" fill="none" stroke="#2E2A4A" strokeWidth="6" />
+      <circle cx="315" cy="205" r="34" fill="none" stroke="#2E2A4A" strokeWidth="6" />
+      <path d="M245 205 L280 172 L271 200" stroke="#2E2A4A" strokeWidth="6" fill="none" />
+      <path d="M280 172 L315 205" stroke="#2E2A4A" strokeWidth="6" fill="none" />
+      <path d="M163 165 L200 155" stroke="#F08A3C" strokeWidth="4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function PlanningForIndependenceIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="160" cy="95" r="24" fill="#F4C9A0" />
+      <path d="M139 86 Q160 63 181 86 Q174 72 160 72 Q146 72 139 86Z" fill="#5B4636" />
+      <ellipse cx="152" cy="96" rx="3.2" ry="5.5" fill="#7A5A3E" />
+      <ellipse cx="168" cy="96" rx="3.2" ry="5.5" fill="#7A5A3E" />
+      <path
+        d="M151 112 q9 3 18 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M139 119 Q160 110 181 119 L185 200 L135 200 Z" fill="#8266C9" />
+      <rect x="205" y="150" width="46" height="40" rx="4" fill="#2C9EA6" />
+      <rect x="215" y="160" width="26" height="8" rx="2" fill="#fff" opacity=".85" />
+      <path
+        d="M270 130 Q310 100 350 130"
+        stroke="#E8A93A"
+        strokeWidth="3"
+        strokeDasharray="2 10"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M340 120 L353 130 L340 140"
+        fill="none"
+        stroke="#E8A93A"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function AdvocatingAtSchoolIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="130" cy="115" r="24" fill="#F4C9A0" />
+      <path d="M109 105 Q130 83 151 105 Q144 91 130 91 Q116 91 109 105Z" fill="#7A5A3E" />
+      <ellipse cx="122" cy="116" rx="3.2" ry="5.5" fill="#5B4636" />
+      <ellipse cx="138" cy="116" rx="3.2" ry="5.5" fill="#5B4636" />
+      <path
+        d="M121 132 q9 3 18 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M109 139 Q130 130 151 139 L155 200 L105 200 Z" fill="#E1615A" />
+      <circle cx="255" cy="115" r="22" fill="#F4C9A0" />
+      <path d="M235 106 Q255 85 275 106 Q269 93 255 93 Q241 93 235 106Z" fill="#5B4636" />
+      <ellipse cx="247" cy="116" rx="3" ry="5" fill="#7A5A3E" />
+      <ellipse cx="263" cy="116" rx="3" ry="5" fill="#7A5A3E" />
+      <path d="M235 132 Q255 124 275 132 L278 200 L232 200 Z" fill="#2FA483" />
+      <rect
+        x="300"
+        y="70"
+        width="70"
+        height="55"
+        rx="4"
+        fill="#fff"
+        stroke="#3E7FC1"
+        strokeWidth="3"
+      />
+      <path d="M300 70 L335 95 L370 70" fill="none" stroke="#3E7FC1" strokeWidth="2.5" />
+      <path
+        d="M155 95 Q180 75 210 95"
+        stroke="#E8A93A"
+        strokeWidth="3"
+        fill="none"
+        strokeLinecap="round"
+        opacity=".8"
+      />
+    </svg>
+  );
+}
+
 /**
  * Registry mapping each topic's `illustrationId` to its illustration
  * component. Every illustration is authored as real JSX (not raw SVG
@@ -3987,6 +4415,16 @@ export const illustrationRegistry: Record<string, (props: IllustrationProps) => 
   'learning-a-different-path': LearningADifferentPathIllustration,
   'big-reactions-need-more-support': BigReactionsNeedMoreSupportIllustration,
   'understanding-iep-504': UnderstandingIep504Illustration,
+  'communication-differences': CommunicationDifferencesIllustration,
+  'deaf-and-hard-of-hearing': DeafAndHardOfHearingIllustration,
+  'low-vision-and-blindness': LowVisionAndBlindnessIllustration,
+  'chronic-illness-and-school': ChronicIllnessAndSchoolIllustration,
+  'seizure-safety-and-inclusion': SeizureSafetyAndInclusionIllustration,
+  'intellectual-and-developmental-disability': IntellectualAndDevelopmentalDisabilityIllustration,
+  'impulsivity-and-executive-function': ImpulsivityAndExecutiveFunctionIllustration,
+  'siblings-of-a-child-with-a-disability': SiblingsOfAChildWithADisabilityIllustration,
+  'planning-for-independence': PlanningForIndependenceIllustration,
+  'advocating-at-school': AdvocatingAtSchoolIllustration,
 };
 
 export function getIllustration(id: string) {

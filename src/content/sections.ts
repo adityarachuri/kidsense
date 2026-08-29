@@ -82,7 +82,7 @@ export const sections: Section[] = [
     title: 'Section 7: Understanding Every Child',
     shortTitle: 'Every Child',
     description:
-      'Five topics on children who move, sense, learn, or feel the world differently — and how to support them, with the same non-diagnostic care as every other topic here.',
+      'Fifteen topics on children who move, sense, learn, communicate, or feel the world differently — and how to support them, with the same non-diagnostic care as every other topic here.',
     icon: '🧭',
     topics: everyChildTopics,
     plannedTopicCount: 15,
