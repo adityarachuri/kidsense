@@ -212,6 +212,19 @@
   color-scheme: light;
 }
 
+/* Respect an OS-level request for higher contrast: brings secondary text up to the same
+   contrast as primary text and thickens the focus ring. `!important` guarantees this wins
+   over every light/dark/manual-toggle combination above regardless of selector specificity —
+   the same approach already used for prefers-reduced-motion below. Every component reads
+   these as custom properties rather than a hardcoded color, so this alone is sufficient with
+   no component-level changes. */
+@media (prefers-contrast: more) {
+  :root {
+    --ink-soft: var(--ink) !important;
+    --focus-ring: 0 0 0 4px rgba(62, 127, 193, 0.75) !important;
+  }
+}
+
 /* Neither decorative Latin display face has Devanagari or Telugu glyphs, so both
    headings and body text fall back to one self-hosted Noto Sans face per script
    — see src/utils/locale.ts for how data-locale is applied. */

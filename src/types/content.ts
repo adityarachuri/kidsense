@@ -39,6 +39,13 @@ export interface CulturalLensNote {
   readonly note: string;
 }
 
+/** One entry in a topic's optional "how this can look different" ability-lens panel. */
+export interface AbilityLensNote {
+  /** Broad functional description of the difference, never a diagnostic label — e.g. "Sensory processing differences". */
+  readonly context: string;
+  readonly note: string;
+}
+
 export interface ReasonCard {
   /** Emoji or short glyph shown above the title. */
   readonly icon: string;
@@ -99,6 +106,8 @@ export interface Topic {
   readonly perspectives?: Perspectives;
   /** ~5-6 notes on how different global/cultural contexts tend to view this behavior. */
   readonly culturalLens?: readonly CulturalLensNote[];
+  /** ~3-5 notes on how this behavior can present differently for a child with a physical, sensory, cognitive, or behavioral difference — "different, not wrong," never diagnostic. */
+  readonly abilityLens?: readonly AbilityLensNote[];
   /** Named authoritative organizations whose publicly available guidance informed this variant. */
   readonly sources?: readonly string[];
   /**

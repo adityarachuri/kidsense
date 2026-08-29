@@ -13,6 +13,8 @@ export const en: Dictionary = {
     searchPlaceholder: 'Search topics (e.g. bedtime, homework)',
     clearSearch: 'Clear search',
     noResultsFor: 'No topics found for',
+    resultsAnnouncement: '{count} results found',
+    noResultsAnnouncement: 'No results found',
   },
   themeToggle: {
     switchToLight: 'Switch to light mode',
@@ -84,6 +86,11 @@ export const en: Dictionary = {
     heading: 'Around the World',
     intro: 'Different, not wrong — how these behaviors are often viewed varies across cultures.',
   },
+  abilityLensPanel: {
+    heading: 'How This Can Look Different',
+    intro:
+      'For a child with a physical, sensory, cognitive, or behavioral difference, this can show up in its own way.',
+  },
   sourcesPanel: {
     informedByPrefix: 'Informed by publicly available guidance from: {sources}. See',
     suffix: 'for how Kidsense is compiled.',
@@ -113,6 +120,10 @@ export const en: Dictionary = {
     crisis: {
       heading: 'In a crisis, act immediately',
       body: 'If a child is in immediate danger, is expressing thoughts of self-harm or suicide, or you believe there is any risk to their safety or the safety of others, contact your local emergency services number immediately, or a crisis helpline in your country. Availability, names, and numbers of crisis services vary by country and region — Kidsense does not list them because it is not a substitute for locally appropriate emergency guidance.',
+    },
+    legalAdjacentContent: {
+      heading: 'Educational-rights and legal-adjacent content',
+      body: 'Some topics (for example, on IEPs and 504 plans) describe U.S. educational-rights processes in general terms. This is general information, not legal advice, and it is not specific to your situation, your school district, or any country other than the United States. For guidance on your specific circumstances, consult a special-education advocate, attorney, or your school’s special-education office.',
     },
     accuracy: {
       heading: 'Accuracy and currency',

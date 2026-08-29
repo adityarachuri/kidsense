@@ -22,6 +22,10 @@ export interface Dictionary {
     readonly clearSearch: string;
     /** Followed by the query itself, wrapped in curly quotes by the caller. */
     readonly noResultsFor: string;
+    /** Screen-reader-only live announcement as results update. Params: `{count}`. */
+    readonly resultsAnnouncement: string;
+    /** Screen-reader-only live announcement when a query matches nothing. */
+    readonly noResultsAnnouncement: string;
   };
   readonly themeToggle: {
     readonly switchToLight: string;
@@ -98,6 +102,10 @@ export interface Dictionary {
     readonly heading: string;
     readonly intro: string;
   };
+  readonly abilityLensPanel: {
+    readonly heading: string;
+    readonly intro: string;
+  };
   readonly sourcesPanel: {
     /** Params: `{sources}`. Followed by the "Sources & Methodology" link and `suffix`. */
     readonly informedByPrefix: string;
@@ -117,6 +125,7 @@ export interface Dictionary {
     readonly everyChildDifferent: { readonly heading: string; readonly body: string };
     readonly consultProfessional: { readonly heading: string; readonly body: string };
     readonly crisis: { readonly heading: string; readonly body: string };
+    readonly legalAdjacentContent: { readonly heading: string; readonly body: string };
     readonly accuracy: {
       readonly heading: string;
       /** Text before the "Sources & Methodology" link. */

@@ -883,6 +883,20 @@ export const behaviourTopics: Topic[] = [
         note: 'Highly structured daily life can make a child more dependent on routine holding steady, since there is less everyday practice with things not going as expected.',
       },
     ],
+    abilityLens: [
+      {
+        context: 'Autism spectrum',
+        note: 'A strong need for sameness is often a core part of how the world feels manageable, not a preference — a small change can carry the same weight as a large one.',
+      },
+      {
+        context: 'Sensory processing differences',
+        note: 'An unplanned change often arrives alongside new sounds, sights, or textures to process all at once, compounding the disruption beyond the change itself.',
+      },
+      {
+        context: 'Anxiety',
+        note: 'Uncertainty about what happens next can be the harder part, not the change itself — advance, concrete detail helps more than reassurance alone.',
+      },
+    ],
     sources: ['American Academy of Pediatrics', 'American Occupational Therapy Association'],
   },
   {
@@ -1371,6 +1385,20 @@ export const behaviourTopics: Topic[] = [
       {
         region: 'Cultures with visual/written instruction traditions',
         note: 'Cultures that lean more on written or visual instructions from an early age may see multi-step spoken directions land less reliably by comparison.',
+      },
+    ],
+    abilityLens: [
+      {
+        context: 'Working-memory or processing differences',
+        note: 'The gap between "working memory ceiling" and what a child actually needs to hold in mind can be substantially wider, so even a well-broken-down instruction may need repeating.',
+      },
+      {
+        context: 'Auditory processing differences',
+        note: 'Spoken instructions can take longer to decode into meaning even when hearing is unaffected — a written or visual version alongside the spoken one often lands more reliably.',
+      },
+      {
+        context: 'ADHD-related attention differences',
+        note: 'Sustaining attention across every step of a spoken sequence takes more active effort, so a step can be missed even when the earlier ones were clearly heard.',
       },
     ],
     sources: ['American Academy of Pediatrics', 'American Psychological Association'],

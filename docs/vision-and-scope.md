@@ -14,7 +14,11 @@ Parenting and child-development information online is fragmented: forums lack au
 clinical resources are often too dense or narrow for a lay parent, and almost nothing is written
 to be equally useful to a parent, a classroom teacher, a clinician doing a quick refresher, and
 a teenager trying to understand their own reaction. Very little of it acknowledges that
-guidance developed in one cultural context doesn't automatically transfer to another.
+guidance developed in one cultural context doesn't automatically transfer to another. Families
+and educators of children with physical, sensory, developmental, or behavioral differences are
+especially underserved by this fragmentation, often needing to piece together guidance from
+disability-specific resources that rarely connect back to the everyday developmental context
+this site already covers (see ADR-0004).
 
 ## Target audiences
 

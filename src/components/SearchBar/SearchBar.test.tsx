@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 import { SearchBar } from './SearchBar';
@@ -114,6 +115,30 @@ describe('SearchBar', () => {
     const clearButton = await screen.findByRole('button', { name: /clear search/i });
     await user.click(clearButton);
     expect(input).toHaveValue('');
+  });
+
+  it('announces the result count in a live region as results update', async () => {
+    const user = userEvent.setup();
+    renderWithRouter();
+    await user.type(screen.getByRole('combobox'), 'bath');
+    await waitFor(() => expect(screen.getByRole('listbox')).toBeInTheDocument());
+    const options = screen.getAllByRole('option');
+    expect(screen.getByText(`${options.length} results found`)).toBeInTheDocument();
+  });
+
+  it('announces zero results in the live region for a query that matches nothing', async () => {
+    const user = userEvent.setup();
+    renderWithRouter();
+    await user.type(screen.getByRole('combobox'), 'zzznonexistentzzz');
+    expect(await screen.findByText('No results found')).toBeInTheDocument();
+  });
+
+  it('has no accessibility violations', async () => {
+    const user = userEvent.setup();
+    const { container } = renderWithRouter();
+    await user.type(screen.getByRole('combobox'), 'bath');
+    await waitFor(() => expect(screen.getByRole('listbox')).toBeInTheDocument());
+    expect(await axe(container)).toHaveNoViolations();
   });
 
   it('closes the results when clicking outside the search bar', async () => {

@@ -1296,6 +1296,20 @@ export const emotionsTopics: Topic[] = [
         note: 'Some cultures encourage independent self-soothing earlier, which can mean the co-regulation stage is shorter by design rather than skipped entirely.',
       },
     ],
+    abilityLens: [
+      {
+        context: 'Emotional regulation differences',
+        note: 'The physiological wave itself can genuinely run longer and stronger, so calming down taking noticeably more time is not a sign the strategy is failing.',
+      },
+      {
+        context: 'Sensory processing differences',
+        note: 'A well-meaning touch, dimmed lights, or a quieter room can either help enormously or add to the overload, depending on the individual child — worth learning by trying, not assuming.',
+      },
+      {
+        context: 'Communication differences',
+        note: 'A child who cannot yet say what they need mid-wave may need a caregiver to offer calming options nonverbally rather than asking "what do you need?" in the moment.',
+      },
+    ],
     sources: ['Zero to Three', 'American Academy of Pediatrics'],
   },
   {

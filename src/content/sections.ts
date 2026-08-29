@@ -3,6 +3,7 @@ import { behaviourTopics } from './section4-behaviour';
 import { digitalEraTopics } from './section6-digital-era';
 import { eatingTopics } from './section3-eating';
 import { emotionsTopics } from './section5-emotions';
+import { everyChildTopics } from './section7-every-child';
 import { homeworkTopics } from './section2-homework';
 import { morningRoutineTopics } from './section1-morning-routine';
 
@@ -74,6 +75,16 @@ export const sections: Section[] = [
       'Fifteen everyday screen-time moments, explained — with the psychology behind them and what actually helps.',
     icon: '📱',
     topics: digitalEraTopics,
+    plannedTopicCount: 15,
+  },
+  {
+    id: 'every-child',
+    title: 'Section 7: Understanding Every Child',
+    shortTitle: 'Every Child',
+    description:
+      'Five topics on children who move, sense, learn, or feel the world differently — and how to support them, with the same non-diagnostic care as every other topic here.',
+    icon: '🧭',
+    topics: everyChildTopics,
     plannedTopicCount: 15,
   },
 ];

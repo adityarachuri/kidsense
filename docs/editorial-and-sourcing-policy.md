@@ -44,6 +44,28 @@ professional guidance across regions, not personal assumption. Where possible, g
 note in cross-cultural developmental-psychology literature (e.g. research contrasting
 collectivist and individualist parenting norms) rather than a single anecdote.
 
+## Ability-lens sourcing
+
+`abilityLens` entries and Section 7 topics (see ADR-0004) follow the same research method as
+cultural sourcing: ground notes in occupational-therapy, special-education, and developmental
+literature rather than an uncited generalization, and identify organizations genuinely,
+currently relevant to the specific topic rather than defaulting to the same handful every time —
+confirm relevance via `WebSearch` before writing, same as any other topic.
+
+For the IEP/504 topic specifically, research U.S.-specific sourcing targets: the U.S. Department
+of Education (including its Office for Civil Rights Section 504 guidance), the Center for Parent
+Information and Resources, and Understood.org. Combine the two registers these sources
+naturally split into — precise regulatory language (what IDEA/Section 504 require) from
+government sources, and accessible step-by-step process guidance from parent-facing
+organizations — rather than writing the whole topic in either register alone.
+
+A note on language: person-first ("child with autism") versus identity-first ("autistic child")
+phrasing is genuinely, currently contested among advocacy and clinical organizations, with no
+single consensus. Default to functional, non-diagnostic language throughout (see
+`content-style-guide.md`'s "Writing the ability lens"), which mostly sidesteps the question; where
+a specific community's own stated preference is directly relevant, defer to that community's
+own language rather than picking a side.
+
 ## Corrections process
 
 Anyone can flag a factual, sourcing, or attribution concern by opening an issue in the

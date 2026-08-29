@@ -64,6 +64,12 @@ function localizeTopic(topic: Topic, translation: TopicTranslation | undefined):
           note: pick(translation.culturalLens?.[index]?.note, entry.note),
         }))
       : topic.culturalLens,
+    abilityLens: translation.abilityLens
+      ? topic.abilityLens?.map((entry, index) => ({
+          context: pick(translation.abilityLens?.[index]?.context, entry.context),
+          note: pick(translation.abilityLens?.[index]?.note, entry.note),
+        }))
+      : topic.abilityLens,
     needsReview: translation.needsReview,
   };
 }

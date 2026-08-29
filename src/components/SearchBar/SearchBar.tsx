@@ -104,6 +104,13 @@ export function SearchBar() {
         )}
       </div>
 
+      <div className="visually-hidden" aria-live="polite">
+        {showResults &&
+          (results.length === 0
+            ? t((d) => d.header.noResultsAnnouncement)
+            : t((d) => d.header.resultsAnnouncement, { count: results.length }))}
+      </div>
+
       {showResults && (
         <ul className={styles.results} id={listboxId} role="listbox">
           {results.length === 0 ? (
