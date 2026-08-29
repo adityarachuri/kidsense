@@ -3667,6 +3667,240 @@ function InAppPurchasesIllustration({ className }: IllustrationProps) {
   );
 }
 
+function MovingThroughTheWorldIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="170" cy="90" r="26" fill="#F4C9A0" />
+      <path d="M146 79 Q170 54 194 79 Q187 64 170 64 Q153 64 146 79Z" fill="#5B4636" />
+      <ellipse cx="161" cy="91" rx="3.5" ry="6" fill="#7A5A3E" />
+      <ellipse cx="179" cy="91" rx="3.5" ry="6" fill="#7A5A3E" />
+      <path
+        d="M160 106 q10 8 20 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M148 113 Q170 104 192 113 L196 165 L144 165 Z" fill="#3E7FC1" />
+      <circle cx="150" cy="205" r="34" fill="none" stroke="#2E2A4A" strokeWidth="6" />
+      <circle cx="220" cy="205" r="34" fill="none" stroke="#2E2A4A" strokeWidth="6" />
+      <path d="M150 205 L184 172 L196 165" stroke="#2E2A4A" strokeWidth="6" fill="none" />
+      <path d="M184 172 L220 205" stroke="#2E2A4A" strokeWidth="6" fill="none" />
+      <circle cx="150" cy="205" r="5" fill="#2E2A4A" />
+      <path
+        d="M100 130 Q90 150 100 175"
+        stroke="#7FB1E8"
+        strokeWidth="3"
+        fill="none"
+        strokeLinecap="round"
+        opacity=".7"
+      />
+      <path
+        d="M270 120 Q292 140 270 165"
+        stroke="#2FA483"
+        strokeWidth="3"
+        fill="none"
+        strokeLinecap="round"
+        opacity=".6"
+      />
+    </svg>
+  );
+}
+
+function SensoryOverwhelmIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="170" cy="120" r="27" fill="#F4C9A0" />
+      <path d="M145 109 Q170 83 195 109 Q187 93 170 93 Q153 93 145 109Z" fill="#5B4636" />
+      <ellipse cx="160" cy="121" rx="3.5" ry="6" fill="#7A5A3E" />
+      <ellipse cx="180" cy="121" rx="3.5" ry="6" fill="#7A5A3E" />
+      <path
+        d="M159 138 q11 -3 22 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M145 146 Q170 136 195 146 L200 200 L140 200 Z" fill="#8266C9" />
+      <ellipse cx="141" cy="112" rx="10" ry="16" fill="#2E2A4A" opacity=".85" />
+      <ellipse cx="199" cy="112" rx="10" ry="16" fill="#2E2A4A" opacity=".85" />
+      <path d="M141 96 Q170 80 199 96" stroke="#2E2A4A" strokeWidth="5" fill="none" opacity=".85" />
+      <path
+        d="M245 90 L255 78 M258 100 L272 96 M250 115 L264 122"
+        stroke="#F08A3C"
+        strokeWidth="3"
+        strokeLinecap="round"
+        opacity=".65"
+      />
+      <path
+        d="M95 90 L85 78 M82 100 L68 96 M90 115 L76 122"
+        stroke="#E1615A"
+        strokeWidth="3"
+        strokeLinecap="round"
+        opacity=".65"
+      />
+    </svg>
+  );
+}
+
+function LearningADifferentPathIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="130" cy="115" r="26" fill="#F4C9A0" />
+      <path d="M106 104 Q130 79 154 104 Q147 89 130 89 Q113 89 106 104Z" fill="#5B4636" />
+      <ellipse cx="121" cy="116" rx="3.5" ry="6" fill="#7A5A3E" />
+      <ellipse cx="139" cy="116" rx="3.5" ry="6" fill="#7A5A3E" />
+      <path
+        d="M120 133 q10 3 20 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M106 140 Q130 130 154 140 L158 200 L102 200 Z" fill="#2FA483" />
+      <rect x="95" y="152" width="34" height="26" rx="2" fill="#fff" stroke="#2FA483" />
+      <path d="M95 152 L112 162 L129 152" fill="none" stroke="#2FA483" strokeWidth="2" />
+      <path
+        d="M175 150 Q220 190 260 130 Q285 95 320 100"
+        stroke="#E8A93A"
+        strokeWidth="3"
+        strokeDasharray="2 10"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <circle cx="330" cy="90" r="22" fill="#F08A3C" opacity=".85" />
+      <path
+        d="M330 74 L330 68 M341 79 L346 74 M319 79 L314 74"
+        stroke="#F08A3C"
+        strokeWidth="3"
+        strokeLinecap="round"
+        opacity=".85"
+      />
+    </svg>
+  );
+}
+
+function BigReactionsNeedMoreSupportIllustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="150" cy="140" r="24" fill="#F4C9A0" />
+      <path d="M128 130 Q150 107 172 130 Q165 116 150 116 Q135 116 128 130Z" fill="#5B4636" />
+      <ellipse cx="142" cy="141" rx="3.2" ry="5.5" fill="#7A5A3E" />
+      <ellipse cx="158" cy="141" rx="3.2" ry="5.5" fill="#7A5A3E" />
+      <ellipse cx="150" cy="156" rx="8" ry="7" fill="#E1615A" opacity=".8" />
+      <path d="M128 163 Q150 154 172 163 L176 200 L124 200 Z" fill="#E1615A" />
+      <path
+        d="M95 105 Q130 65 175 90 Q210 55 235 95 Q250 70 260 100"
+        fill="#F2ECFB"
+        stroke="#8266C9"
+        strokeWidth="2.5"
+        opacity=".9"
+      />
+      <circle cx="275" cy="150" r="26" fill="#F4C9A0" />
+      <path d="M250 138 Q275 112 300 138 Q292 122 275 122 Q258 122 250 138Z" fill="#7A5A3E" />
+      <ellipse cx="266" cy="151" rx="3.5" ry="6" fill="#5B4636" />
+      <ellipse cx="284" cy="151" rx="3.5" ry="6" fill="#5B4636" />
+      <path
+        d="M265 167 q10 4 20 0"
+        stroke="#B4794F"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M250 174 Q275 164 300 174 L305 200 L245 200 Z" fill="#2C9EA6" />
+      <path
+        d="M200 185 Q212 178 224 185"
+        stroke="#2C9EA6"
+        strokeWidth="4"
+        fill="none"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function UnderstandingIep504Illustration({ className }: IllustrationProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 230"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="120" cy="120" r="24" fill="#F4C9A0" />
+      <path d="M98 110 Q120 87 142 110 Q135 96 120 96 Q105 96 98 110Z" fill="#5B4636" />
+      <ellipse cx="112" cy="121" rx="3.2" ry="5.5" fill="#7A5A3E" />
+      <ellipse cx="128" cy="121" rx="3.2" ry="5.5" fill="#7A5A3E" />
+      <path
+        d="M111 137 q9 3 18 0"
+        stroke="#B4794F"
+        strokeWidth="2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M98 143 Q120 134 142 143 L146 200 L94 200 Z" fill="#3E7FC1" />
+      <circle cx="260" cy="115" r="24" fill="#F4C9A0" opacity=".92" />
+      <path d="M238 105 Q260 82 282 105 Q275 91 260 91 Q245 91 238 105Z" fill="#7A5A3E" />
+      <ellipse cx="252" cy="116" rx="3.2" ry="5.5" fill="#5B4636" />
+      <ellipse cx="268" cy="116" rx="3.2" ry="5.5" fill="#5B4636" />
+      <path
+        d="M251 132 q9 3 18 0"
+        stroke="#B4794F"
+        strokeWidth="2"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M238 138 Q260 129 282 138 L286 200 L234 200 Z" fill="#2FA483" />
+      <rect
+        x="165"
+        y="150"
+        width="70"
+        height="50"
+        rx="4"
+        fill="#fff"
+        stroke="#E8A93A"
+        strokeWidth="3"
+      />
+      <rect x="185" y="142" width="30" height="12" rx="3" fill="#E8A93A" />
+      <path
+        d="M175 165 L182 172 L195 158"
+        stroke="#2FA483"
+        strokeWidth="3"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M175 182 L225 182" stroke="#D9D3EE" strokeWidth="3" strokeLinecap="round" />
+      <path d="M175 190 L215 190" stroke="#D9D3EE" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 /**
  * Registry mapping each topic's `illustrationId` to its illustration
  * component. Every illustration is authored as real JSX (not raw SVG
@@ -3748,6 +3982,11 @@ export const illustrationRegistry: Record<string, (props: IllustrationProps) => 
   'online-school-distraction': OnlineSchoolDistractionIllustration,
   'age-inappropriate-content': AgeInappropriateContentIllustration,
   'in-app-purchases': InAppPurchasesIllustration,
+  'moving-through-the-world': MovingThroughTheWorldIllustration,
+  'sensory-overwhelm': SensoryOverwhelmIllustration,
+  'learning-a-different-path': LearningADifferentPathIllustration,
+  'big-reactions-need-more-support': BigReactionsNeedMoreSupportIllustration,
+  'understanding-iep-504': UnderstandingIep504Illustration,
 };
 
 export function getIllustration(id: string) {

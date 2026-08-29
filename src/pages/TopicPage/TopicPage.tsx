@@ -1,4 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
+import { AbilityLensPanel } from '../../components/AbilityLensPanel/AbilityLensPanel';
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
 import { ConcernsWorksSplit } from '../../components/ConcernsWorksSplit/ConcernsWorksSplit';
 import { CulturalLensPanel } from '../../components/CulturalLensPanel/CulturalLensPanel';
@@ -125,6 +126,7 @@ export function TopicPage() {
         />
         <PerspectivesPanel perspectives={topic.perspectives} />
         <CulturalLensPanel culturalLens={topic.culturalLens} />
+        <AbilityLensPanel abilityLens={topic.abilityLens} />
         <InsightFooter insight={topic.insight} />
         <SourcesPanel sources={topic.sources} />
       </div>

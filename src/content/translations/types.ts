@@ -32,6 +32,8 @@ export interface TopicTranslation {
   readonly perspectives?: PerspectivesTranslation;
   /** Same length and order as the English `culturalLens` array when provided. */
   readonly culturalLens?: readonly { readonly region?: string; readonly note?: string }[];
+  /** Same length and order as the English `abilityLens` array when provided. */
+  readonly abilityLens?: readonly { readonly context?: string; readonly note?: string }[];
   /** Set true for a machine-drafted translation pending human review; renders a small in-app notice. */
   readonly needsReview?: boolean;
 }

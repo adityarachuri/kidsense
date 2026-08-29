@@ -160,3 +160,22 @@ describe('TopicPage age-band variants', () => {
     expect(screen.getByText(generalVariant.explanation)).toBeInTheDocument();
   });
 });
+
+describe('TopicPage ability lens and Section 7', () => {
+  it('renders the ability lens panel for a topic that authored one', () => {
+    renderAt('/section/morning-routine/brushing-teeth');
+    expect(screen.getByText('How This Can Look Different')).toBeInTheDocument();
+    expect(screen.getByText('Sensory processing differences')).toBeInTheDocument();
+  });
+
+  it('renders a Section 7 topic with no accessibility violations', async () => {
+    const { container } = renderAt('/section/every-child/sensory-overwhelm');
+    expect(screen.getAllByText(/Ordinary Sounds/i).length).toBeGreaterThan(0);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('renders the IEP/504 topic with its not-legal-advice framing', () => {
+    renderAt('/section/every-child/understanding-iep-504');
+    expect(screen.getByText(/not legal advice for your specific situation/i)).toBeInTheDocument();
+  });
+});

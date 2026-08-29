@@ -48,6 +48,13 @@ export function DisclaimerPage() {
         </section>
 
         <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>
+            {t((d) => d.disclaimerPage.legalAdjacentContent.heading)}
+          </h2>
+          <p className={styles.body}>{t((d) => d.disclaimerPage.legalAdjacentContent.body)}</p>
+        </section>
+
+        <section className={styles.section}>
           <h2 className={styles.sectionTitle}>{t((d) => d.disclaimerPage.accuracy.heading)}</h2>
           <p className={styles.body}>
             {t((d) => d.disclaimerPage.accuracy.bodyPart1)}{' '}

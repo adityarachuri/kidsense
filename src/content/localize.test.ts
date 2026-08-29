@@ -29,6 +29,24 @@ const fixtureSection: Section = {
       insight: 'Fixture insight.',
       perspectives: { teacher: 'Fixture teacher perspective.' },
       culturalLens: [{ region: 'Fixture region', note: 'Fixture note.' }],
+      abilityLens: [{ context: 'Fixture context', note: 'Fixture ability note.' }],
+    },
+    {
+      id: 'fixture-topic-no-ability-lens',
+      topicNumber: 2,
+      title: 'Fixture Topic Without Ability Lens',
+      heading: { lead: 'Fixture', emphasis: 'No Lens', trailing: 'Heading' },
+      quote: 'A fixture quote.',
+      ageRanges: ['3–5 years'],
+      illustrationId: 'fixture',
+      reassurance: 'Fixture reassurance.',
+      explanation: 'Fixture explanation.',
+      reasons: [{ icon: '🧪', title: 'Fixture reason', description: 'Fixture description.' }],
+      concerns: ['Fixture concern.'],
+      professionalGuidance: 'Fixture guidance.',
+      strategies: ['Fixture strategy.'],
+      routine: [{ icon: '🧪', label: 'Fixture step' }],
+      insight: 'Fixture insight.',
     },
   ],
 };
@@ -57,7 +75,18 @@ describe('localizeSections', () => {
     expect(topic.routine).toEqual(sourceTopic.routine);
     expect(topic.perspectives).toEqual(sourceTopic.perspectives);
     expect(topic.culturalLens).toEqual(sourceTopic.culturalLens);
+    expect(topic.abilityLens).toEqual(sourceTopic.abilityLens);
     expect(topic.needsReview).toBeUndefined();
+  });
+
+  it('leaves abilityLens undefined for a topic that never authored one, regardless of locale', () => {
+    for (const locale of ['en', 'hi', 'te'] as const) {
+      const localized = localizeSections([fixtureSection], locale)[0]!;
+      const topicWithoutLens = localized.topics.find(
+        (t) => t.id === 'fixture-topic-no-ability-lens',
+      )!;
+      expect(topicWithoutLens.abilityLens).toBeUndefined();
+    }
   });
 
   it('never drops a topic or reorders sections when localizing', () => {
@@ -85,6 +114,13 @@ describe('localizeSections', () => {
         .topics.find((t) => t.id === 'brushing-teeth')!;
       expect(brushingTeeth.title).not.toBe(sourceBrushingTeeth.title);
       expect(brushingTeeth.needsReview).toBe(true);
+      // abilityLens is fully authored in both hi and te for this topic — every entry should
+      // be translated, matching the source array's length and order.
+      expect(brushingTeeth.abilityLens).toHaveLength(sourceBrushingTeeth.abilityLens!.length);
+      for (const [index, entry] of brushingTeeth.abilityLens!.entries()) {
+        expect(entry.context).not.toBe(sourceBrushingTeeth.abilityLens![index]!.context);
+        expect(entry.note).not.toBe(sourceBrushingTeeth.abilityLens![index]!.note);
+      }
       // Fields untouched by the translation layer (not user-facing text) still round-trip.
       expect(brushingTeeth.illustrationId).toBe(sourceBrushingTeeth.illustrationId);
       expect(brushingTeeth.sources).toEqual(sourceBrushingTeeth.sources);

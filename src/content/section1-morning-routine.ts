@@ -112,6 +112,20 @@ export const morningRoutineTopics: Topic[] = [
         note: "Where sibling caregiving is common, an older sibling brushing alongside a younger one can succeed where a parent's direct instruction stalls, since peer modeling feels less like a command.",
       },
     ],
+    abilityLens: [
+      {
+        context: 'Sensory processing differences',
+        note: 'The taste, foam texture, or bristle sensation can register as far more intense — sometimes genuinely painful — than it does for most kids, not just unpleasant.',
+      },
+      {
+        context: 'Motor-planning differences',
+        note: 'Coordinating the brush, timing, and spitting sequence can take real conscious effort well past the age it becomes automatic for most children.',
+      },
+      {
+        context: 'Communication differences',
+        note: 'A child who communicates differently may not be able to say "that hurts" or "too loud" in the moment, so resistance can be the only available signal.',
+      },
+    ],
     sources: ['American Academy of Pediatric Dentistry', 'American Academy of Pediatrics'],
   },
   {
@@ -322,6 +336,20 @@ export const morningRoutineTopics: Topic[] = [
       {
         region: 'Collectivist family structures',
         note: "Where multiple children share supervision, an older sibling or cousin modeling a smooth transition can ease a younger child's resistance more effectively than an adult's direct instruction.",
+      },
+    ],
+    abilityLens: [
+      {
+        context: 'Cognitive flexibility differences',
+        note: 'Shifting attention from one activity to another can take substantially longer to complete, not just longer to start — the transition itself is the hard part, not reluctance.',
+      },
+      {
+        context: 'ADHD-related attention differences',
+        note: 'Hyperfocus on an engaging activity can make the outside world — including a warning or a timer — genuinely fail to register until it breaks on its own.',
+      },
+      {
+        context: 'Anxiety',
+        note: 'An abrupt, unpredictable transition can trigger a disproportionate stress response; a consistent countdown routine reduces that unpredictability more than it does for most kids.',
       },
     ],
     sources: ['Zero to Three', 'American Academy of Pediatrics'],
