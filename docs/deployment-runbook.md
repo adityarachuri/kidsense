@@ -2,58 +2,70 @@
 
 ## Architecture
 
-Static React SPA (Vite build) deployed to **Azure Static Web Apps**. No backend, no database.
-Two CI/CD paths exist by design (see ADR-0002):
+Static React SPA (Vite build) deployed to **Cloudflare Workers** (static assets) via **GitLab
+CI**. No backend, no database. See
+[ADR-0005](architecture-decision-records/0005-gitlab-ci-cloudflare-workers-migration.md) for why
+this replaced the earlier GitHub Actions/CircleCI/Azure Static Web Apps setup.
 
-- **GitHub Actions** (`.github/workflows/ci.yml`) — runs the full quality gate on every push
-  and pull request as a GitHub-native status check. Does not deploy.
-- **GitHub Actions** (`.github/workflows/azure-static-web-apps.yml`) — deploy job is gated to
-  manual `workflow_dispatch` only; it no longer runs automatically. No PR-preview environment is
-  configured for this project.
-- **CircleCI** (`.circleci/config.yml`) — the pipeline of record for deployment. Runs the
-  quality gate, then deploys `main` to Azure Static Web Apps.
+`.gitlab-ci.yml` defines two stages:
+
+- **`quality-gate`** — `npm audit`, `gitleaks` secret scan, typecheck, lint, format check, test
+  with coverage, build. Runs on every push and merge request pipeline.
+- **`deploy`** — `needs` the quality gate, runs only on `main`, and deploys `dist/` to Cloudflare
+  Workers via `npx wrangler deploy`.
+
+Cloudflare-specific config: `wrangler.toml` (Worker name, static-assets directory, SPA fallback
+via `not_found_handling`) and `public/_headers` (security headers and cache rules, copied into
+`dist/` by Vite).
 
 ## One-time manual setup (must be done by a human, not by this documentation)
 
-1. **Connect the repository to CircleCI**: sign in to CircleCI with the GitHub account that owns
-   this repository, and set up the project from the CircleCI dashboard.
-2. **Add the Azure Static Web Apps deploy token to CircleCI**: in the Azure Portal, open the
-   Static Web App resource → _Manage deployment token_ → copy it. In CircleCI, add it as an
-   environment variable (e.g. `AZURE_STATIC_WEB_APPS_API_TOKEN`) on the project, or in a
-   CircleCI context if multiple projects will share it.
-3. **(Optional) Branch protection**: in GitHub repository settings, require the `ci.yml`
-   quality-gate check (and, once connected, the CircleCI check) to pass before merging to
-   `main`.
+1. **GitLab CI/CD variables**: in the GitLab project → Settings → CI/CD → Variables, add
+   (masked, protected):
+   - `CLOUDFLARE_API_TOKEN` — a token scoped to `Account | Workers Scripts | Edit` for the target
+     Cloudflare account. Create it at
+     [dash.cloudflare.com/profile/api-tokens](https://dash.cloudflare.com/profile/api-tokens).
+   - `CLOUDFLARE_ACCOUNT_ID` — from `wrangler whoami` or the Cloudflare dashboard.
+2. **Protected branch**: Settings → Repository → Protected branches: protect `main`
+   (no force-push, maintainers-only merge). Settings → Merge requests: require the pipeline to
+   succeed before merge.
+3. **Renovate**: enable the Renovate GitLab app/bot on the project so `renovate.json` takes
+   effect (weekly npm dependency update MRs).
+4. **Custom domain** (once ready to go live on the production domain instead of the
+   `*.workers.dev` subdomain): Cloudflare dashboard → Workers & Pages → the `kidsense` Worker →
+   Settings → Domains & Routes → Add Custom Domain. Requires the domain's DNS zone to be on
+   Cloudflare.
 
 ## Routine deployment
 
-Deployment is automatic: pushing to `main` triggers the CircleCI workflow, which runs the
-quality gate and, if it passes, deploys to Azure Static Web Apps. No manual deployment step is
+Deployment is automatic: pushing to `main` triggers the GitLab CI pipeline, which runs the
+quality gate and, if it passes, deploys to Cloudflare Workers. No manual deployment step is
 required for routine changes.
 
 ## Manual/emergency deployment
 
-If CircleCI is unavailable, the disabled GitHub Actions deploy workflow can be triggered
-manually from the GitHub Actions tab (`workflow_dispatch` on `azure-static-web-apps.yml`) as a
-fallback — it runs the same quality gate before deploying. A second, redundant fallback
-(`azure-static-web-apps-lemon-rock-042da4500.yml`, Azure-Portal-generated, tied to its own
-deployment token) exists for the same purpose and runs the identical quality gate; use
-`azure-static-web-apps.yml` first.
+From a machine with `CLOUDFLARE_API_TOKEN`/`CLOUDFLARE_ACCOUNT_ID` set (or logged in via
+`wrangler login`):
+
+```bash
+npm ci
+npm run build
+npx wrangler deploy
+```
 
 ## Rollback
 
-Azure Static Web Apps keeps the previous production deployment until a new one succeeds. To roll
-back:
+Cloudflare Workers keeps every previous deployed version. To roll back:
 
-1. Identify the last known-good commit on `main`.
-2. Revert the problematic commit(s) with a new commit (`git revert`), rather than force-pushing
-   history, and push to `main` — this re-triggers the normal deploy pipeline with the reverted
-   code.
+1. `npx wrangler deployments list` to find the last known-good version ID.
+2. `npx wrangler rollback [version-id]` to redeploy it immediately, or revert the problematic
+   commit(s) with a new commit (`git revert`) and push to `main` to go through the normal
+   pipeline instead.
 
 ## Sign-off checklist (pre-release / major milestone)
 
 - [ ] `npm run verify` green on `main`.
-- [ ] CircleCI pipeline green for the commit being released.
+- [ ] GitLab CI pipeline green for the commit being released.
 - [ ] `docs/test-plan.md` manual checkpoints relevant to this change completed.
 - [ ] `CHANGELOG.md` updated.
 - [ ] No open high/critical `npm audit` findings.

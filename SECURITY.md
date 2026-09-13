@@ -19,11 +19,11 @@ This project does not maintain multiple release branches. Security fixes are app
 
 ## Reporting a vulnerability
 
-**Please do not open a public GitHub issue for a security vulnerability.**
+**Please do not open a public GitLab issue for a security vulnerability.**
 
-Instead, report it privately using GitHub's private vulnerability reporting feature on this
-repository (Security tab → "Report a vulnerability"), if enabled, or by contacting the
-maintainer directly through a private channel. Please include:
+Instead, report it privately as a confidential GitLab issue on this project (create an issue and
+check "This issue is confidential"), or by contacting the maintainer directly through a private
+channel. Please include:
 
 - A description of the vulnerability and its potential impact.
 - Steps to reproduce it, if applicable.
@@ -38,7 +38,7 @@ configuration, or the CI/CD pipeline rather than data exposure.
 
 - `npm audit --audit-level=high` runs in CI on every push and pull request.
 - Strict Content Security Policy (`script-src 'self'`, no inline scripts, no `eval`) set via
-  `staticwebapp.config.json`.
+  `public/_headers`.
 - No `dangerouslySetInnerHTML` anywhere in the codebase, enforced by a custom ESLint rule.
 - Self-hosted fonts and assets — no third-party runtime requests.
 - Standard hardening headers: `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`,

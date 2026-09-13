@@ -2,7 +2,9 @@
 
 ## Status
 
-Accepted
+Superseded by [ADR-0005](0005-gitlab-ci-cloudflare-workers-migration.md) — GitHub, CircleCI, and
+Azure Static Web Apps have all been decommissioned in favor of a single GitLab CI pipeline
+deploying to Cloudflare Workers. Kept for historical context.
 
 ## Context
 

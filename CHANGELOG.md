@@ -8,6 +8,14 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
+- Migrated CI/CD from GitHub Actions + CircleCI + Azure Static Web Apps to a single GitLab CI
+  pipeline deploying to Cloudflare Workers (static assets). `staticwebapp.config.json`'s headers
+  and SPA-fallback routing were ported to `wrangler.toml` + `public/_headers` with no regression
+  (verified via a parallel-run parity check before cutover); `.github/dependabot.yml` was
+  replaced with `renovate.json`. See
+  [ADR-0005](docs/architecture-decision-records/0005-gitlab-ci-cloudflare-workers-migration.md).
+  The GitHub repository has been deleted; GitLab is now the sole source of truth.
+
 - Further CSP and Permissions-Policy tightening, chasing a security-scanner A+: dropped `data:`
   from `img-src` (the codebase uses zero `data:` URIs — all illustrations are real JSX, not
   images), and added explicit `frame-src 'none'`, `worker-src 'none'`, `manifest-src 'none'`,

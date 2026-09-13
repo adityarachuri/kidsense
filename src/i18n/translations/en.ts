@@ -205,7 +205,7 @@ export const en: Dictionary = {
     },
     hosting: {
       heading: 'Hosting',
-      body: 'This site is hosted as a static web app on Microsoft Azure. Azure’s hosting infrastructure may log standard, aggregate web server information (such as request counts) for operating the service, independent of and not controlled by this project’s own code.',
+      body: 'This site is hosted as static assets on Cloudflare Workers. Cloudflare’s hosting infrastructure may log standard, aggregate web server information (such as request counts) for operating the service, independent of and not controlled by this project’s own code.',
     },
     questions: {
       heading: 'Questions or corrections',

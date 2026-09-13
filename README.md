@@ -1,8 +1,8 @@
 # Kidsense
 
 An evidence-informed, illustrated single-page app explaining everyday child behavior — why kids
-do what they do, and what actually helps. Built as a React SPA, designed to deploy as an **Azure
-Static Web App**.
+do what they do, and what actually helps. Built as a React SPA, deployed to **Cloudflare
+Workers** (static assets) via GitLab CI.
 
 **Status: all 75 planned topics are published**, each with authored perspectives, a cultural-lens
 panel, and source attribution (Morning Routine: 10/10, Homework: 10/10, Eating: 10/10,
@@ -111,7 +111,7 @@ Every topic page includes a **Print this page** button. Print styles are defined
 This is a static, client-only app — there is no backend, no API, no user data collected, and no
 authentication. Security effort went into hardening what a static site _can_ control:
 
-- **Content Security Policy** (`staticwebapp.config.json`): `script-src 'self'` and `style-src
+- **Content Security Policy** (`public/_headers`): `script-src 'self'` and `style-src
 'self'` only — no inline scripts or styles, no `eval`, no third-party origins (the one dynamic
   per-card color in `ReasonGrid` cycles through CSS classes, not an inline `style` attribute).
   `connect-src 'self'` — the app makes zero runtime network requests (verified: production
@@ -127,26 +127,24 @@ authentication. Security effort went into hardening what a static site _can_ con
   (`src/assets/illustrations/registry.tsx`) rather than injected as raw HTML strings. This is
   enforced by a custom ESLint rule (`no-restricted-syntax` in `eslint.config.js`), not just
   convention.
-- **Standard security headers** set globally in `staticwebapp.config.json`:
+- **Standard security headers** set globally in `public/_headers`:
   `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `X-XSS-Protection` explicitly
-  suppressed (an empty override removes Azure's default `1; mode=block` — the legacy browser XSS
-  auditor is deprecated and has itself been a source of vulnerabilities in older browsers; CSP is
-  the real defense here), `Referrer-Policy: strict-origin-when-cross-origin`, a `Permissions-Policy`
-  disabling 29 unused browser features/APIs (camera, mic, geolocation, USB, payment, etc.),
-  `Strict-Transport-Security` (HSTS with preload), and the full cross-origin isolation triad —
-  `Cross-Origin-Opener-Policy`, `Cross-Origin-Embedder-Policy`, and `Cross-Origin-Resource-Policy`
-  (all `same-origin`/`require-corp`, safe since the app loads no cross-origin resources).
-  `Upgrade-Insecure-Requests` is also declared as a standalone header for scanners that check for
-  it separately, though Azure Static Web Apps' edge silently drops it from the actual response —
-  the `upgrade-insecure-requests` CSP directive above is what browsers actually honor and does
-  reach production.
+  suppressed (the legacy browser XSS auditor is deprecated and has itself been a source of
+  vulnerabilities in older browsers; CSP is the real defense here), `Referrer-Policy:
+strict-origin-when-cross-origin`, a `Permissions-Policy` disabling 29 unused browser
+  features/APIs (camera, mic, geolocation, USB, payment, etc.), `Strict-Transport-Security` (HSTS
+  with preload), and the full cross-origin isolation triad — `Cross-Origin-Opener-Policy`,
+  `Cross-Origin-Embedder-Policy`, and `Cross-Origin-Resource-Policy` (all
+  `same-origin`/`require-corp`, safe since the app loads no cross-origin resources). The
+  `upgrade-insecure-requests` CSP directive covers the standalone header scanners look for.
 - **Dependency hygiene.** `npm audit --audit-level=high` runs in CI on every push; the project
   currently sits at 0 known vulnerabilities. Dependencies are pinned to specific patched major
-  versions rather than left on old ranges. `.github/dependabot.yml` opens automated update PRs
-  weekly for npm and GitHub Actions.
-- **Secret scanning.** `gitleaks` runs in both `ci.yml` and `.circleci/config.yml` on every push.
+  versions rather than left on old ranges. `renovate.json` opens automated update PRs weekly for
+  npm dependencies.
+- **Secret scanning.** `gitleaks` runs in the `quality-gate` stage of `.gitlab-ci.yml` on every
+  push.
 - **Responsible disclosure.** `public/.well-known/security.txt` (RFC 9116) and
-  [`SECURITY.md`](SECURITY.md) point to GitHub's private vulnerability reporting.
+  [`SECURITY.md`](SECURITY.md) describe how to report a vulnerability.
 
 ---
 
@@ -175,25 +173,19 @@ authentication. Security effort went into hardening what a static site _can_ con
 
 ## CI/CD
 
-**CircleCI is the pipeline of record** (`.circleci/config.yml`) — see
-[ADR-0002](docs/architecture-decision-records/0002-circleci-alongside-github-actions.md) for why.
-It runs the full quality gate (`npm audit`, `gitleaks` secret scan, typecheck, lint, format
-check, test with coverage, build) on every commit, then deploys `main` to Azure Static Web Apps
-once the gate passes.
+**GitLab CI is the only pipeline** (`.gitlab-ci.yml`) — see
+[ADR-0005](docs/architecture-decision-records/0005-gitlab-ci-cloudflare-workers-migration.md) for
+why this replaced the earlier GitHub Actions/CircleCI/Azure Static Web Apps setup
+([ADR-0002](docs/architecture-decision-records/0002-circleci-alongside-github-actions.md), now
+superseded). Two stages:
 
-GitHub Actions still plays a supporting role:
+- **`quality-gate`** — `npm audit`, `gitleaks` secret scan, typecheck, lint, format check, test
+  with coverage, build. Runs on every push and merge request.
+- **`deploy`** — `needs` the quality gate to pass, runs only on `main`, and deploys the build to
+  **Cloudflare Workers** (static assets) via `npx wrangler deploy` using the `CLOUDFLARE_API_TOKEN`
+  / `CLOUDFLARE_ACCOUNT_ID` CI/CD variables.
 
-- **`ci.yml`** — runs the same quality gate (including `gitleaks`) on every push and pull
-  request as a GitHub-native status check (useful for branch protection and inline PR feedback),
-  independent of CircleCI. It does not deploy.
-- **`azure-static-web-apps.yml`** — a manual-only fallback deploy path (`workflow_dispatch`), in
-  case CircleCI is ever unavailable. It no longer runs automatically on push.
-- **`azure-static-web-apps-lemon-rock-042da4500.yml`** — a second, redundant manual fallback
-  (Azure-Portal-generated, tied to its own deploy token), kept in sync with the same quality
-  gate as `azure-static-web-apps.yml`. Prefer the latter; this one exists only as a backstop.
-
-Full setup instructions, including the one-time CircleCI project connection and Azure deploy
-token, live in [`docs/deployment-runbook.md`](docs/deployment-runbook.md).
+Full setup instructions live in [`docs/deployment-runbook.md`](docs/deployment-runbook.md).
 
 No other secrets are required — this app has no backend, no database, and no API keys.
 
