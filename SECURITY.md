@@ -19,11 +19,12 @@ This project does not maintain multiple release branches. Security fixes are app
 
 ## Reporting a vulnerability
 
-**Please do not open a public GitLab issue for a security vulnerability.**
+**Please do not open a public GitHub issue for a security vulnerability.**
 
-Instead, report it privately as a confidential GitLab issue on this project (create an issue and
-check "This issue is confidential"), or by contacting the maintainer directly through a private
-channel. Please include:
+Instead, report it privately using GitHub's [private vulnerability
+reporting](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability)
+(repository → Security → Report a vulnerability), or by contacting the maintainer directly through
+a private channel. Please include:
 
 - A description of the vulnerability and its potential impact.
 - Steps to reproduce it, if applicable.

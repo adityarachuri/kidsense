@@ -2,7 +2,7 @@
 
 An evidence-informed, illustrated single-page app explaining everyday child behavior — why kids
 do what they do, and what actually helps. Built as a React SPA, deployed to **Cloudflare
-Workers** (static assets) via GitLab CI.
+Workers** (static assets) via GitHub Actions.
 
 **Status: all 75 planned topics are published**, each with authored perspectives, a cultural-lens
 panel, and source attribution (Morning Routine: 10/10, Homework: 10/10, Eating: 10/10,
@@ -141,8 +141,8 @@ strict-origin-when-cross-origin`, a `Permissions-Policy` disabling 29 unused bro
   currently sits at 0 known vulnerabilities. Dependencies are pinned to specific patched major
   versions rather than left on old ranges. `renovate.json` opens automated update PRs weekly for
   npm dependencies.
-- **Secret scanning.** `gitleaks` runs in the `quality-gate` stage of `.gitlab-ci.yml` on every
-  push.
+- **Secret scanning.** `gitleaks` runs in the `quality-gate` job of
+  `.github/workflows/ci.yml` on every push.
 - **Responsible disclosure.** `public/.well-known/security.txt` (RFC 9116) and
   [`SECURITY.md`](SECURITY.md) describe how to report a vulnerability.
 
@@ -173,17 +173,17 @@ strict-origin-when-cross-origin`, a `Permissions-Policy` disabling 29 unused bro
 
 ## CI/CD
 
-**GitLab CI is the only pipeline** (`.gitlab-ci.yml`) — see
-[ADR-0005](docs/architecture-decision-records/0005-gitlab-ci-cloudflare-workers-migration.md) for
-why this replaced the earlier GitHub Actions/CircleCI/Azure Static Web Apps setup
-([ADR-0002](docs/architecture-decision-records/0002-circleci-alongside-github-actions.md), now
-superseded). Two stages:
+**GitHub Actions is the only pipeline** (`.github/workflows/ci.yml`) — see
+[ADR-0006](docs/architecture-decision-records/0006-github-actions-cloudflare-workers-migration.md)
+for why this replaced the GitLab CI setup
+([ADR-0005](docs/architecture-decision-records/0005-gitlab-ci-cloudflare-workers-migration.md), now
+superseded). Two jobs:
 
 - **`quality-gate`** — `npm audit`, `gitleaks` secret scan, typecheck, lint, format check, test
-  with coverage, build. Runs on every push and merge request.
-- **`deploy`** — `needs` the quality gate to pass, runs only on `main`, and deploys the build to
-  **Cloudflare Workers** (static assets) via `npx wrangler deploy` using the `CLOUDFLARE_API_TOKEN`
-  / `CLOUDFLARE_ACCOUNT_ID` CI/CD variables.
+  with coverage, build. Runs on every push and pull request.
+- **`deploy`** — `needs` the quality gate to pass, runs only on pushes to `main`, and deploys the
+  build to **Cloudflare Workers** (static assets) via `npx wrangler deploy` using the
+  `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` repository secrets.
 
 Full setup instructions live in [`docs/deployment-runbook.md`](docs/deployment-runbook.md).
 

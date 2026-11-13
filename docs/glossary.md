@@ -10,6 +10,6 @@
 | **Ability lens**           | An optional panel (3–5 entries) noting how a behavior can present differently for a child with a physical, sensory, cognitive, or behavioral difference — never a diagnosis. See ADR-0004. |
 | **Sources**                | Organization-level attribution (e.g. "CDC", "WHO") on a topic variant, per `editorial-and-sourcing-policy.md` — never a specific fabricated citation.                                      |
 | **Quality gate**           | The `npm run verify` sequence (typecheck, lint, format check, test with coverage, build) that every change must pass.                                                                      |
-| **Pipeline of record**     | The CI/CD system that performs production deployment — GitLab CI, per ADR-0005 (the single pipeline; no separate PR-check system).                                                         |
+| **Pipeline of record**     | The CI/CD system that performs production deployment — GitHub Actions, per ADR-0006 (the single pipeline; no separate PR-check system).                                                    |
 | **Worker (static assets)** | The Cloudflare Workers hosting mode this site deploys to — serves pre-built static assets from `dist/` with no server-side execution, configured via `wrangler.toml`.                      |
 | **ADR**                    | Architecture Decision Record — a short document capturing a significant, durable technical decision and its rationale (`docs/architecture-decision-records/`).                             |

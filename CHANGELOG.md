@@ -8,6 +8,13 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
+- Migrated source control and CI/CD from GitLab/GitLab CI back to GitHub/GitHub Actions, and made
+  the repository public. Cloudflare Workers remains the deploy target — only the CI platform
+  changed (`.gitlab-ci.yml` replaced by `.github/workflows/ci.yml`). `SECURITY.md`,
+  `security.txt`, and the deployment runbook now point at GitHub's private vulnerability
+  reporting and GitHub Actions secrets instead of their GitLab equivalents. See
+  [ADR-0006](docs/architecture-decision-records/0006-github-actions-cloudflare-workers-migration.md).
+
 - Migrated CI/CD from GitHub Actions + CircleCI + Azure Static Web Apps to a single GitLab CI
   pipeline deploying to Cloudflare Workers (static assets). `staticwebapp.config.json`'s headers
   and SPA-fallback routing were ported to `wrangler.toml` + `public/_headers` with no regression

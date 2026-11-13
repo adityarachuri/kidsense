@@ -2,7 +2,9 @@
 
 ## Status
 
-Accepted
+Superseded by [ADR-0006](0006-github-actions-cloudflare-workers-migration.md) — source control and
+CI/CD have moved from GitLab to GitHub (GitHub Actions), while Cloudflare Workers remains the
+deploy target. Kept for historical context.
 
 ## Context
 

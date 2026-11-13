@@ -42,9 +42,10 @@ plan and `docs/requirements.md`):
   (Windows) or the equivalent OS setting, reload, and confirm text/background contrast visibly
   increases without layout breakage. No automated visual-regression tooling exists in this
   project, so this stays a manual checkpoint.
-- **CI/CD pipeline changes**: a config review against the previously verified `.gitlab-ci.yml`
-  steps (see `docs/deployment-runbook.md`); confirm the GitLab pipeline is green and, for
-  deploy-path changes, that the Cloudflare Worker actually serves the new build.
+- **CI/CD pipeline changes**: a config review against the previously verified
+  `.github/workflows/ci.yml` steps (see `docs/deployment-runbook.md`); confirm the GitHub Actions
+  workflow is green and, for deploy-path changes, that the Cloudflare Worker actually serves the
+  new build.
 - **Pre-release**: full cross-browser pass, `npm run preview` smoke test of the production
   build, and confirmation that every earlier roadmap phase's checkpoint is still green.
 
