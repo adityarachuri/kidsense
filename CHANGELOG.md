@@ -6,6 +6,8 @@ All notable changes to this project are documented in this file. The format is b
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-11-13
+
 ### Added
 
 - Migrated source control and CI/CD from GitLab/GitLab CI back to GitHub/GitHub Actions, and made
@@ -182,5 +184,5 @@ All notable changes to this project are documented in this file. The format is b
 
 ---
 
-Entries above describe the state of the project as of this changelog's introduction, not a
-dated release history — no version has been tagged yet.
+Entries under [1.0.0] describe the state of the project at its first tagged release, not a
+dated history of when each change landed.
