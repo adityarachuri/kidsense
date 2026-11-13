@@ -1,6 +1,12 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
 
+// Node's native Web Storage global (default-on as of Node 26) shadows jsdom's own
+// window.localStorage/sessionStorage with an unconfigured, non-functional stub. Disable it for
+// the test run (and any spawned workers, which inherit NODE_OPTIONS) so jsdom's polyfill wins;
+// harmless on older Node versions where the experimental flag is already off by default.
+process.env.NODE_OPTIONS = `${process.env.NODE_OPTIONS ?? ''} --no-experimental-webstorage`.trim();
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],

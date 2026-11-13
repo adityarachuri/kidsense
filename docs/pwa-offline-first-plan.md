@@ -1,10 +1,13 @@
 # PWA / offline-first plan
 
 ## Problem
+
 Kidsense is a static React SPA (Vite, Cloudflare Workers assets, SPA fallback). All content is bundled in JS, so full offline works by precaching the build output. Currently CSP blocks it (`worker-src 'none'`, `manifest-src 'none'`), and there is no manifest, service worker, or PNG icons.
 
 ## Approach
+
 Use `vite-plugin-pwa` (Workbox, `generateSW`), no extra runtime deps.
+
 - Precache all build assets (js, css, html, woff2, svg, png) + `navigateFallback: /index.html` (denylist `/sitemap.xml`, `/robots.txt`, `/.well-known`) so deep links work offline.
 - `registerType: 'prompt'`: a small update banner ("New version available — Reload") rather than silent skew; plus an "offline ready" status message. Both in the i18n dictionaries (en/hi/te) and announced via `role="status"`.
 - Manifest: name, short_name, `start_url /`, `scope /`, `display standalone`, theme `#8266C9`, background color, icons.
@@ -19,6 +22,7 @@ Use `vite-plugin-pwa` (Workbox, `generateSW`), no extra runtime deps.
 - Verify: `npm run verify`, `vite preview`, then check dist has sw.js + manifest and precache includes all routes' assets; manual offline check via Playwright (offline context, deep link loads).
 
 ## Todos
+
 1. deps-config: add vite-plugin-pwa, configure vite.config.ts
 2. icons-manifest: icons + index.html tags
 3. headers-csp: update _headers
@@ -28,6 +32,7 @@ Use `vite-plugin-pwa` (Workbox, `generateSW`), no extra runtime deps.
 7. verify: npm run verify + offline browser check
 
 ## Notes
+
 - Content is not fetched at runtime, so no runtime caching/IndexedDB needed.
 - COEP `require-corp` is fine (all same-origin).
 - Install/offline prompts are out of scope beyond the update/offline-ready banner.
