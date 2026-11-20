@@ -104,6 +104,16 @@ see `src/content/section1-morning-routine.ts`'s `getting-dressed` (tween) and
 Every topic page includes a **Print this page** button. Print styles are defined per-component
 (`@media print` blocks inside each `.module.css`) and are tuned to fit one A4 sheet.
 
+### Offline support (PWA)
+
+Kidsense is installable and works fully offline after a first visit. A service worker
+(`vite-plugin-pwa`/Workbox) precaches the entire build — every route's content is already bundled
+into the app's JS, so there's no separate data layer to cache. A small status banner
+(`PwaStatus`) announces when a new version is ready to reload and when the app becomes available
+offline; installing is done via the browser's own native install affordance (no custom "Install
+App" button). See [ADR-0007](docs/architecture-decision-records/0007-offline-first-pwa.md) for
+the full design.
+
 ---
 
 ## Security
@@ -116,9 +126,10 @@ authentication. Security effort went into hardening what a static site _can_ con
   per-card color in `ReasonGrid` cycles through CSS classes, not an inline `style` attribute).
   `connect-src 'self'` — the app makes zero runtime network requests (verified: production
   bundle contains no external fetch/XHR targets). `img-src 'self'` with no `data:` (the app uses
-  zero `data:` URIs), plus explicit `frame-src`, `worker-src`, `manifest-src`, and `media-src`
-  all set to `'none'` rather than left to the `default-src` fallback — the app uses none of
-  iframes, workers, a web manifest, or audio/video.
+  zero `data:` URIs), plus explicit `frame-src` and `media-src` set to `'none'` rather than left
+  to the `default-src` fallback — the app uses neither iframes nor audio/video. `worker-src 'self'`
+  and `manifest-src 'self'` scope the installable PWA's service worker and manifest to same-origin
+  only (see [ADR-0007](docs/architecture-decision-records/0007-offline-first-pwa.md)).
 - **Self-hosted fonts.** Baloo 2 and Nunito are bundled as static `.woff2` assets under
   `public/fonts/` instead of loaded from Google Fonts at runtime — no third-party request, no
   tracking surface, and the app works offline once cached.

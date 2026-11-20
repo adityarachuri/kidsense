@@ -44,6 +44,11 @@ export function PrivacyPage() {
         </section>
 
         <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>{t((d) => d.privacyPage.offlineSupport.heading)}</h2>
+          <p className={styles.body}>{t((d) => d.privacyPage.offlineSupport.body)}</p>
+        </section>
+
+        <section className={styles.section}>
           <h2 className={styles.sectionTitle}>{t((d) => d.privacyPage.localStorage.heading)}</h2>
           <p className={styles.body}>{t((d) => d.privacyPage.localStorage.body)}</p>
         </section>

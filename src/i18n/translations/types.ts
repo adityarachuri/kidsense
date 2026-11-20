@@ -180,6 +180,7 @@ export interface Dictionary {
       readonly bodyPart2: string;
     };
     readonly selfHostedAssets: { readonly heading: string; readonly body: string };
+    readonly offlineSupport: { readonly heading: string; readonly body: string };
     readonly localStorage: { readonly heading: string; readonly body: string };
     readonly childrensPrivacy: { readonly heading: string; readonly body: string };
     readonly hosting: { readonly heading: string; readonly body: string };

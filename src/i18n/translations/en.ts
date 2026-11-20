@@ -195,6 +195,10 @@ export const en: Dictionary = {
       heading: 'Fonts and assets are self-hosted',
       body: 'Typefaces and illustrations are bundled with the site and served from the same origin, rather than fetched from a third-party font or asset CDN at runtime — so simply reading this site does not send a request to any third party.',
     },
+    offlineSupport: {
+      heading: 'Offline support',
+      body: 'This site can be installed and used offline. A service worker stores a copy of the site’s own files (pages, styles, illustrations) on your device so they load without a network connection — no personal data is involved, and nothing is sent anywhere to make this work. You can clear this stored copy at any time through your browser’s normal site-data settings.',
+    },
     localStorage: {
       heading: 'Browser-local storage',
       body: 'If a future version of this site uses your browser’s local storage for a convenience feature (such as remembering a preferred theme), that data stays on your device, is never transmitted anywhere, and is never visible to the site’s authors. This policy will be updated to describe any such feature before it ships.',

@@ -32,4 +32,14 @@ describe('PrivacyPage', () => {
     );
     expect(screen.getByRole('heading', { name: /children.s privacy/i })).toBeInTheDocument();
   });
+
+  it('discloses the offline service worker cache', () => {
+    render(
+      <MemoryRouter>
+        <PrivacyPage />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole('heading', { name: /offline support/i })).toBeInTheDocument();
+    expect(screen.getByText(/service worker/i)).toBeInTheDocument();
+  });
 });

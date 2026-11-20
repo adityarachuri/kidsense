@@ -1,3 +1,8 @@
+> **Implemented.** See
+> [ADR-0007](architecture-decision-records/0007-offline-first-pwa.md) for the as-built decision
+> record (this plan's approach was followed closely; the ADR documents a few deviations and two
+> Windows-specific build fixes discovered during implementation). Kept here for historical context.
+
 # PWA / offline-first plan
 
 ## Problem
