@@ -210,4 +210,16 @@ export interface Dictionary {
       readonly disclaimerLinkLabel: string;
     };
   };
+  readonly pwa: {
+    /** Shown in the status banner when a new service-worker version is waiting to activate. */
+    readonly updateAvailable: string;
+    /** Reload button label inside the update-available banner. */
+    readonly reload: string;
+    /** Shown once after the service worker finishes its first precache, confirming offline support. */
+    readonly offlineReady: string;
+    /** Shown while `navigator.onLine` is false, confirming cached content is still being served. */
+    readonly offlineIndicator: string;
+    /** Accessible label for the status banner's dismiss button. */
+    readonly dismiss: string;
+  };
 }

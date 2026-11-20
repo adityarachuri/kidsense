@@ -247,4 +247,11 @@ export const en: Dictionary = {
       disclaimerLinkLabel: 'Medical & Psychological Disclaimer',
     },
   },
+  pwa: {
+    updateAvailable: 'A new version of Kidsense is available.',
+    reload: 'Reload',
+    offlineReady: 'Kidsense is ready to work offline.',
+    offlineIndicator: "You're offline — showing saved content.",
+    dismiss: 'Dismiss',
+  },
 };

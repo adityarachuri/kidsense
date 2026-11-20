@@ -254,4 +254,11 @@ export const hi: Dictionary = {
       disclaimerLinkLabel: 'चिकित्सा और मनोवैज्ञानिक अस्वीकरण',
     },
   },
+  pwa: {
+    updateAvailable: 'Kidsense का नया वर्शन उपलब्ध है।',
+    reload: 'रीलोड करें',
+    offlineReady: 'Kidsense अब ऑफ़लाइन काम करने के लिए तैयार है।',
+    offlineIndicator: 'आप ऑफ़लाइन हैं — सेव की गई सामग्री दिखाई जा रही है।',
+    dismiss: 'खारिज करें',
+  },
 };

@@ -252,4 +252,11 @@ export const te: Dictionary = {
       disclaimerLinkLabel: 'వైద్య & మానసిక వైజ్ఞానిక నిరాకరణ',
     },
   },
+  pwa: {
+    updateAvailable: 'Kidsense కొత్త వెర్షన్ అందుబాటులో ఉంది.',
+    reload: 'రీలోడ్ చేయండి',
+    offlineReady: 'Kidsense ఇప్పుడు ఆఫ్‌లైన్‌లో పనిచేయడానికి సిద్ధంగా ఉంది.',
+    offlineIndicator: 'మీరు ఆఫ్‌లైన్‌లో ఉన్నారు — సేవ్ చేసిన కంటెంట్ చూపిస్తోంది.',
+    dismiss: 'తీసివేయండి',
+  },
 };
