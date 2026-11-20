@@ -20,14 +20,15 @@ architecture — that is itself a security property worth stating explicitly, no
 
 ## Additional static-site-specific checks
 
-| Check                                                       | Status                                                                                          |
-| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Zero third-party runtime requests (fonts, analytics, ads)   | ✅ Self-hosted fonts and assets; CSP's `connect-src 'self'` blocks unexpected outbound requests |
-| Content Security Policy disallows inline scripts and `eval` | ✅ `script-src 'self'` only                                                                     |
-| Clickjacking protection                                     | ✅ `X-Frame-Options: DENY` and CSP `frame-ancestors 'none'`                                     |
-| `object-src`/plugin restriction                             | ✅ `object-src 'none'`                                                                          |
-| Dependency license/security review before major upgrades    | 🔲 Planned — track as part of routine dependency-update review                                  |
-| `security.txt` for responsible disclosure                   | ✅ `public/.well-known/security.txt`, RFC 9116                                                  |
+| Check                                                       | Status                                                                                                                                                                  |
+| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Zero third-party runtime requests (fonts, analytics, ads)   | ✅ Self-hosted fonts and assets; CSP's `connect-src 'self'` blocks unexpected outbound requests                                                                         |
+| Content Security Policy disallows inline scripts and `eval` | ✅ `script-src 'self'` only                                                                                                                                             |
+| Clickjacking protection                                     | ✅ `X-Frame-Options: DENY` and CSP `frame-ancestors 'none'`                                                                                                             |
+| `object-src`/plugin restriction                             | ✅ `object-src 'none'`                                                                                                                                                  |
+| Dependency license/security review before major upgrades    | 🔲 Planned — track as part of routine dependency-update review                                                                                                          |
+| `security.txt` for responsible disclosure                   | ✅ `public/.well-known/security.txt`, RFC 9116                                                                                                                          |
+| Service worker / manifest scope                             | ✅ `worker-src 'self'; manifest-src 'self'` (relaxed from `'none'` for the PWA — see ADR-0007); same-origin only, no dynamic third-party fetching in the service worker |
 
 ## Legend
 

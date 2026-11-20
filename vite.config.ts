@@ -1,5 +1,8 @@
+import { resolve } from 'node:path';
 import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vitest/config';
+import { manifestConfig } from './src/pwa/manifestConfig.ts';
 
 // Node's native Web Storage global (default-on as of Node 26) shadows jsdom's own
 // window.localStorage/sessionStorage with an unconfigured, non-functional stub. Disable it for
@@ -7,10 +10,41 @@ import { defineConfig } from 'vitest/config';
 // harmless on older Node versions where the experimental flag is already off by default.
 process.env.NODE_OPTIONS = `${process.env.NODE_OPTIONS ?? ''} --no-experimental-webstorage`.trim();
 
+const outDir = 'dist';
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'prompt',
+      // usePwa calls registerSW itself (see src/hooks/usePwa.ts) — injecting the plugin's own
+      // registration script too would register the service worker twice.
+      injectRegister: null,
+      filename: 'sw.js',
+      manifest: manifestConfig,
+      workbox: {
+        // workbox-build resolves a relative/unset globDirectory via process.cwd(), which returns
+        // backslash-separated paths on Windows; glob (its underlying matcher) silently matches
+        // nothing against a backslash cwd, so every file is dropped from precache with no error.
+        // Passing an explicit forward-slash absolute path sidesteps the bug on every OS.
+        globDirectory: resolve(import.meta.dirname, outDir)
+          .split('\\')
+          .join('/'),
+        globPatterns: ['**/*.{js,css,html,svg,woff2,png,ico}'],
+        // The main bundle is a single ~2MB chunk (all content is bundled, unsplit) — just over
+        // Workbox's 2 MiB default precache limit. Raise it rather than precaching partially.
+        maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
+        navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/^\/sitemap\.xml$/, /^\/robots\.txt$/, /^\/\.well-known\//],
+        cleanupOutdatedCaches: true,
+      },
+      // Never register a service worker under `vite dev` — only in built/previewed output.
+      devOptions: { enabled: false },
+    }),
+  ],
   build: {
+    outDir,
     target: 'es2020',
     sourcemap: false,
     rollupOptions: {
@@ -31,6 +65,11 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.ts'],
     css: true,
     restoreMocks: true,
+    // Resolves `virtual:pwa-register` to a test-only mock under Vitest only — vite build/dev
+    // still resolve it through the real vite-plugin-pwa virtual module.
+    alias: {
+      'virtual:pwa-register': resolve(import.meta.dirname, 'src/test/mocks/virtualPwaRegister.ts'),
+    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'lcov', 'json-summary'],

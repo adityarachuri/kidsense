@@ -14,3 +14,4 @@ edited after acceptance — a changed decision gets a new ADR that supersedes th
 | [0004](0004-disability-inclusive-content-and-a11y-pilot.md) | Disability-inclusive content and accessibility hardening (pilot)           | Accepted (pilot)   |
 | [0005](0005-gitlab-ci-cloudflare-workers-migration.md)      | Migrate from GitHub Actions/CircleCI/Azure to GitLab CI/Cloudflare Workers | Superseded by 0006 |
 | [0006](0006-github-actions-cloudflare-workers-migration.md) | Migrate from GitLab/GitLab CI back to GitHub/GitHub Actions (public repo)  | Accepted           |
+| [0007](0007-offline-first-pwa.md)                           | Offline-first PWA (installable, offline, accessible)                       | Accepted           |

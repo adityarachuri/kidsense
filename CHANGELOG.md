@@ -6,6 +6,16 @@ All notable changes to this project are documented in this file. The format is b
 
 ## [Unreleased]
 
+### Added
+
+- Kidsense is now an installable, fully offline-capable Progressive Web App. A Workbox-generated
+  service worker precaches the entire build (all content is already bundled client-side, so no
+  runtime data caching is needed); a small accessible status banner announces update-available and
+  offline-ready states, with a plain offline indicator shown while disconnected. Installation uses
+  the browser's own native affordance — no custom install-prompt UI. Required loosening the CSP's
+  `worker-src`/`manifest-src` from `'none'` to `'self'`; no other directive changed. See
+  [ADR-0007](docs/architecture-decision-records/0007-offline-first-pwa.md).
+
 ## [1.0.0] - 2026-11-13
 
 ### Added

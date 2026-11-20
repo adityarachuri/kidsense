@@ -18,6 +18,20 @@ Cloudflare-specific config: `wrangler.toml` (Worker name, static-assets director
 via `not_found_handling`) and `public/_headers` (security headers and cache rules, copied into
 `dist/` by Vite).
 
+### Service worker updates (PWA, ADR-0007)
+
+The app is an installable, offline-capable PWA (`vite-plugin-pwa`, `registerType: 'prompt'`).
+`/sw.js`, `/manifest.webmanifest`, and `/index.html` are served `Cache-Control: no-cache` in
+`public/_headers` so every load revalidates against the latest deploy; `/icons/*` gets a
+one-week (not `immutable`) cache since icon filenames aren't content-hashed. Because the update
+type is `'prompt'`, a user with the app already open sees a "Reload" prompt (`PwaStatus`) rather
+than an instant forced refresh — a deploy is "live" for new visits immediately, but existing open
+tabs pick it up only once the user reloads or the browser's own periodic update check fires.
+`wrangler rollback` (below) reverts `dist/` immediately for new visits; an already-installed
+service worker on a returning visitor's device only picks up a rollback on its next update check,
+the same caveat that applies to any service-worker-based site, not something specific to
+Cloudflare.
+
 ## One-time manual setup (must be done by a human, not by this documentation)
 
 1. **GitHub Actions secrets**: in the GitHub repo → Settings → Secrets and variables → Actions,
@@ -72,3 +86,8 @@ Cloudflare Workers keeps every previous deployed version. To roll back:
 - [ ] `CHANGELOG.md` updated.
 - [ ] No open high/critical `npm audit` findings.
 - [ ] Production build smoke-tested via `npm run preview`.
+- [ ] `dist/manifest.webmanifest` and `dist/sw.js` present after `npm run build`; manifest icons
+      resolve to real files under `dist/icons/`.
+- [ ] A deep link (not just `/`) still loads while the browser is offline, after one prior online
+      visit (manual check — see ADR-0007 for why this wasn't automated in CI).
+- [ ] `PwaStatus` accessibility assertions green (`src/components/PwaStatus/PwaStatus.test.tsx`).

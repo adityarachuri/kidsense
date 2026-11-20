@@ -180,6 +180,7 @@ export interface Dictionary {
       readonly bodyPart2: string;
     };
     readonly selfHostedAssets: { readonly heading: string; readonly body: string };
+    readonly offlineSupport: { readonly heading: string; readonly body: string };
     readonly localStorage: { readonly heading: string; readonly body: string };
     readonly childrensPrivacy: { readonly heading: string; readonly body: string };
     readonly hosting: { readonly heading: string; readonly body: string };
@@ -209,5 +210,17 @@ export interface Dictionary {
       /** Link label for the disclaimer link in this section — fuller than `footer.disclaimer`. */
       readonly disclaimerLinkLabel: string;
     };
+  };
+  readonly pwa: {
+    /** Shown in the status banner when a new service-worker version is waiting to activate. */
+    readonly updateAvailable: string;
+    /** Reload button label inside the update-available banner. */
+    readonly reload: string;
+    /** Shown once after the service worker finishes its first precache, confirming offline support. */
+    readonly offlineReady: string;
+    /** Shown while `navigator.onLine` is false, confirming cached content is still being served. */
+    readonly offlineIndicator: string;
+    /** Accessible label for the status banner's dismiss button. */
+    readonly dismiss: string;
   };
 }
